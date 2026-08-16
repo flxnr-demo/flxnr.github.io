@@ -8,201 +8,151 @@
 
 <meta name="description" content="FLXNR — independent artist and producer. Open for creative collaborations worldwide.">
 
-<!-- WEBSITE ICON -->
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-    --bg: #050505;
-    --card: #0a0a0b;
-    --border: #222225;
-    --text: #f4f4f4;
-    --muted: #77777d;
-    --dim: #444449;
-    --accent: #647cff;
+    --bg:#050505;
+    --card:#0a0a0b;
+    --border:#222225;
+    --text:#f4f4f4;
+    --muted:#77777d;
+    --dim:#444449;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
 }
 
 body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: Inter, Arial, sans-serif;
-    overflow-x: hidden;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
 }
 
 ::selection {
-    background: white;
-    color: black;
+    background:white;
+    color:black;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+    color:inherit;
+    text-decoration:none;
 }
 
-button,
-input,
-textarea,
-select {
-    font-family: inherit;
+button,input,textarea,select {
+    font-family:inherit;
 }
 
-
-/* =========================================
-   PREMIUM CURSOR
-========================================= */
+/* =========================
+   CURSOR
+========================= */
 
 .cursor-glow {
-    position: fixed;
+    position:fixed;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
 
-    width: 180px;
-    height: 180px;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: 9999;
-
-    transform: translate(-50%, -50%);
-
-    background: radial-gradient(
+    background:radial-gradient(
         circle,
-        rgba(255,255,255,0.12) 0%,
-        rgba(255,255,255,0.055) 25%,
-        rgba(255,255,255,0.025) 45%,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.04) 35%,
         transparent 72%
     );
 
-    filter: blur(8px);
-
-    opacity: 0;
-
-    transition:
-        opacity .3s ease,
-        width .35s cubic-bezier(.16,1,.3,1),
-        height .35s cubic-bezier(.16,1,.3,1);
+    filter:blur(8px);
+    opacity:0;
 }
 
 .cursor-dot {
-    position: fixed;
+    position:fixed;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:10000;
+    transform:translate(-50%,-50%);
 
-    width: 5px;
-    height: 5px;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: 10000;
-
-    transform: translate(-50%, -50%);
-
-    background: white;
+    background:white;
 
     box-shadow:
         0 0 10px rgba(255,255,255,.8),
         0 0 25px rgba(255,255,255,.35);
 
-    opacity: 0;
+    opacity:0;
 }
 
 body.cursor-hover .cursor-glow {
-    width: 260px;
-    height: 260px;
-
-    background: radial-gradient(
-        circle,
-        rgba(255,255,255,.16) 0%,
-        rgba(255,255,255,.07) 25%,
-        rgba(255,255,255,.025) 50%,
-        transparent 72%
-    );
+    width:260px;
+    height:260px;
 }
 
-@media (min-width: 851px) {
-
+@media(min-width:851px) {
     body {
-        cursor: none;
+        cursor:none;
     }
 
-    a,
-    button,
-    input,
-    textarea,
-    select {
-        cursor: none;
+    a,button,input,textarea,select {
+        cursor:none;
     }
 }
 
-@media (max-width: 850px) {
-
+@media(max-width:850px) {
     .cursor-glow,
     .cursor-dot {
-        display: none;
+        display:none;
     }
-
 }
 
-
-/* =========================================
+/* =========================
    BACKGROUND
-========================================= */
+========================= */
 
 .background {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -3;
-    overflow: hidden;
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-3;
+    overflow:hidden;
 }
 
 .grid {
-    position: absolute;
-    inset: 0;
+    position:absolute;
+    inset:0;
 
     background-image:
-        linear-gradient(
-            rgba(255,255,255,.035) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.035) 1px,
-            transparent 1px
-        );
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
 
-    background-size: 80px 80px;
+    background-size:80px 80px;
 
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-        );
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent 90%
+    );
 }
 
 .glow {
-    position: absolute;
-
-    width: 900px;
-    height: 900px;
-
-    right: -300px;
-    top: -400px;
+    position:absolute;
+    width:900px;
+    height:900px;
+    right:-300px;
+    top:-400px;
 
     background:
         radial-gradient(
@@ -211,192 +161,145 @@ body.cursor-hover .cursor-glow {
             transparent 65%
         );
 
-    filter: blur(40px);
+    filter:blur(40px);
 }
 
-
-/* =========================================
-   NAVIGATION
-========================================= */
+/* =========================
+   NAV
+========================= */
 
 .nav {
-    position: fixed;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
 
-    top: 0;
-    left: 0;
-    right: 0;
+    height:78px;
 
-    height: 78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding:0 35px;
 
-    padding: 0 35px;
+    z-index:100;
 
-    z-index: 100;
+    background:rgba(5,5,5,.65);
+    backdrop-filter:blur(20px);
 
-    background: rgba(5,5,5,.65);
-
-    backdrop-filter: blur(20px);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 .logo {
-    font-size: 23px;
-
-    font-weight: 900;
-
-    letter-spacing: -.08em;
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:-.08em;
 }
 
 .logo span {
-    color: #555;
-
-    font-size: 9px;
-
-    letter-spacing: .2em;
-
-    margin-left: 7px;
+    color:#555;
+    font-size:9px;
+    letter-spacing:.2em;
+    margin-left:7px;
 }
 
 .nav-links {
-    display: flex;
-    gap: 35px;
+    display:flex;
+    gap:35px;
 }
 
 .nav-links a {
-    color: #666;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: .18em;
-
-    text-transform: uppercase;
-
-    transition: .25s;
+    color:#666;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    transition:.25s;
 }
 
 .nav-links a:hover {
-    color: white;
+    color:white;
 }
 
 .nav-button {
-    border: 1px solid #303035;
+    border:1px solid #303035;
+    border-radius:100px;
+    padding:11px 17px;
 
-    border-radius: 100px;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.15em;
+    text-transform:uppercase;
 
-    padding: 11px 17px;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-
-    transition: .25s;
+    transition:.25s;
 }
 
 .nav-button:hover {
-    background: white;
-    color: black;
+    background:white;
+    color:black;
 }
 
-
-/* =========================================
+/* =========================
    HERO
-========================================= */
+========================= */
 
 .hero {
-    min-height: 100vh;
+    min-height:100vh;
 
-    display: flex;
+    display:flex;
+    align-items:center;
 
-    align-items: center;
-
-    position: relative;
-
-    padding-top: 90px;
+    padding-top:90px;
 }
 
 .hero-inner {
-    width: min(
-        1250px,
-        calc(100% - 50px)
-    );
-
-    margin: auto;
+    width:min(1250px,calc(100% - 50px));
+    margin:auto;
 }
 
 .hero-top {
-    display: flex;
+    display:flex;
+    justify-content:space-between;
 
-    justify-content: space-between;
+    margin-bottom:35px;
 
-    align-items: center;
-
-    margin-bottom: 35px;
-
-    color: #555;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: .2em;
+    color:#555;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.2em;
 }
 
 .online {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
+    display:flex;
+    align-items:center;
+    gap:9px;
 }
 
 .dot {
-    width: 6px;
-    height: 6px;
+    width:6px;
+    height:6px;
+    background:#71ff9a;
+    border-radius:50%;
 
-    background: #71ff9a;
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 15px #71ff9a;
+    box-shadow:0 0 15px #71ff9a;
 }
 
 .hero-title {
-    font-size:
-        clamp(
-            90px,
-            17vw,
-            245px
-        );
+    font-size:clamp(90px,17vw,245px);
+    line-height:.72;
 
-    line-height: .72;
+    font-weight:900;
+    letter-spacing:-.12em;
 
-    font-weight: 900;
-
-    letter-spacing: -.12em;
-
-    margin-left: -.06em;
-
-    white-space: nowrap;
+    margin-left:-.06em;
+    white-space:nowrap;
 }
 
 .hero-title span {
-    display: inline-block;
+    display:inline-block;
 
-    opacity: 0;
-
-    transform: translateY(80px);
+    opacity:0;
+    transform:translateY(80px);
 
     animation:
         heroIn
@@ -405,143 +308,99 @@ body.cursor-hover .cursor-glow {
         forwards;
 }
 
-.hero-title span:nth-child(1) {
-    animation-delay: .05s;
-}
-
-.hero-title span:nth-child(2) {
-    animation-delay: .12s;
-}
-
-.hero-title span:nth-child(3) {
-    animation-delay: .19s;
-}
-
-.hero-title span:nth-child(4) {
-    animation-delay: .26s;
-}
+.hero-title span:nth-child(1){animation-delay:.05s}
+.hero-title span:nth-child(2){animation-delay:.12s}
+.hero-title span:nth-child(3){animation-delay:.19s}
+.hero-title span:nth-child(4){animation-delay:.26s}
 
 @keyframes heroIn {
-
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity:1;
+        transform:translateY(0);
     }
-
 }
 
 .hero-bottom {
-    margin-top: 70px;
+    margin-top:70px;
 
-    display: grid;
+    display:grid;
+    grid-template-columns:1fr 1fr;
 
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 60px;
-
-    max-width: 900px;
+    gap:60px;
+    max-width:900px;
 }
 
 .hero-text {
-    color: #777;
-
-    font-size: 14px;
-
-    line-height: 1.85;
+    color:#777;
+    font-size:14px;
+    line-height:1.85;
 }
 
 .hero-text strong {
-    color: white;
+    color:white;
 }
 
 .hero-actions {
-    display: flex;
-
-    gap: 10px;
-
-    align-items: flex-start;
-
-    flex-wrap: wrap;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    flex-wrap:wrap;
 }
 
 .button {
-    display: inline-flex;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-    align-items: center;
+    padding:15px 22px;
 
-    justify-content: center;
+    border-radius:100px;
+    border:1px solid #303035;
 
-    padding: 15px 22px;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.17em;
+    text-transform:uppercase;
 
-    border-radius: 100px;
-
-    border: 1px solid #303035;
-
-    font-size: 9px;
-
-    font-weight: 900;
-
-    letter-spacing: .17em;
-
-    text-transform: uppercase;
-
-    transition: .3s;
-
-    cursor: pointer;
+    transition:.3s;
 }
 
 .button-primary {
-    background: white;
-    color: black;
+    background:white;
+    color:black;
 }
 
 .button-dark {
-    background: #080808;
-    color: white;
+    background:#080808;
 }
 
 .button:hover {
-    transform: translateY(-4px);
+    transform:translateY(-4px);
 }
 
-.button-primary:hover {
-    box-shadow:
-        0 20px 60px
-        rgba(255,255,255,.12);
-}
-
-
-/* =========================================
+/* =========================
    TICKER
-========================================= */
+========================= */
 
 .ticker {
-    overflow: hidden;
+    overflow:hidden;
 
-    border-top:
-        1px solid #191919;
+    border-top:1px solid #191919;
+    border-bottom:1px solid #191919;
 
-    border-bottom:
-        1px solid #191919;
+    padding:17px 0;
 
-    padding: 17px 0;
+    white-space:nowrap;
 
-    white-space: nowrap;
+    color:#444;
 
-    color: #444;
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 9px;
-
-    letter-spacing: .25em;
+    font-family:"DM Mono",monospace;
+    font-size:9px;
+    letter-spacing:.25em;
 }
 
 .ticker-track {
-    display: inline-block;
+    display:inline-block;
 
     animation:
         ticker
@@ -551,311 +410,234 @@ body.cursor-hover .cursor-glow {
 }
 
 @keyframes ticker {
-
     to {
-        transform:
-            translateX(-50%);
+        transform:translateX(-50%);
     }
-
 }
 
-
-/* =========================================
+/* =========================
    GENERAL
-========================================= */
+========================= */
 
 section {
-    padding: 160px 0;
+    padding:160px 0;
 }
 
 .container {
-    width: min(
-        1250px,
-        calc(100% - 50px)
-    );
-
-    margin: auto;
+    width:min(1250px,calc(100% - 50px));
+    margin:auto;
 }
 
 .section-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 70px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:70px;
 }
 
 .label {
-    color: #555;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: .23em;
-
-    text-transform: uppercase;
+    color:#555;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.23em;
+    text-transform:uppercase;
 }
 
 .number {
-    color: #444;
-
-    font-size: 9px;
+    color:#444;
+    font-size:9px;
 }
 
 .heading {
-    font-size:
-        clamp(
-            50px,
-            7vw,
-            100px
-        );
-
-    line-height: .9;
-
-    letter-spacing: -.075em;
-
-    font-weight: 800;
+    font-size:clamp(50px,7vw,100px);
+    line-height:.9;
+    letter-spacing:-.075em;
+    font-weight:800;
 }
 
 .heading span {
-    color: #555;
+    color:#555;
 }
 
-
-/* =========================================
+/* =========================
    ABOUT
-========================================= */
+========================= */
 
 .about-grid {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 110px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:110px;
 }
 
 .about-text {
-    max-width: 620px;
+    max-width:620px;
 
-    color: #777;
+    color:#777;
 
-    font-size: 15px;
-
-    line-height: 1.9;
+    font-size:15px;
+    line-height:1.9;
 }
 
 .about-text strong {
-    color: white;
+    color:white;
 }
 
-
-/* =========================================
+/* =========================
    SOCIALS
-========================================= */
+========================= */
 
 .socials {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 9px;
-
-    margin-top: 35px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:35px;
 }
 
 .social {
-    border:
-        1px solid #29292d;
+    border:1px solid #29292d;
 
-    padding: 11px 16px;
+    padding:11px 16px;
 
-    border-radius: 100px;
+    border-radius:100px;
 
-    color: #777;
+    color:#777;
 
-    font-size: 9px;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.15em;
+    text-transform:uppercase;
 
-    font-weight: 800;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-
-    transition: .25s;
+    transition:.25s;
 }
 
 .social:hover {
-    background: white;
-
-    color: black;
-
-    transform:
-        translateY(-3px);
+    background:white;
+    color:black;
+    transform:translateY(-3px);
 }
 
-
-/* =========================================
-   CREATIVE CARDS
-========================================= */
+/* =========================
+   CARDS
+========================= */
 
 .cards {
-    display: grid;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    border-top:1px solid #222;
+    border-left:1px solid #222;
 
-    border-top:
-        1px solid #222;
-
-    border-left:
-        1px solid #222;
-
-    margin-top: 80px;
+    margin-top:80px;
 }
 
 .card {
-    min-height: 250px;
+    min-height:250px;
+    padding:35px;
 
-    padding: 35px;
+    border-right:1px solid #222;
+    border-bottom:1px solid #222;
 
-    border-right:
-        1px solid #222;
-
-    border-bottom:
-        1px solid #222;
-
-    background:
-        rgba(255,255,255,.005);
-
-    transition: .35s;
+    transition:.35s;
 }
 
 .card:hover {
-    background: #0c0c0e;
-
-    transform:
-        translateY(-3px);
+    background:#0c0c0e;
+    transform:translateY(-3px);
 }
 
 .card-number {
-    color: #444;
-    font-size: 9px;
+    color:#444;
+    font-size:9px;
 }
 
 .card h3 {
-    margin-top: 60px;
-
-    font-size: 27px;
-
-    letter-spacing: -.04em;
+    margin-top:60px;
+    font-size:27px;
+    letter-spacing:-.04em;
 }
 
 .card p {
-    margin-top: 12px;
+    margin-top:12px;
 
-    color: #666;
-
-    font-size: 12px;
-
-    line-height: 1.7;
+    color:#666;
+    font-size:12px;
+    line-height:1.7;
 }
 
-
-/* =========================================
-   COLLABORATION
-========================================= */
+/* =========================
+   COLLAB
+========================= */
 
 .collab {
-    background: #080808;
+    background:#080808;
 
-    border-top:
-        1px solid #171717;
-
-    border-bottom:
-        1px solid #171717;
+    border-top:1px solid #171717;
+    border-bottom:1px solid #171717;
 }
 
 .collab-intro {
-    max-width: 900px;
+    max-width:900px;
 
-    color: #777;
+    color:#777;
 
-    font-size: 15px;
+    font-size:15px;
+    line-height:1.9;
 
-    line-height: 1.9;
-
-    margin-top: 35px;
+    margin-top:35px;
 }
 
 .collab-intro strong {
-    color: white;
+    color:white;
 }
 
-
-/* =========================================
-   SUBMISSION
-========================================= */
+/* =========================
+   SUBMIT
+========================= */
 
 .submit-layout {
-    display: grid;
+    display:grid;
 
-    grid-template-columns:
-        .75fr 1.25fr;
+    grid-template-columns:.75fr 1.25fr;
 
-    gap: 100px;
+    gap:100px;
 
-    align-items: start;
+    align-items:start;
 }
 
 .submit-title {
-    position: sticky;
-
-    top: 120px;
+    position:sticky;
+    top:120px;
 }
 
 .submit-title h2 {
-    font-size:
-        clamp(
-            55px,
-            6vw,
-            90px
-        );
-
-    line-height: .88;
-
-    letter-spacing: -.075em;
+    font-size:clamp(55px,6vw,90px);
+    line-height:.88;
+    letter-spacing:-.075em;
 }
 
 .submit-title h2 span {
-    color: #555;
+    color:#555;
 }
 
 .submit-title p {
-    color: #666;
+    color:#666;
 
-    font-size: 13px;
+    font-size:13px;
+    line-height:1.8;
 
-    line-height: 1.8;
-
-    margin-top: 30px;
+    margin-top:30px;
 }
 
-
-/* =========================================
+/* =========================
    FORM
-========================================= */
+========================= */
 
 .form {
-    padding: 35px;
+    padding:35px;
 
-    border:
-        1px solid #252529;
+    border:1px solid #252529;
+    border-radius:24px;
 
-    border-radius: 24px;
-
-    background: #09090a;
+    background:#09090a;
 
     box-shadow:
         0 50px 150px
@@ -863,485 +645,376 @@ section {
 }
 
 .form-top {
-    display: flex;
+    display:flex;
+    justify-content:space-between;
 
-    justify-content: space-between;
+    padding-bottom:25px;
+    margin-bottom:30px;
 
-    padding-bottom: 25px;
-
-    margin-bottom: 30px;
-
-    border-bottom:
-        1px solid #202024;
+    border-bottom:1px solid #202024;
 }
 
 .form-top h3 {
-    font-size: 19px;
+    font-size:19px;
 }
 
 .form-top span {
-    color: #444;
-
-    font-family:
-        "DM Mono",
-        monospace;
-
-    font-size: 9px;
+    color:#444;
+    font-family:"DM Mono",monospace;
+    font-size:9px;
 }
 
 .form-row {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 15px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
 }
 
 .field {
-    margin-bottom: 18px;
+    margin-bottom:18px;
 }
 
 .field label {
-    display: block;
+    display:block;
 
-    margin-bottom: 8px;
+    margin-bottom:8px;
 
-    color: #666;
+    color:#666;
 
-    font-size: 8px;
-
-    font-weight: 800;
-
-    letter-spacing: .18em;
-
-    text-transform: uppercase;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
 }
 
 .field input,
 .field textarea,
 .field select {
-    width: 100%;
+    width:100%;
 
-    padding: 14px;
+    padding:14px;
 
-    background: #050505;
+    background:#050505;
 
-    border:
-        1px solid #29292d;
+    border:1px solid #29292d;
+    border-radius:10px;
 
-    border-radius: 10px;
+    outline:none;
 
-    outline: none;
+    color:white;
 
-    color: white;
+    font-size:12px;
 
-    font-size: 12px;
-
-    transition: .25s;
+    transition:.25s;
 }
 
 .field input:focus,
 .field textarea:focus,
 .field select:focus {
-    border-color: #666;
+    border-color:#666;
 }
 
 .field textarea {
-    min-height: 130px;
-
-    resize: vertical;
+    min-height:130px;
+    resize:vertical;
 }
 
 select option {
-    background: #080808;
-    color: white;
+    background:#080808;
+    color:white;
 }
 
 .audio-box {
-    margin-bottom: 20px;
+    margin-bottom:20px;
 
-    padding: 20px;
+    padding:20px;
 
-    border:
-        1px dashed #343438;
-
-    border-radius: 12px;
+    border:1px dashed #343438;
+    border-radius:12px;
 }
 
 .audio-box label {
-    display: block;
+    display:block;
 
-    margin-bottom: 12px;
+    margin-bottom:12px;
 
-    color: #666;
+    color:#666;
 
-    font-size: 8px;
-
-    font-weight: 800;
-
-    letter-spacing: .18em;
-
-    text-transform: uppercase;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
 }
 
 .audio-box input {
-    width: 100%;
-    color: #777;
+    width:100%;
+    color:#777;
 }
 
 .submit-button {
-    width: 100%;
+    width:100%;
 
-    padding: 17px;
+    padding:17px;
 
-    border: none;
+    border:none;
+    border-radius:10px;
 
-    border-radius: 10px;
+    background:white;
+    color:black;
 
-    background: white;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.2em;
+    text-transform:uppercase;
 
-    color: black;
-
-    font-size: 9px;
-
-    font-weight: 900;
-
-    letter-spacing: .2em;
-
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition: .3s;
+    transition:.3s;
 }
 
 .submit-button:hover {
-    transform:
-        translateY(-3px);
-
-    background:
-        #dfe5ff;
+    transform:translateY(-3px);
 }
 
-.success {
-    display: none;
+.notice {
+    margin-top:18px;
 
-    margin-top: 15px;
+    padding:18px;
 
-    padding: 15px;
+    border:1px solid #29292d;
+    border-radius:12px;
 
-    border-radius: 10px;
+    background:#070707;
 
-    border:
-        1px solid #24422f;
+    color:#777;
 
-    background: #08110b;
+    font-size:10px;
+    line-height:1.7;
 
-    color: #91cba0;
-
-    font-size: 10px;
-
-    line-height: 1.6;
+    text-align:center;
 }
 
+.notice strong {
+    color:white;
+}
 
-/* =========================================
+/* =========================
    FINAL
-========================================= */
+========================= */
 
 .final {
-    min-height: 80vh;
+    min-height:80vh;
 
-    display: flex;
-
-    align-items: center;
+    display:flex;
+    align-items:center;
 }
 
 .final-small {
-    color: #555;
+    color:#555;
 
-    font-size: 9px;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.22em;
+    text-transform:uppercase;
 
-    font-weight: 800;
-
-    letter-spacing: .22em;
-
-    text-transform: uppercase;
-
-    margin-bottom: 25px;
+    margin-bottom:25px;
 }
 
 .final h2 {
-    max-width: 1000px;
+    max-width:1000px;
 
-    font-size:
-        clamp(
-            60px,
-            9vw,
-            130px
-        );
+    font-size:clamp(60px,9vw,130px);
 
-    line-height: .85;
+    line-height:.85;
 
-    letter-spacing: -.085em;
+    letter-spacing:-.085em;
 }
 
 .final h2 span {
-    color: #555;
+    color:#555;
 }
 
-
-/* =========================================
+/* =========================
    FOOTER
-========================================= */
+========================= */
 
 footer {
-    border-top:
-        1px solid #191919;
-
-    padding: 40px 0;
+    border-top:1px solid #191919;
+    padding:40px 0;
 }
 
 .footer {
-    display: flex;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-    justify-content: space-between;
+    color:#444;
 
-    align-items: center;
-
-    color: #444;
-
-    font-size: 8px;
-
-    font-weight: 700;
-
-    letter-spacing: .18em;
-
-    text-transform: uppercase;
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
 }
 
 .footer-logo {
-    color: white;
+    color:white;
 
-    font-size: 19px;
-
-    font-weight: 900;
-
-    letter-spacing: -.07em;
+    font-size:19px;
+    font-weight:900;
+    letter-spacing:-.07em;
 }
 
-
-/* =========================================
+/* =========================
    REVEAL
-========================================= */
+========================= */
 
 .reveal {
-    opacity: 0;
-
-    transform:
-        translateY(45px);
+    opacity:0;
+    transform:translateY(45px);
 
     transition:
         opacity 1s ease,
-        transform
-        1s cubic-bezier(.16,1,.3,1);
+        transform 1s cubic-bezier(.16,1,.3,1);
 }
 
 .reveal.visible {
-    opacity: 1;
-
-    transform:
-        translateY(0);
+    opacity:1;
+    transform:translateY(0);
 }
 
-
-/* =========================================
-   CURSOR PARTICLES
-========================================= */
+/* =========================
+   PARTICLES
+========================= */
 
 .cursor-particle {
-    position: fixed;
+    position:fixed;
 
-    width: 4px;
-    height: 4px;
+    width:4px;
+    height:4px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    pointer-events: none;
+    pointer-events:none;
 
-    z-index: 9998;
+    z-index:9998;
 
-    background: rgba(255,255,255,.35);
-
-    filter: blur(1px);
+    background:rgba(255,255,255,.35);
 
     animation:
-        particleFade .7s
+        particleFade
+        .7s
         ease-out
         forwards;
 }
 
 @keyframes particleFade {
-
     0% {
-        opacity: .7;
-        transform: scale(1);
+        opacity:.7;
+        transform:scale(1);
     }
 
     100% {
-        opacity: 0;
-        transform:
-            scale(0)
-            translateY(15px);
+        opacity:0;
+        transform:scale(0) translateY(15px);
     }
-
 }
 
-
-/* =========================================
+/* =========================
    MOBILE
-========================================= */
+========================= */
 
 @media(max-width:850px) {
 
     .nav {
-        padding: 0 18px;
+        padding:0 18px;
     }
 
     .nav-links {
-        display: none;
+        display:none;
     }
 
     .container,
     .hero-inner {
-        width:
-            calc(100% - 28px);
+        width:calc(100% - 28px);
     }
 
     .hero {
-        min-height: 850px;
+        min-height:850px;
     }
 
     .hero-title {
-        font-size: 25vw;
+        font-size:25vw;
     }
 
     .hero-bottom {
-        grid-template-columns: 1fr;
-
-        gap: 30px;
-
-        margin-top: 50px;
+        grid-template-columns:1fr;
+        gap:30px;
+        margin-top:50px;
     }
 
     section {
-        padding: 100px 0;
+        padding:100px 0;
     }
 
     .about-grid,
     .submit-layout {
-        grid-template-columns: 1fr;
-
-        gap: 55px;
+        grid-template-columns:1fr;
+        gap:55px;
     }
 
     .submit-title {
-        position: relative;
-        top: auto;
+        position:relative;
+        top:auto;
     }
 
     .cards {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
     }
 
     .form-row {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
     }
 
     .form {
-        padding: 20px;
+        padding:20px;
     }
 
     .footer {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 20px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
     }
-
 }
-
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =========================================
-     PREMIUM CURSOR
-========================================= -->
 
 <div class="cursor-glow"></div>
 <div class="cursor-dot"></div>
 
-
-<!-- =========================================
-     BACKGROUND
-========================================= -->
-
 <div class="background">
-
     <div class="grid"></div>
-
     <div class="glow"></div>
-
 </div>
-
-
-<!-- =========================================
-     NAVIGATION
-========================================= -->
 
 <nav class="nav">
 
     <a href="#" class="logo">
-
         FLXNR
-
         <span>/ ARTIST</span>
-
     </a>
 
-
     <div class="nav-links">
-
         <a href="#about">About</a>
-
         <a href="#creative">Creative</a>
-
         <a href="#collab">Collab</a>
-
         <a href="#submit">Send Music</a>
-
     </div>
 
-
-    <a
-        href="#submit"
-        class="nav-button"
-    >
+    <a href="#submit" class="nav-button">
         Start a collaboration →
     </a>
 
 </nav>
-
-
-<!-- =========================================
-     HERO
-========================================= -->
 
 <header class="hero">
 
@@ -1354,25 +1027,18 @@ footer {
             </span>
 
             <span class="online">
-
                 <i class="dot"></i>
-
                 OPEN WORLDWIDE
-
             </span>
 
         </div>
 
-
         <h1 class="hero-title">
-
             <span>F</span>
             <span>L</span>
             <span>X</span>
             <span>NR</span>
-
         </h1>
-
 
         <div class="hero-bottom">
 
@@ -1399,20 +1065,13 @@ footer {
 
             </p>
 
-
             <div class="hero-actions">
 
-                <a
-                    href="#submit"
-                    class="button button-primary"
-                >
+                <a href="#submit" class="button button-primary">
                     Send your music
                 </a>
 
-                <a
-                    href="#about"
-                    class="button button-dark"
-                >
+                <a href="#about" class="button button-dark">
                     Discover FLXNR
                 </a>
 
@@ -1423,11 +1082,6 @@ footer {
     </div>
 
 </header>
-
-
-<!-- =========================================
-     TICKER
-========================================= -->
 
 <div class="ticker">
 
@@ -1445,41 +1099,25 @@ footer {
 
 </div>
 
-
-<!-- =========================================
-     ABOUT
-========================================= -->
-
 <section id="about">
 
     <div class="container reveal">
 
         <div class="section-header">
-
-            <div class="label">
-                01 / About
-            </div>
-
-            <div class="number">
-                001
-            </div>
-
+            <div class="label">01 / About</div>
+            <div class="number">001</div>
         </div>
-
 
         <div class="about-grid">
 
             <div>
 
                 <h2 class="heading">
-
                     FLXNR is an
                     <span>artist.</span>
-
                 </h2>
 
             </div>
-
 
             <div>
 
@@ -1512,7 +1150,6 @@ footer {
                     </strong>
 
                 </p>
-
 
                 <div class="socials">
 
@@ -1562,95 +1199,60 @@ footer {
 
 </section>
 
-
-<!-- =========================================
-     CREATIVE
-========================================= -->
-
 <section id="creative">
 
     <div class="container reveal">
 
         <div class="section-header">
-
-            <div class="label">
-                02 / Creative
-            </div>
-
-            <div class="number">
-                002
-            </div>
-
+            <div class="label">02 / Creative</div>
+            <div class="number">002</div>
         </div>
 
-
         <h2 class="heading">
-
             Different people.
             <span>Different sounds.</span>
-
         </h2>
-
 
         <div class="cards">
 
             <div class="card">
-
                 <div class="card-number">01</div>
-
                 <h3>Artists</h3>
-
                 <p>
                     Work together on a track,
                     idea or completely new
                     musical direction.
                 </p>
-
             </div>
 
-
             <div class="card">
-
                 <div class="card-number">02</div>
-
                 <h3>Producers</h3>
-
                 <p>
                     Beats, production,
                     sound design and
                     unexpected combinations.
                 </p>
-
             </div>
 
-
             <div class="card">
-
                 <div class="card-number">03</div>
-
                 <h3>Vocalists</h3>
-
                 <p>
                     Vocals, hooks, melodies
                     and ideas that can turn
                     into something bigger.
                 </p>
-
             </div>
 
-
             <div class="card">
-
                 <div class="card-number">04</div>
-
                 <h3>New ideas</h3>
-
                 <p>
                     Anything creative that
                     could become an interesting
                     musical project.
                 </p>
-
             </div>
 
         </div>
@@ -1659,35 +1261,19 @@ footer {
 
 </section>
 
-
-<!-- =========================================
-     COLLAB
-========================================= -->
-
 <section id="collab" class="collab">
 
     <div class="container reveal">
 
         <div class="section-header">
-
-            <div class="label">
-                03 / Collaboration
-            </div>
-
-            <div class="number">
-                003
-            </div>
-
+            <div class="label">03 / Collaboration</div>
+            <div class="number">003</div>
         </div>
 
-
         <h2 class="heading">
-
             Bring your sound.
             <span>I'll bring mine.</span>
-
         </h2>
-
 
         <p class="collab-intro">
 
@@ -1715,41 +1301,24 @@ footer {
 
 </section>
 
-
-<!-- =========================================
-     SUBMIT
-========================================= -->
-
 <section id="submit">
 
     <div class="container reveal">
 
         <div class="section-header">
-
-            <div class="label">
-                04 / Send Music
-            </div>
-
-            <div class="number">
-                004
-            </div>
-
+            <div class="label">04 / Send Music</div>
+            <div class="number">004</div>
         </div>
 
-
         <div class="submit-layout">
-
 
             <div class="submit-title">
 
                 <h2>
-
                     Let's make
                     something
                     <span>together.</span>
-
                 </h2>
-
 
                 <p>
 
@@ -1763,10 +1332,16 @@ footer {
                     and if I feel the connection,
                     we can talk.
 
+                    <br><br>
+
+                    <strong>
+                        Please allow 1–3 weeks
+                        for a response.
+                    </strong>
+
                 </p>
 
             </div>
-
 
             <div class="form">
 
@@ -1782,9 +1357,12 @@ footer {
 
                 </div>
 
-
-                <form id="musicForm">
-
+                <!-- FORMSPREE -->
+                <form
+                    action="https://formspree.io/f/xnpablpo"
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
 
                     <div class="form-row">
 
@@ -1796,13 +1374,12 @@ footer {
 
                             <input
                                 type="text"
-                                name="realName"
+                                name="Real Name"
                                 placeholder="Your real name"
                                 required
                             >
 
                         </div>
-
 
                         <div class="field">
 
@@ -1812,7 +1389,7 @@ footer {
 
                             <input
                                 type="text"
-                                name="artistName"
+                                name="Artist Name"
                                 placeholder="Your artist name"
                                 required
                             >
@@ -1820,7 +1397,6 @@ footer {
                         </div>
 
                     </div>
-
 
                     <div class="field">
 
@@ -1830,13 +1406,12 @@ footer {
 
                         <input
                             type="email"
-                            name="email"
+                            name="Email"
                             placeholder="you@email.com"
                             required
                         >
 
                     </div>
-
 
                     <div class="field">
 
@@ -1846,13 +1421,12 @@ footer {
 
                         <input
                             type="text"
-                            name="track"
+                            name="Track Name"
                             placeholder="Your track name"
                             required
                         >
 
                     </div>
-
 
                     <div class="form-row">
 
@@ -1864,13 +1438,12 @@ footer {
 
                             <input
                                 type="url"
-                                name="spotify"
+                                name="Spotify"
                                 placeholder="Spotify profile"
                                 required
                             >
 
                         </div>
-
 
                         <div class="field">
 
@@ -1880,7 +1453,7 @@ footer {
 
                             <input
                                 type="url"
-                                name="instagram"
+                                name="Instagram"
                                 placeholder="Instagram profile"
                                 required
                             >
@@ -1888,7 +1461,6 @@ footer {
                         </div>
 
                     </div>
-
 
                     <div class="form-row">
 
@@ -1900,13 +1472,12 @@ footer {
 
                             <input
                                 type="url"
-                                name="tiktok"
+                                name="TikTok"
                                 placeholder="TikTok profile"
                                 required
                             >
 
                         </div>
-
 
                         <div class="field">
 
@@ -1916,7 +1487,7 @@ footer {
 
                             <input
                                 type="url"
-                                name="youtube"
+                                name="YouTube"
                                 placeholder="YouTube channel"
                                 required
                             >
@@ -1924,7 +1495,6 @@ footer {
                         </div>
 
                     </div>
-
 
                     <div class="field">
 
@@ -1934,13 +1504,12 @@ footer {
 
                         <input
                             type="url"
-                            name="music"
+                            name="Music Link"
                             placeholder="Spotify / SoundCloud / YouTube / Drive"
                             required
                         >
 
                     </div>
-
 
                     <div class="field">
 
@@ -1948,7 +1517,7 @@ footer {
                             Genre
                         </label>
 
-                        <select name="genre">
+                        <select name="Genre">
 
                             <option value="">
                                 Select genre
@@ -1969,6 +1538,7 @@ footer {
                             <option>Electronic</option>
                             <option>EDM</option>
                             <option>House</option>
+                            <option>Tech House</option>
                             <option>Techno</option>
                             <option>Trance</option>
                             <option>Drum & Bass</option>
@@ -2004,7 +1574,6 @@ footer {
 
                     </div>
 
-
                     <div class="field">
 
                         <label>
@@ -2012,13 +1581,12 @@ footer {
                         </label>
 
                         <textarea
-                            name="about"
+                            name="About Artist"
                             placeholder="Tell me about yourself, your music and what you create..."
                             required
                         ></textarea>
 
                     </div>
-
 
                     <div class="field">
 
@@ -2027,13 +1595,12 @@ footer {
                         </label>
 
                         <textarea
-                            name="trackDescription"
+                            name="About Track"
                             placeholder="Tell me about this track and what you'd like to create together..."
                             required
                         ></textarea>
 
                     </div>
-
 
                     <div class="audio-box">
 
@@ -2043,37 +1610,37 @@ footer {
 
                         <input
                             type="file"
-                            name="audio"
-                            accept="audio/*"
+                            name="Audio File"
+                            accept=".mp3,.wav,.m4a,.flac,audio/*"
                         >
 
                     </div>
-
 
                     <button
                         type="submit"
                         class="submit-button"
                     >
-
-                        SEND MUSIC →
-
+                        SEND DEMO →
                     </button>
 
+                    <div class="notice">
 
-                    <div
-                        class="success"
-                        id="success"
-                    >
+                        <strong>
+                            Submission received?
+                        </strong>
 
-                        Your music has been submitted.
+                        <br>
 
-                        <br><br>
+                        Please allow approximately
+                        <strong>1–3 weeks</strong>
+                        for a response.
 
-                        Thanks for sharing your work.
-                        I'll check it out.
+                        <br>
+
+                        If there is a creative fit,
+                        I'll get back to you.
 
                     </div>
-
 
                 </form>
 
@@ -2085,11 +1652,6 @@ footer {
 
 </section>
 
-
-<!-- =========================================
-     FINAL
-========================================= -->
-
 <section class="final">
 
     <div class="container reveal">
@@ -2098,18 +1660,11 @@ footer {
             FLXNR / MUSIC / WORLDWIDE
         </div>
 
-
         <h2>
-
             Your sound.
             My sound.
-
-            <span>
-                One track.
-            </span>
-
+            <span>One track.</span>
         </h2>
-
 
         <div class="socials">
 
@@ -2122,7 +1677,6 @@ footer {
                 Spotify
             </a>
 
-
             <a
                 href="https://www.instagram.com/irasso2/"
                 target="_blank"
@@ -2132,7 +1686,6 @@ footer {
                 Instagram
             </a>
 
-
             <a
                 href="https://www.tiktok.com/@flixonar_official"
                 target="_blank"
@@ -2141,7 +1694,6 @@ footer {
             >
                 TikTok
             </a>
-
 
             <a
                 href="https://www.youtube.com/@flixonar_music"
@@ -2157,11 +1709,6 @@ footer {
     </div>
 
 </section>
-
-
-<!-- =========================================
-     FOOTER
-========================================= -->
 
 <footer>
 
@@ -2187,12 +1734,11 @@ footer {
 
 </footer>
 
-
 <script>
 
-/* =========================================
+/* =========================
    SCROLL REVEAL
-========================================= */
+========================= */
 
 const observer =
     new IntersectionObserver(
@@ -2200,9 +1746,7 @@ const observer =
 
             entries.forEach(entry => {
 
-                if (
-                    entry.isIntersecting
-                ) {
+                if(entry.isIntersecting) {
 
                     entry.target
                         .classList
@@ -2214,10 +1758,9 @@ const observer =
 
         },
         {
-            threshold: 0.12
+            threshold:.12
         }
     );
-
 
 document
     .querySelectorAll(".reveal")
@@ -2228,53 +1771,15 @@ document
     });
 
 
-/* =========================================
-   FORM
-========================================= */
-
-const form =
-    document.getElementById(
-        "musicForm"
-    );
-
-const success =
-    document.getElementById(
-        "success"
-    );
-
-
-form.addEventListener(
-    "submit",
-    event => {
-
-        event.preventDefault();
-
-        success.style.display =
-            "block";
-
-        success.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }
-);
-
-
-/* =========================================
-   PREMIUM CURSOR
-========================================= */
+/* =========================
+   CURSOR
+========================= */
 
 const cursorGlow =
-    document.querySelector(
-        ".cursor-glow"
-    );
+    document.querySelector(".cursor-glow");
 
 const cursorDot =
-    document.querySelector(
-        ".cursor-dot"
-    );
-
+    document.querySelector(".cursor-dot");
 
 let mouseX =
     window.innerWidth / 2;
@@ -2285,24 +1790,18 @@ let mouseY =
 let glowX = mouseX;
 let glowY = mouseY;
 
-
 window.addEventListener(
     "mousemove",
     event => {
 
-        mouseX =
-            event.clientX;
-
-        mouseY =
-            event.clientY;
-
+        mouseX = event.clientX;
+        mouseY = event.clientY;
 
         cursorDot.style.left =
             mouseX + "px";
 
         cursorDot.style.top =
             mouseY + "px";
-
 
         cursorGlow.style.opacity =
             "1";
@@ -2313,15 +1812,13 @@ window.addEventListener(
     }
 );
 
-
 function animateCursor() {
 
     glowX +=
-        (mouseX - glowX) * 0.10;
+        (mouseX - glowX) * .10;
 
     glowY +=
-        (mouseY - glowY) * 0.10;
-
+        (mouseY - glowY) * .10;
 
     cursorGlow.style.left =
         glowX + "px";
@@ -2329,19 +1826,17 @@ function animateCursor() {
     cursorGlow.style.top =
         glowY + "px";
 
-
     requestAnimationFrame(
         animateCursor
     );
-
 }
 
 animateCursor();
 
 
-/* =========================================
-   CURSOR HOVER
-========================================= */
+/* =========================
+   HOVER
+========================= */
 
 document
     .querySelectorAll(
@@ -2360,7 +1855,6 @@ document
             }
         );
 
-
         element.addEventListener(
             "mouseleave",
             () => {
@@ -2375,35 +1869,9 @@ document
     });
 
 
-/* =========================================
-   CURSOR FADE
-========================================= */
-
-document.addEventListener(
-    "mouseleave",
-    () => {
-
-        cursorGlow.style.opacity = "0";
-        cursorDot.style.opacity = "0";
-
-    }
-);
-
-
-document.addEventListener(
-    "mouseenter",
-    () => {
-
-        cursorGlow.style.opacity = "1";
-        cursorDot.style.opacity = "1";
-
-    }
-);
-
-
-/* =========================================
-   PARTICLE TRAIL
-========================================= */
+/* =========================
+   CURSOR PARTICLES
+========================= */
 
 let lastParticle = 0;
 
@@ -2413,30 +1881,21 @@ window.addEventListener(
 
         const now = Date.now();
 
-        if (
-            now - lastParticle < 35
-        ) {
+        if(now - lastParticle < 35) {
             return;
         }
 
         lastParticle = now;
 
-
-        if (
-            window.innerWidth <= 850
-        ) {
+        if(window.innerWidth <= 850) {
             return;
         }
 
-
         const particle =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
 
         particle.className =
             "cursor-particle";
-
 
         particle.style.left =
             event.clientX + "px";
@@ -2444,11 +1903,9 @@ window.addEventListener(
         particle.style.top =
             event.clientY + "px";
 
-
         document.body.appendChild(
             particle
         );
-
 
         setTimeout(
             () => {
