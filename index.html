@@ -7,6 +7,11 @@
 <title>FLXNR — Artist / Producer</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -30,48 +35,67 @@ a{
     text-decoration:none;
 }
 
-/* =========================
+
+/* =====================================================
    BACKGROUND
-========================= */
+===================================================== */
 
 .background{
     position:fixed;
     inset:0;
     z-index:-10;
     pointer-events:none;
+    overflow:hidden;
 }
+
+/* ZESZYTOWE LINIE */
 
 .grid{
     position:absolute;
     inset:0;
 
     background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 34px,
+            rgba(255,255,255,.035) 35px,
+            transparent 36px
+        );
 
-    background-size:80px 80px;
+    background-size:100% 36px;
+
+    opacity:.95;
+
+    pointer-events:none;
 }
+
+
+/* delikatna poświata */
 
 .bg-glow{
     position:absolute;
+
     width:800px;
     height:800px;
+
     right:-300px;
     top:-300px;
 
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.08),
-        transparent 65%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.08),
+            transparent 65%
+        );
 
     filter:blur(50px);
 }
 
 
-/* =========================
+/* =====================================================
    ROUND CURSOR
-========================= */
+===================================================== */
 
 .custom-cursor{
     position:fixed;
@@ -105,9 +129,9 @@ a{
 }
 
 
-/* =========================
+/* =====================================================
    CURSOR SMOKE
-========================= */
+===================================================== */
 
 .cursor-smoke-dot{
     position:fixed;
@@ -169,9 +193,9 @@ a{
 }
 
 
-/* =========================
-   NAV
-========================= */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .nav{
     position:fixed;
@@ -199,14 +223,19 @@ a{
 
 .logo{
     font-size:24px;
+
     font-weight:900;
+
     letter-spacing:-.08em;
 }
 
 .logo span{
     color:#555;
+
     font-size:9px;
+
     letter-spacing:.2em;
+
     margin-left:7px;
 }
 
@@ -217,10 +246,15 @@ a{
 
 .nav-links a{
     color:#666;
+
     font-size:9px;
+
     font-weight:800;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     transition:.25s;
 }
 
@@ -230,13 +264,17 @@ a{
 
 .nav-button{
     border:1px solid #333;
+
     border-radius:8px;
 
     padding:11px 17px;
 
     font-size:9px;
+
     font-weight:800;
+
     letter-spacing:.15em;
+
     text-transform:uppercase;
 
     transition:.3s;
@@ -248,14 +286,15 @@ a{
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
     min-height:100vh;
 
     display:flex;
+
     align-items:center;
 
     padding-top:80px;
@@ -263,23 +302,29 @@ a{
 
 .hero-inner{
     width:min(1250px,calc(100% - 50px));
+
     margin:auto;
 }
 
 .hero-info{
     display:flex;
+
     justify-content:space-between;
 
     color:#555;
 
     font-size:9px;
+
     font-weight:800;
+
     letter-spacing:.2em;
 }
 
 .online{
     display:flex;
+
     align-items:center;
+
     gap:8px;
 }
 
@@ -345,7 +390,9 @@ a{
 
 .hero-description{
     color:#777;
+
     font-size:14px;
+
     line-height:1.9;
 }
 
@@ -355,20 +402,24 @@ a{
 
 .hero-buttons{
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
     flex-wrap:wrap;
 }
 
 
-/* =========================
+/* =====================================================
    BUTTONS
-========================= */
+===================================================== */
 
 .button{
     display:inline-flex;
 
     align-items:center;
+
     justify-content:center;
 
     min-height:48px;
@@ -380,8 +431,11 @@ a{
     border-radius:8px;
 
     font-size:9px;
+
     font-weight:900;
+
     letter-spacing:.17em;
+
     text-transform:uppercase;
 
     transition:.3s;
@@ -391,7 +445,9 @@ a{
 
 .button.primary{
     background:#fff;
+
     color:#000;
+
     border-color:#fff;
 }
 
@@ -400,9 +456,9 @@ a{
 }
 
 
-/* =========================
+/* =====================================================
    TICKER
-========================= */
+===================================================== */
 
 .ticker{
     overflow:hidden;
@@ -410,6 +466,7 @@ a{
     padding:17px 0;
 
     border-top:1px solid #191919;
+
     border-bottom:1px solid #191919;
 
     color:#444;
@@ -426,19 +483,24 @@ a{
 .ticker-track{
     display:inline-block;
 
-    animation:ticker 35s linear infinite;
+    animation:
+        ticker
+        35s
+        linear
+        infinite;
 }
 
 @keyframes ticker{
+
     to{
         transform:translateX(-50%);
     }
 }
 
 
-/* =========================
+/* =====================================================
    SECTIONS
-========================= */
+===================================================== */
 
 section{
     padding:150px 0;
@@ -446,12 +508,15 @@ section{
 
 .container{
     width:min(1250px,calc(100% - 50px));
+
     margin:auto;
 }
 
 .section-top{
     display:flex;
+
     justify-content:space-between;
+
     margin-bottom:65px;
 }
 
@@ -459,7 +524,9 @@ section{
     color:#555;
 
     font-size:9px;
+
     font-weight:800;
+
     letter-spacing:.23em;
 
     text-transform:uppercase;
@@ -467,6 +534,7 @@ section{
 
 .section-number{
     color:#444;
+
     font-size:9px;
 }
 
@@ -485,13 +553,15 @@ section{
 }
 
 
-/* =========================
+/* =====================================================
    ABOUT
-========================= */
+===================================================== */
 
 #about{
     position:relative;
+
     overflow:hidden;
+
     isolation:isolate;
 }
 
@@ -502,10 +572,13 @@ section{
 
     inset:-130px;
 
-    background-image:url("./flxnr.jpeg");
+    background-image:
+        url("./flxnr.jpeg");
 
     background-size:cover;
+
     background-position:center;
+
     background-repeat:no-repeat;
 
     filter:
@@ -589,6 +662,7 @@ section{
     color:#777;
 
     font-size:9px;
+
     font-weight:800;
 
     letter-spacing:.15em;
@@ -600,14 +674,16 @@ section{
 
 .social:hover{
     background:#fff;
+
     color:#000;
+
     transform:translateY(-3px);
 }
 
 
-/* =========================
+/* =====================================================
    CARDS
-========================= */
+===================================================== */
 
 .cards{
     display:grid;
@@ -617,6 +693,7 @@ section{
     margin-top:75px;
 
     border-top:1px solid #222;
+
     border-left:1px solid #222;
 }
 
@@ -626,6 +703,7 @@ section{
     padding:35px;
 
     border-right:1px solid #222;
+
     border-bottom:1px solid #222;
 
     transition:.3s;
@@ -637,6 +715,7 @@ section{
 
 .card-number{
     color:#444;
+
     font-size:9px;
 }
 
@@ -659,14 +738,15 @@ section{
 }
 
 
-/* =========================
-   COLLAB
-========================= */
+/* =====================================================
+   COLLABORATION
+===================================================== */
 
 .collab{
     background:#080808;
 
     border-top:1px solid #171717;
+
     border-bottom:1px solid #171717;
 }
 
@@ -687,9 +767,9 @@ section{
 }
 
 
-/* =========================
+/* =====================================================
    SUBMIT
-========================= */
+===================================================== */
 
 .submit-layout{
     display:grid;
@@ -814,6 +894,7 @@ section{
 
 .field textarea{
     min-height:130px;
+
     resize:vertical;
 }
 
@@ -822,9 +903,9 @@ select option{
 }
 
 
-/* =========================
+/* =====================================================
    SOCIAL CHECKBOXES
-========================= */
+===================================================== */
 
 .social-selection{
     margin-bottom:24px;
@@ -884,11 +965,13 @@ select option{
 
 .checkbox-option input{
     width:auto;
+
     accent-color:#fff;
 }
 
 .checkbox-option:hover{
     color:#fff;
+
     border-color:#555;
 }
 
@@ -901,9 +984,9 @@ select option{
 }
 
 
-/* =========================
+/* =====================================================
    MP3
-========================= */
+===================================================== */
 
 .audio-box{
     margin-bottom:20px;
@@ -933,6 +1016,7 @@ select option{
 
 .audio-box input{
     width:100%;
+
     color:#777;
 }
 
@@ -945,9 +1029,9 @@ select option{
 }
 
 
-/* =========================
+/* =====================================================
    SUBMIT BUTTON
-========================= */
+===================================================== */
 
 .submit-button{
     width:100%;
@@ -1002,9 +1086,9 @@ select option{
 }
 
 
-/* =========================
+/* =====================================================
    FINAL
-========================= */
+===================================================== */
 
 .final{
     min-height:80vh;
@@ -1045,9 +1129,9 @@ select option{
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
     position:relative;
@@ -1090,17 +1174,19 @@ footer{
 }
 
 
-/* =========================
+/* =====================================================
    BOTTOM SMOKE
-========================= */
+===================================================== */
 
 #bottomSmoke{
     position:fixed;
 
     left:0;
+
     bottom:0;
 
     width:100vw;
+
     height:330px;
 
     z-index:20;
@@ -1134,6 +1220,7 @@ footer{
     bottom:-180px;
 
     width:380px;
+
     height:380px;
 
     border-radius:50%;
@@ -1161,46 +1248,57 @@ footer{
 
 .smoke-cloud:nth-child(1){
     left:-80px;
+
     --time:11s;
     --delay:-3s;
 }
 
 .smoke-cloud:nth-child(2){
     left:10%;
+
     width:430px;
     height:430px;
+
     --time:15s;
     --delay:-8s;
 }
 
 .smoke-cloud:nth-child(3){
     left:30%;
+
     width:350px;
     height:350px;
+
     --time:12s;
     --delay:-5s;
 }
 
 .smoke-cloud:nth-child(4){
     left:48%;
+
     width:470px;
     height:470px;
+
     --time:17s;
     --delay:-11s;
 }
 
 .smoke-cloud:nth-child(5){
     left:70%;
+
     width:390px;
     height:390px;
+
     --time:13s;
     --delay:-7s;
 }
 
 .smoke-cloud:nth-child(6){
     left:88%;
+
     width:350px;
     height:350px;
+
     --time:16s;
     --delay:-12s;
 }
@@ -1245,9 +1343,9 @@ footer{
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:850px){
 
@@ -1279,6 +1377,7 @@ footer{
 
     .hero-bottom{
         grid-template-columns:1fr;
+
         gap:35px;
     }
 
@@ -1297,6 +1396,7 @@ footer{
     .about-grid,
     .submit-layout{
         grid-template-columns:1fr;
+
         gap:55px;
     }
 
@@ -1335,7 +1435,9 @@ footer{
 
     .footer{
         flex-direction:column;
+
         align-items:flex-start;
+
         gap:18px;
     }
 }
@@ -1346,38 +1448,76 @@ footer{
 
 <body>
 
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
 <div class="background">
+
     <div class="grid"></div>
+
     <div class="bg-glow"></div>
+
 </div>
 
 
-<!-- KURSOR -->
-<div class="custom-cursor" id="customCursor"></div>
+<!-- =====================================================
+     CURSOR
+===================================================== -->
+
+<div
+    class="custom-cursor"
+    id="customCursor"
+></div>
 
 
-<!-- NAV -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <nav class="nav">
 
     <a href="#" class="logo">
         FLXNR <span>/ ARTIST</span>
     </a>
 
+
     <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#creative">Creative</a>
-        <a href="#collab">Collab</a>
-        <a href="#submit">Send Music</a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#creative">
+            Creative
+        </a>
+
+        <a href="#collab">
+            Collab
+        </a>
+
+        <a href="#submit">
+            Send Music
+        </a>
+
     </div>
 
-    <a href="#submit" class="nav-button">
+
+    <a
+        href="#submit"
+        class="nav-button"
+    >
         Start a collaboration →
     </a>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <header class="hero">
 
 <div class="hero-inner">
@@ -1388,16 +1528,28 @@ footer{
             INDEPENDENT ARTIST / PRODUCER
         </span>
 
+
         <span class="online">
+
             <i class="online-dot"></i>
+
             OPEN WORLDWIDE
+
         </span>
 
     </div>
 
+
     <h1 class="hero-title">
-        <span>F</span><span>L</span><span>X</span><span>N</span><span>R</span>
+
+        <span>F</span>
+        <span>L</span>
+        <span>X</span>
+        <span>N</span>
+        <span>R</span>
+
     </h1>
+
 
     <div class="hero-bottom">
 
@@ -1420,17 +1572,27 @@ footer{
             Have a track, idea or sound
             you think we could build on?
 
-            <strong>Send it.</strong>
+            <strong>
+                Send it.
+            </strong>
 
         </p>
 
+
         <div class="hero-buttons">
 
-            <a href="#submit" class="button primary">
+            <a
+                href="#submit"
+                class="button primary"
+            >
                 Send your music
             </a>
 
-            <a href="#about" class="button">
+
+            <a
+                href="#about"
+                class="button"
+            >
                 Discover FLXNR
             </a>
 
@@ -1443,7 +1605,10 @@ footer{
 </header>
 
 
-<!-- TICKER -->
+<!-- =====================================================
+     TICKER
+===================================================== -->
+
 <div class="ticker">
 
     <div class="ticker-track">
@@ -1461,7 +1626,10 @@ footer{
 </div>
 
 
-<!-- ABOUT -->
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
 <section id="about">
 
 <div class="container">
@@ -1478,16 +1646,20 @@ footer{
 
     </div>
 
+
     <div class="about-grid">
 
         <div>
 
             <h2 class="heading">
+
                 FLXNR is an
                 <span>artist.</span>
+
             </h2>
 
         </div>
+
 
         <div>
 
@@ -1523,6 +1695,7 @@ footer{
 
             </p>
 
+
             <div class="socials">
 
                 <a
@@ -1533,6 +1706,7 @@ footer{
                     Spotify
                 </a>
 
+
                 <a
                     href="https://www.instagram.com/irasso2/"
                     target="_blank"
@@ -1541,6 +1715,7 @@ footer{
                     Instagram
                 </a>
 
+
                 <a
                     href="https://www.tiktok.com/@flixonar_official"
                     target="_blank"
@@ -1548,6 +1723,7 @@ footer{
                 >
                     TikTok
                 </a>
+
 
                 <a
                     href="https://www.youtube.com/@flixnr_music"
@@ -1568,7 +1744,10 @@ footer{
 </section>
 
 
-<!-- CREATIVE -->
+<!-- =====================================================
+     CREATIVE
+===================================================== -->
+
 <section id="creative">
 
 <div class="container">
@@ -1585,51 +1764,94 @@ footer{
 
     </div>
 
+
     <h2 class="heading">
+
         Different people.
-        <span>Different sounds.</span>
+
+        <span>
+            Different sounds.
+        </span>
+
     </h2>
+
 
     <div class="cards">
 
+
         <div class="card">
-            <div class="card-number">01</div>
-            <h3>Artists</h3>
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Artists
+            </h3>
+
             <p>
                 Work together on a track,
                 idea or completely new
                 musical direction.
             </p>
+
         </div>
 
+
         <div class="card">
-            <div class="card-number">02</div>
-            <h3>Producers</h3>
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Producers
+            </h3>
+
             <p>
                 Beats, production,
                 sound design and
                 unexpected combinations.
             </p>
+
         </div>
 
+
         <div class="card">
-            <div class="card-number">03</div>
-            <h3>Vocalists</h3>
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Vocalists
+            </h3>
+
             <p>
                 Vocals, hooks, melodies
                 and ideas that can turn
                 into something bigger.
             </p>
+
         </div>
 
+
         <div class="card">
-            <div class="card-number">04</div>
-            <h3>New ideas</h3>
+
+            <div class="card-number">
+                04
+            </div>
+
+            <h3>
+                New ideas
+            </h3>
+
             <p>
                 Anything creative that
                 could become an interesting
                 musical project.
             </p>
+
         </div>
 
     </div>
@@ -1639,8 +1861,14 @@ footer{
 </section>
 
 
-<!-- COLLAB -->
-<section id="collab" class="collab">
+<!-- =====================================================
+     COLLAB
+===================================================== -->
+
+<section
+    id="collab"
+    class="collab"
+>
 
 <div class="container">
 
@@ -1656,10 +1884,17 @@ footer{
 
     </div>
 
+
     <h2 class="heading">
+
         Bring your sound.
-        <span>I'll bring mine.</span>
+
+        <span>
+            I'll bring mine.
+        </span>
+
     </h2>
+
 
     <p class="collab-text">
 
@@ -1688,7 +1923,10 @@ footer{
 </section>
 
 
-<!-- SUBMIT -->
+<!-- =====================================================
+     SUBMIT
+===================================================== -->
+
 <section id="submit">
 
 <div class="container">
@@ -1705,16 +1943,20 @@ footer{
 
     </div>
 
+
     <div class="submit-layout">
 
 
         <div class="submit-title">
 
             <h2>
+
                 Let's make
                 something
                 <span>together.</span>
+
             </h2>
+
 
             <p>
 
@@ -1753,6 +1995,7 @@ footer{
                     value="66765f2ac38a459f92e4efcba6e6fdac"
                 >
 
+
                 <input
                     type="hidden"
                     name="subject"
@@ -1774,6 +2017,7 @@ footer{
 
 
                 <div class="form-row">
+
 
                     <div class="field">
 
@@ -1841,7 +2085,7 @@ footer{
                 </div>
 
 
-                <!-- SOCIAL MEDIA -->
+                <!-- SOCIALS -->
 
                 <div class="social-selection">
 
@@ -1849,7 +2093,9 @@ footer{
                         Select your social profiles
                     </div>
 
+
                     <div class="checkbox-list">
+
 
                         <label class="checkbox-option">
 
@@ -1922,6 +2168,7 @@ footer{
                             I don't have social media yet
 
                         </label>
+
 
                     </div>
 
@@ -2026,29 +2273,97 @@ footer{
                             Select your genre
                         </option>
 
-                        <option>Pop</option>
-                        <option>Hip-Hop</option>
-                        <option>Rap</option>
-                        <option>R&B</option>
-                        <option>Rock</option>
-                        <option>Indie</option>
-                        <option>Electronic</option>
-                        <option>EDM</option>
-                        <option>House</option>
-                        <option>Techno</option>
-                        <option>Drum & Bass</option>
-                        <option>Dubstep</option>
-                        <option>Phonk</option>
-                        <option>Brazilian Funk</option>
-                        <option>Afrobeats</option>
-                        <option>Reggaeton</option>
-                        <option>Trap</option>
-                        <option>Drill</option>
-                        <option>Jersey Club</option>
-                        <option>Hardstyle</option>
-                        <option>Hyperpop</option>
-                        <option>Experimental</option>
-                        <option>Other</option>
+                        <option>
+                            Pop
+                        </option>
+
+                        <option>
+                            Hip-Hop
+                        </option>
+
+                        <option>
+                            Rap
+                        </option>
+
+                        <option>
+                            R&B
+                        </option>
+
+                        <option>
+                            Rock
+                        </option>
+
+                        <option>
+                            Indie
+                        </option>
+
+                        <option>
+                            Electronic
+                        </option>
+
+                        <option>
+                            EDM
+                        </option>
+
+                        <option>
+                            House
+                        </option>
+
+                        <option>
+                            Techno
+                        </option>
+
+                        <option>
+                            Drum & Bass
+                        </option>
+
+                        <option>
+                            Dubstep
+                        </option>
+
+                        <option>
+                            Phonk
+                        </option>
+
+                        <option>
+                            Brazilian Funk
+                        </option>
+
+                        <option>
+                            Afrobeats
+                        </option>
+
+                        <option>
+                            Reggaeton
+                        </option>
+
+                        <option>
+                            Trap
+                        </option>
+
+                        <option>
+                            Drill
+                        </option>
+
+                        <option>
+                            Jersey Club
+                        </option>
+
+                        <option>
+                            Hardstyle
+                        </option>
+
+                        <option>
+                            Hyperpop
+                        </option>
+
+                        <option>
+                            Experimental
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
 
                     </select>
 
@@ -2106,7 +2421,9 @@ footer{
                     >
 
                     <div class="file-info">
-                        MP3 only — maximum file type: MP3
+
+                        MP3 only
+
                     </div>
 
                 </div>
@@ -2116,7 +2433,9 @@ footer{
                     type="submit"
                     class="submit-button"
                 >
+
                     SEND DEMO →
+
                 </button>
 
 
@@ -2133,6 +2452,7 @@ footer{
 
                 </div>
 
+
             </form>
 
         </div>
@@ -2144,22 +2464,32 @@ footer{
 </section>
 
 
-<!-- FINAL -->
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
 <section class="final">
 
 <div class="container">
 
     <div class="final-small">
+
         FLXNR / MUSIC / WORLDWIDE
+
     </div>
 
+
     <h2>
+
         Your sound.
         My sound.
         <span>One track.</span>
+
     </h2>
 
+
     <div class="socials">
+
 
         <a
             href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz"
@@ -2169,6 +2499,7 @@ footer{
             Spotify
         </a>
 
+
         <a
             href="https://www.instagram.com/irasso2/"
             target="_blank"
@@ -2176,6 +2507,7 @@ footer{
         >
             Instagram
         </a>
+
 
         <a
             href="https://www.tiktok.com/@flixonar_official"
@@ -2185,6 +2517,7 @@ footer{
             TikTok
         </a>
 
+
         <a
             href="https://www.youtube.com/@flixnr_music"
             target="_blank"
@@ -2193,6 +2526,7 @@ footer{
             YouTube
         </a>
 
+
     </div>
 
 </div>
@@ -2200,24 +2534,31 @@ footer{
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
 <div class="container">
 
     <div class="footer">
 
+
         <div class="footer-logo">
             FLXNR
         </div>
+
 
         <div>
             Independent artist / producer
         </div>
 
+
         <div>
             © 2026 FLXNR
         </div>
+
 
     </div>
 
@@ -2226,14 +2567,22 @@ footer{
 </footer>
 
 
-<!-- BOTTOM SMOKE -->
+<!-- =====================================================
+     BOTTOM SMOKE
+===================================================== -->
+
 <div id="bottomSmoke">
 
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
 
 </div>
@@ -2241,45 +2590,53 @@ footer{
 
 <script>
 
-/* =========================================================
+/* =====================================================
    ROUND CURSOR
-========================================================= */
+===================================================== */
 
 const cursor =
     document.getElementById("customCursor");
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+let mouseX =
+    window.innerWidth / 2;
 
-let cursorX = mouseX;
-let cursorY = mouseY;
+let mouseY =
+    window.innerHeight / 2;
 
+let cursorX =
+    mouseX;
 
-/* Mouse position */
-
-document.addEventListener("mousemove", function(e){
-
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-});
+let cursorY =
+    mouseY;
 
 
-/* Smooth movement */
+document.addEventListener(
+    "mousemove",
+    function(e){
+
+        mouseX = e.clientX;
+
+        mouseY = e.clientY;
+
+    }
+);
+
 
 function animateCursor(){
 
     cursorX +=
-        (mouseX - cursorX) * 0.30;
+        (mouseX - cursorX) * .30;
 
     cursorY +=
-        (mouseY - cursorY) * 0.30;
+        (mouseY - cursorY) * .30;
+
 
     cursor.style.left =
         cursorX + "px";
 
     cursor.style.top =
         cursorY + "px";
+
 
     requestAnimationFrame(
         animateCursor
@@ -2289,241 +2646,305 @@ function animateCursor(){
 animateCursor();
 
 
-/* =========================================================
+/* =====================================================
    CURSOR SMOKE
-========================================================= */
+===================================================== */
 
 let lastSmokeX = 0;
+
 let lastSmokeY = 0;
 
-document.addEventListener("mousemove", function(e){
 
-    const distance =
-        Math.hypot(
-            e.clientX - lastSmokeX,
-            e.clientY - lastSmokeY
+document.addEventListener(
+    "mousemove",
+    function(e){
+
+        const distance =
+            Math.hypot(
+                e.clientX - lastSmokeX,
+                e.clientY - lastSmokeY
+            );
+
+
+        if(distance < 7){
+            return;
+        }
+
+
+        lastSmokeX =
+            e.clientX;
+
+        lastSmokeY =
+            e.clientY;
+
+
+        const dot =
+            document.createElement("div");
+
+
+        dot.className =
+            "cursor-smoke-dot";
+
+
+        dot.style.left =
+            e.clientX + "px";
+
+
+        dot.style.top =
+            e.clientY + "px";
+
+
+        dot.style.setProperty(
+            "--drift-x",
+            (Math.random() * 50 - 25) + "px"
         );
 
-    if(distance < 7){
-        return;
+
+        dot.style.setProperty(
+            "--drift-y",
+            (Math.random() * 40 - 5) + "px"
+        );
+
+
+        const size =
+            2.5 +
+            Math.random() * 3.5;
+
+
+        dot.style.width =
+            size + "px";
+
+
+        dot.style.height =
+            size + "px";
+
+
+        dot.style.animationDuration =
+            (1.3 +
+            Math.random() * .7) +
+            "s";
+
+
+        document.body.appendChild(dot);
+
+
+        setTimeout(
+            function(){
+
+                dot.remove();
+
+            },
+            1900
+        );
+
     }
-
-    lastSmokeX = e.clientX;
-    lastSmokeY = e.clientY;
+);
 
 
-    const dot =
-        document.createElement("div");
-
-    dot.className =
-        "cursor-smoke-dot";
-
-
-    dot.style.left =
-        e.clientX + "px";
-
-    dot.style.top =
-        e.clientY + "px";
-
-
-    dot.style.setProperty(
-        "--drift-x",
-        (Math.random() * 50 - 25) + "px"
-    );
-
-    dot.style.setProperty(
-        "--drift-y",
-        (Math.random() * 40 - 5) + "px"
-    );
-
-
-    const size =
-        2.5 + Math.random() * 3.5;
-
-    dot.style.width =
-        size + "px";
-
-    dot.style.height =
-        size + "px";
-
-
-    dot.style.animationDuration =
-        (1.3 + Math.random() * .7) + "s";
-
-
-    document.body.appendChild(dot);
-
-
-    setTimeout(function(){
-
-        dot.remove();
-
-    },1900);
-
-});
-
-
-/* =========================================================
-   CURSOR OVER BUTTONS
-========================================================= */
+/* =====================================================
+   CURSOR HOVER
+===================================================== */
 
 document.querySelectorAll(
     "a,button,input,textarea,select,label"
-).forEach(function(element){
+).forEach(
+    function(element){
 
-    element.addEventListener(
-        "mouseenter",
-        function(){
+        element.addEventListener(
+            "mouseenter",
+            function(){
 
-            cursor.style.width =
-                "20px";
+                cursor.style.width =
+                    "20px";
 
-            cursor.style.height =
-                "20px";
+                cursor.style.height =
+                    "20px";
 
-            cursor.style.opacity =
-                ".8";
+                cursor.style.opacity =
+                    ".8";
 
-        }
-    );
-
-
-    element.addEventListener(
-        "mouseleave",
-        function(){
-
-            cursor.style.width =
-                "12px";
-
-            cursor.style.height =
-                "12px";
-
-            cursor.style.opacity =
-                "1";
-
-        }
-    );
-
-});
+            }
+        );
 
 
-/* =========================================================
+        element.addEventListener(
+            "mouseleave",
+            function(){
+
+                cursor.style.width =
+                    "12px";
+
+                cursor.style.height =
+                    "12px";
+
+                cursor.style.opacity =
+                    "1";
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
    SOCIAL PROFILE FIELDS
-========================================================= */
+===================================================== */
 
 const spotifyCheck =
-    document.getElementById("spotifyCheck");
+    document.getElementById(
+        "spotifyCheck"
+    );
 
 const instagramCheck =
-    document.getElementById("instagramCheck");
+    document.getElementById(
+        "instagramCheck"
+    );
 
 const tiktokCheck =
-    document.getElementById("tiktokCheck");
+    document.getElementById(
+        "tiktokCheck"
+    );
 
 const youtubeCheck =
-    document.getElementById("youtubeCheck");
+    document.getElementById(
+        "youtubeCheck"
+    );
 
 const noSocialCheck =
-    document.getElementById("noSocialCheck");
+    document.getElementById(
+        "noSocialCheck"
+    );
 
 
 const spotifyField =
-    document.getElementById("spotifyField");
+    document.getElementById(
+        "spotifyField"
+    );
 
 const instagramField =
-    document.getElementById("instagramField");
+    document.getElementById(
+        "instagramField"
+    );
 
 const tiktokField =
-    document.getElementById("tiktokField");
+    document.getElementById(
+        "tiktokField"
+    );
 
 const youtubeField =
-    document.getElementById("youtubeField");
+    document.getElementById(
+        "youtubeField"
+    );
 
 
 const spotifyInput =
-    document.getElementById("spotifyInput");
+    document.getElementById(
+        "spotifyInput"
+    );
 
 const instagramInput =
-    document.getElementById("instagramInput");
+    document.getElementById(
+        "instagramInput"
+    );
 
 const tiktokInput =
-    document.getElementById("tiktokInput");
+    document.getElementById(
+        "tiktokInput"
+    );
 
 const youtubeInput =
-    document.getElementById("youtubeInput");
+    document.getElementById(
+        "youtubeInput"
+    );
 
 
 function updateSocialFields(){
 
     const socials = [
+
         {
             check:spotifyCheck,
             field:spotifyField,
             input:spotifyInput
         },
+
         {
             check:instagramCheck,
             field:instagramField,
             input:instagramInput
         },
+
         {
             check:tiktokCheck,
             field:tiktokField,
             input:tiktokInput
         },
+
         {
             check:youtubeCheck,
             field:youtubeField,
             input:youtubeInput
         }
+
     ];
 
 
-    /* If user selects "no social media" */
-
     if(noSocialCheck.checked){
 
-        socials.forEach(function(item){
+        socials.forEach(
+            function(item){
 
-            item.check.checked = false;
+                item.check.checked =
+                    false;
 
-        });
+            }
+        );
 
     }
 
-
-    /* If user selects any social */
 
     if(
         socials.some(
-            item => item.check.checked
+            item =>
+                item.check.checked
         )
     ){
 
-        noSocialCheck.checked = false;
+        noSocialCheck.checked =
+            false;
 
     }
 
 
-    socials.forEach(function(item){
+    socials.forEach(
+        function(item){
 
-        if(item.check.checked){
+            if(item.check.checked){
 
-            item.field.classList.add("active");
+                item.field.classList.add(
+                    "active"
+                );
 
-            item.input.required = true;
+                item.input.required =
+                    true;
 
-        }else{
+            }else{
 
-            item.field.classList.remove("active");
+                item.field.classList.remove(
+                    "active"
+                );
 
-            item.input.required = false;
+                item.input.required =
+                    false;
 
-            item.input.value = "";
+                item.input.value =
+                    "";
+
+            }
 
         }
-
-    });
+    );
 
 }
 
@@ -2554,20 +2975,22 @@ noSocialCheck.addEventListener(
 );
 
 
-/* Initial state */
-
 updateSocialFields();
 
 
-/* =========================================================
+/* =====================================================
    MP3 VALIDATION
-========================================================= */
+===================================================== */
 
 const musicForm =
-    document.getElementById("musicForm");
+    document.getElementById(
+        "musicForm"
+    );
 
 const audioInput =
-    document.getElementById("audioInput");
+    document.getElementById(
+        "audioInput"
+    );
 
 
 musicForm.addEventListener(
@@ -2587,6 +3010,7 @@ musicForm.addEventListener(
             );
 
             return;
+
         }
 
 
@@ -2602,30 +3026,39 @@ musicForm.addEventListener(
                 "Only MP3 files are accepted."
             );
 
-            audioInput.value = "";
+            audioInput.value =
+                "";
 
             return;
+
         }
 
     }
 );
 
 
-/* =========================================================
+/* =====================================================
    ALWAYS START AT TOP
-========================================================= */
+===================================================== */
 
-if("scrollRestoration" in history){
+if(
+    "scrollRestoration" in history
+){
 
-    history.scrollRestoration = "manual";
+    history.scrollRestoration =
+        "manual";
 
 }
+
 
 window.addEventListener(
     "load",
     function(){
 
-        window.scrollTo(0,0);
+        window.scrollTo(
+            0,
+            0
+        );
 
     }
 );
