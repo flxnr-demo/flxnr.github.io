@@ -11,13 +11,14 @@
 <link rel="icon" type="image/png" href="favicon.png">
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
     --bg:#050505;
-    --card:#0a0a0b;
-    --border:#222225;
-    --text:#f4f4f4;
+    --card:#09090a;
+    --border:#242428;
+    --text:#f5f5f5;
     --muted:#77777d;
 }
 
@@ -39,8 +40,8 @@ body {
 }
 
 ::selection {
-    background:white;
-    color:black;
+    background:#fff;
+    color:#000;
 }
 
 a {
@@ -55,44 +56,56 @@ select {
     font-family:inherit;
 }
 
-/* =========================
+
+/* =================================
    CURSOR
-========================= */
+================================= */
 
 .cursor-glow {
     position:fixed;
     width:180px;
     height:180px;
+
     border-radius:50%;
+
     pointer-events:none;
+
     z-index:9999;
+
     transform:translate(-50%,-50%);
 
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.13),
-        rgba(255,255,255,.04) 35%,
-        transparent 72%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,.04) 35%,
+            transparent 72%
+        );
 
     filter:blur(8px);
+
     opacity:0;
 }
 
 .cursor-dot {
     position:fixed;
+
     width:5px;
     height:5px;
+
     border-radius:50%;
+
     pointer-events:none;
+
     z-index:10000;
+
     transform:translate(-50%,-50%);
 
     background:white;
 
     box-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 25px rgba(255,255,255,.35);
+        0 0 10px rgba(255,255,255,.9),
+        0 0 25px rgba(255,255,255,.4);
 
     opacity:0;
 }
@@ -103,6 +116,7 @@ body.cursor-hover .cursor-glow {
 }
 
 @media(min-width:851px) {
+
     body {
         cursor:none;
     }
@@ -114,35 +128,50 @@ body.cursor-hover .cursor-glow {
     select {
         cursor:none;
     }
+
 }
 
-/* =========================
+
+/* =================================
    BACKGROUND
-========================= */
+================================= */
 
 .background {
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:-3;
+
     overflow:hidden;
 }
 
 .grid {
     position:absolute;
+
     inset:0;
 
     background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
 
     background-size:80px 80px;
 
-    mask-image:linear-gradient(
-        to bottom,
-        black,
-        transparent 90%
-    );
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
 }
 
 .glow {
@@ -157,19 +186,21 @@ body.cursor-hover .cursor-glow {
     background:
         radial-gradient(
             circle,
-            rgba(82,104,255,.18),
+            rgba(100,100,255,.17),
             transparent 65%
         );
 
     filter:blur(40px);
 }
 
-/* =========================
+
+/* =================================
    NAV
-========================= */
+================================= */
 
 .nav {
     position:fixed;
+
     top:0;
     left:0;
     right:0;
@@ -177,6 +208,7 @@ body.cursor-hover .cursor-glow {
     height:78px;
 
     display:flex;
+
     align-items:center;
     justify-content:space-between;
 
@@ -184,16 +216,20 @@ body.cursor-hover .cursor-glow {
 
     z-index:100;
 
-    background:rgba(5,5,5,.65);
+    background:
+        rgba(5,5,5,.65);
 
     backdrop-filter:blur(20px);
 
-    border-bottom:1px solid rgba(255,255,255,.05);
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
 }
 
 .logo {
     font-size:23px;
+
     font-weight:900;
+
     letter-spacing:-.08em;
 }
 
@@ -209,6 +245,7 @@ body.cursor-hover .cursor-glow {
 
 .nav-links {
     display:flex;
+
     gap:35px;
 }
 
@@ -216,6 +253,7 @@ body.cursor-hover .cursor-glow {
     color:#666;
 
     font-size:9px;
+
     font-weight:800;
 
     letter-spacing:.18em;
@@ -226,7 +264,7 @@ body.cursor-hover .cursor-glow {
 }
 
 .nav-links a:hover {
-    color:white;
+    color:#fff;
 }
 
 .nav-button {
@@ -237,6 +275,7 @@ body.cursor-hover .cursor-glow {
     padding:11px 17px;
 
     font-size:9px;
+
     font-weight:800;
 
     letter-spacing:.15em;
@@ -247,30 +286,38 @@ body.cursor-hover .cursor-glow {
 }
 
 .nav-button:hover {
-    background:white;
-    color:black;
+    background:#fff;
+
+    color:#000;
 }
 
-/* =========================
+
+/* =================================
    HERO
-========================= */
+================================= */
 
 .hero {
     min-height:100vh;
 
     display:flex;
+
     align-items:center;
 
     padding-top:90px;
 }
 
 .hero-inner {
-    width:min(1250px,calc(100% - 50px));
+    width:min(
+        1250px,
+        calc(100% - 50px)
+    );
+
     margin:auto;
 }
 
 .hero-top {
     display:flex;
+
     justify-content:space-between;
 
     margin-bottom:35px;
@@ -278,6 +325,7 @@ body.cursor-hover .cursor-glow {
     color:#555;
 
     font-size:9px;
+
     font-weight:800;
 
     letter-spacing:.2em;
@@ -285,7 +333,9 @@ body.cursor-hover .cursor-glow {
 
 .online {
     display:flex;
+
     align-items:center;
+
     gap:9px;
 }
 
@@ -297,11 +347,17 @@ body.cursor-hover .cursor-glow {
 
     border-radius:50%;
 
-    box-shadow:0 0 15px #71ff9a;
+    box-shadow:
+        0 0 15px #71ff9a;
 }
 
 .hero-title {
-    font-size:clamp(90px,17vw,245px);
+    font-size:
+        clamp(
+            90px,
+            17vw,
+            245px
+        );
 
     line-height:.72;
 
@@ -328,16 +384,29 @@ body.cursor-hover .cursor-glow {
         forwards;
 }
 
-.hero-title span:nth-child(1){animation-delay:.05s}
-.hero-title span:nth-child(2){animation-delay:.12s}
-.hero-title span:nth-child(3){animation-delay:.19s}
-.hero-title span:nth-child(4){animation-delay:.26s}
+.hero-title span:nth-child(1) {
+    animation-delay:.05s;
+}
+
+.hero-title span:nth-child(2) {
+    animation-delay:.12s;
+}
+
+.hero-title span:nth-child(3) {
+    animation-delay:.19s;
+}
+
+.hero-title span:nth-child(4) {
+    animation-delay:.26s;
+}
 
 @keyframes heroIn {
+
     to {
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 .hero-bottom {
@@ -361,7 +430,7 @@ body.cursor-hover .cursor-glow {
 }
 
 .hero-text strong {
-    color:white;
+    color:#fff;
 }
 
 .hero-actions {
@@ -387,6 +456,7 @@ body.cursor-hover .cursor-glow {
     border:1px solid #303035;
 
     font-size:9px;
+
     font-weight:900;
 
     letter-spacing:.17em;
@@ -397,8 +467,9 @@ body.cursor-hover .cursor-glow {
 }
 
 .button-primary {
-    background:white;
-    color:black;
+    background:#fff;
+
+    color:#000;
 }
 
 .button-dark {
@@ -409,14 +480,16 @@ body.cursor-hover .cursor-glow {
     transform:translateY(-4px);
 }
 
-/* =========================
+
+/* =================================
    TICKER
-========================= */
+================================= */
 
 .ticker {
     overflow:hidden;
 
     border-top:1px solid #191919;
+
     border-bottom:1px solid #191919;
 
     padding:17px 0;
@@ -443,21 +516,28 @@ body.cursor-hover .cursor-glow {
 }
 
 @keyframes ticker {
+
     to {
         transform:translateX(-50%);
     }
+
 }
 
-/* =========================
+
+/* =================================
    SECTIONS
-========================= */
+================================= */
 
 section {
     padding:160px 0;
 }
 
 .container {
-    width:min(1250px,calc(100% - 50px));
+    width:min(
+        1250px,
+        calc(100% - 50px)
+    );
+
     margin:auto;
 }
 
@@ -473,6 +553,7 @@ section {
     color:#555;
 
     font-size:9px;
+
     font-weight:800;
 
     letter-spacing:.23em;
@@ -487,7 +568,12 @@ section {
 }
 
 .heading {
-    font-size:clamp(50px,7vw,100px);
+    font-size:
+        clamp(
+            50px,
+            7vw,
+            100px
+        );
 
     line-height:.9;
 
@@ -500,9 +586,10 @@ section {
     color:#555;
 }
 
-/* =========================
+
+/* =================================
    ABOUT
-========================= */
+================================= */
 
 .about-grid {
     display:grid;
@@ -523,12 +610,8 @@ section {
 }
 
 .about-text strong {
-    color:white;
+    color:#fff;
 }
-
-/* =========================
-   SOCIALS
-========================= */
 
 .socials {
     display:flex;
@@ -550,6 +633,7 @@ section {
     color:#777;
 
     font-size:9px;
+
     font-weight:800;
 
     letter-spacing:.15em;
@@ -560,22 +644,26 @@ section {
 }
 
 .social:hover {
-    background:white;
-    color:black;
+    background:#fff;
+
+    color:#000;
 
     transform:translateY(-3px);
 }
 
-/* =========================
+
+/* =================================
    CARDS
-========================= */
+================================= */
 
 .cards {
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+        repeat(2,1fr);
 
     border-top:1px solid #222;
+
     border-left:1px solid #222;
 
     margin-top:80px;
@@ -587,6 +675,7 @@ section {
     padding:35px;
 
     border-right:1px solid #222;
+
     border-bottom:1px solid #222;
 
     transition:.35s;
@@ -622,14 +711,16 @@ section {
     line-height:1.7;
 }
 
-/* =========================
+
+/* =================================
    COLLAB
-========================= */
+================================= */
 
 .collab {
     background:#080808;
 
     border-top:1px solid #171717;
+
     border-bottom:1px solid #171717;
 }
 
@@ -646,17 +737,19 @@ section {
 }
 
 .collab-intro strong {
-    color:white;
+    color:#fff;
 }
 
-/* =========================
+
+/* =================================
    SUBMIT
-========================= */
+================================= */
 
 .submit-layout {
     display:grid;
 
-    grid-template-columns:.75fr 1.25fr;
+    grid-template-columns:
+        .75fr 1.25fr;
 
     gap:100px;
 
@@ -665,11 +758,17 @@ section {
 
 .submit-title {
     position:sticky;
+
     top:120px;
 }
 
 .submit-title h2 {
-    font-size:clamp(55px,6vw,90px);
+    font-size:
+        clamp(
+            55px,
+            6vw,
+            90px
+        );
 
     line-height:.88;
 
@@ -690,9 +789,10 @@ section {
     margin-top:30px;
 }
 
-/* =========================
+
+/* =================================
    FORM
-========================= */
+================================= */
 
 .form {
     padding:35px;
@@ -752,6 +852,7 @@ section {
     color:#666;
 
     font-size:8px;
+
     font-weight:800;
 
     letter-spacing:.18em;
@@ -762,7 +863,6 @@ section {
 .field input,
 .field textarea,
 .field select {
-
     width:100%;
 
     padding:14px;
@@ -775,7 +875,7 @@ section {
 
     outline:none;
 
-    color:white;
+    color:#fff;
 
     font-size:12px;
 
@@ -797,12 +897,170 @@ section {
 select option {
     background:#080808;
 
-    color:white;
+    color:#fff;
 }
 
-/* =========================
-   FILE UPLOAD
-========================= */
+
+/* =================================
+   SOCIAL CHECKBOXES
+================================= */
+
+.social-selection {
+    margin-bottom:24px;
+
+    padding:20px;
+
+    border:1px solid #29292d;
+
+    border-radius:12px;
+
+    background:#060606;
+}
+
+.social-selection-title {
+    color:#666;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    margin-bottom:16px;
+}
+
+.checkbox-list {
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+}
+
+.checkbox-option {
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px;
+
+    border:1px solid #252529;
+
+    border-radius:9px;
+
+    color:#777;
+
+    font-size:10px;
+
+    transition:.25s;
+
+    user-select:none;
+}
+
+.checkbox-option:hover {
+    border-color:#555;
+
+    color:#fff;
+}
+
+.checkbox-option input {
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+.checkbox-custom {
+    width:15px;
+    height:15px;
+
+    flex-shrink:0;
+
+    border:1px solid #444;
+
+    border-radius:4px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.2s;
+}
+
+.checkbox-option input:checked
+~ .checkbox-custom {
+    background:#fff;
+
+    border-color:#fff;
+}
+
+.checkbox-option input:checked
+~ .checkbox-custom::after {
+    content:"✓";
+
+    color:#000;
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+.checkbox-option:has(
+    input:checked
+) {
+    border-color:#777;
+
+    color:#fff;
+
+    background:#0c0c0d;
+}
+
+
+/* =================================
+   SOCIAL LINK FIELDS
+================================= */
+
+.social-link-field {
+    display:none;
+
+    animation:
+        fieldIn
+        .3s
+        ease forwards;
+}
+
+.social-link-field.active {
+    display:block;
+}
+
+@keyframes fieldIn {
+
+    from {
+        opacity:0;
+        transform:translateY(-8px);
+    }
+
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =================================
+   FILE
+================================= */
 
 .audio-box {
     margin-bottom:20px;
@@ -852,9 +1110,10 @@ select option {
     line-height:1.6;
 }
 
-/* =========================
-   BUTTON
-========================= */
+
+/* =================================
+   SUBMIT BUTTON
+================================= */
 
 .submit-button {
     width:100%;
@@ -865,9 +1124,9 @@ select option {
 
     border-radius:10px;
 
-    background:white;
+    background:#fff;
 
-    color:black;
+    color:#000;
 
     font-size:9px;
 
@@ -911,12 +1170,13 @@ select option {
 }
 
 .notice strong {
-    color:white;
+    color:#fff;
 }
 
-/* =========================
+
+/* =================================
    SUCCESS
-========================= */
+================================= */
 
 .success-message {
     display:none;
@@ -988,9 +1248,10 @@ select option {
     text-align:center;
 }
 
-/* =========================
+
+/* =================================
    FINAL
-========================= */
+================================= */
 
 .final {
     min-height:80vh;
@@ -1017,7 +1278,12 @@ select option {
 .final h2 {
     max-width:1000px;
 
-    font-size:clamp(60px,9vw,130px);
+    font-size:
+        clamp(
+            60px,
+            9vw,
+            130px
+        );
 
     line-height:.85;
 
@@ -1028,9 +1294,10 @@ select option {
     color:#555;
 }
 
-/* =========================
+
+/* =================================
    FOOTER
-========================= */
+================================= */
 
 footer {
     border-top:1px solid #191919;
@@ -1057,7 +1324,7 @@ footer {
 }
 
 .footer-logo {
-    color:white;
+    color:#fff;
 
     font-size:19px;
 
@@ -1066,9 +1333,10 @@ footer {
     letter-spacing:-.07em;
 }
 
-/* =========================
+
+/* =================================
    REVEAL
-========================= */
+================================= */
 
 .reveal {
     opacity:0;
@@ -1077,7 +1345,8 @@ footer {
 
     transition:
         opacity 1s ease,
-        transform 1s cubic-bezier(.16,1,.3,1);
+        transform 1s
+        cubic-bezier(.16,1,.3,1);
 }
 
 .reveal.visible {
@@ -1086,9 +1355,10 @@ footer {
     transform:translateY(0);
 }
 
-/* =========================
+
+/* =================================
    PARTICLES
-========================= */
+================================= */
 
 .cursor-particle {
     position:fixed;
@@ -1102,7 +1372,8 @@ footer {
 
     z-index:9998;
 
-    background:rgba(255,255,255,.35);
+    background:
+        rgba(255,255,255,.35);
 
     animation:
         particleFade
@@ -1115,20 +1386,24 @@ footer {
 
     0% {
         opacity:.7;
+
         transform:scale(1);
     }
 
     100% {
         opacity:0;
+
         transform:
             scale(0)
             translateY(15px);
     }
+
 }
 
-/* =========================
+
+/* =================================
    MOBILE
-========================= */
+================================= */
 
 @media(max-width:850px) {
 
@@ -1191,6 +1466,10 @@ footer {
         grid-template-columns:1fr;
     }
 
+    .checkbox-list {
+        grid-template-columns:1fr;
+    }
+
     .form {
         padding:20px;
     }
@@ -1202,231 +1481,314 @@ footer {
 
         gap:20px;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- CURSOR -->
 
 <div class="cursor-glow"></div>
 <div class="cursor-dot"></div>
 
+
+<!-- BACKGROUND -->
+
 <div class="background">
+
     <div class="grid"></div>
+
     <div class="glow"></div>
+
 </div>
+
 
 <!-- NAVIGATION -->
 
 <nav class="nav">
 
     <a href="#" class="logo">
+
         FLXNR
-        <span>/ ARTIST</span>
+
+        <span>
+            / ARTIST
+        </span>
+
     </a>
 
+
     <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#creative">Creative</a>
-        <a href="#collab">Collab</a>
-        <a href="#submit">Send Music</a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#creative">
+            Creative
+        </a>
+
+        <a href="#collab">
+            Collab
+        </a>
+
+        <a href="#submit">
+            Send Music
+        </a>
+
     </div>
 
-    <a href="#submit" class="nav-button">
+
+    <a
+        href="#submit"
+        class="nav-button">
+
         Start a collaboration →
+
     </a>
 
 </nav>
+
 
 
 <!-- HERO -->
 
 <header class="hero">
 
-    <div class="hero-inner">
+<div class="hero-inner">
 
-        <div class="hero-top">
 
-            <span>
-                INDEPENDENT ARTIST / PRODUCER
-            </span>
+    <div class="hero-top">
 
-            <span class="online">
-                <i class="dot"></i>
-                OPEN WORLDWIDE
-            </span>
+        <span>
+            INDEPENDENT ARTIST / PRODUCER
+        </span>
 
-        </div>
 
-        <h1 class="hero-title">
-            <span>F</span>
-            <span>L</span>
-            <span>X</span>
-            <span>NR</span>
-        </h1>
+        <span class="online">
 
-        <div class="hero-bottom">
+            <i class="dot"></i>
 
-            <p class="hero-text">
+            OPEN WORLDWIDE
 
-                <strong>
-                    Music is better when you build it together.
-                </strong>
+        </span>
 
-                <br><br>
+    </div>
 
-                I'm FLXNR — an independent artist
-                and producer creating music,
-                experimenting with sounds and
-                connecting with creative people
-                from around the world.
 
-                <br><br>
 
-                Have a track, idea or sound
-                you think we could build on?
+    <h1 class="hero-title">
 
-                <strong>Send it.</strong>
+        <span>F</span>
+        <span>L</span>
+        <span>X</span>
+        <span>NR</span>
 
-            </p>
+    </h1>
 
-            <div class="hero-actions">
 
-                <a href="#submit" class="button button-primary">
-                    Send your music
-                </a>
 
-                <a href="#about" class="button button-dark">
-                    Discover FLXNR
-                </a>
+    <div class="hero-bottom">
 
-            </div>
+
+        <p class="hero-text">
+
+            <strong>
+                Music is better when you build it together.
+            </strong>
+
+            <br><br>
+
+            I'm FLXNR — an independent artist
+            and producer creating music,
+            experimenting with sounds and
+            connecting with creative people
+            from around the world.
+
+            <br><br>
+
+            Have a track, idea or sound
+            you think we could build on?
+
+            <strong>
+                Send it.
+            </strong>
+
+        </p>
+
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#submit"
+                class="button button-primary">
+
+                Send your music
+
+            </a>
+
+
+            <a
+                href="#about"
+                class="button button-dark">
+
+                Discover FLXNR
+
+            </a>
 
         </div>
 
     </div>
 
+</div>
+
 </header>
+
 
 
 <!-- TICKER -->
 
 <div class="ticker">
 
-    <div class="ticker-track">
+<div class="ticker-track">
 
-        FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
-        COLLABORATION ✦ CREATIVE ENERGY ✦
-        NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
+    FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
+    COLLABORATION ✦ CREATIVE ENERGY ✦
+    NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
 
-        FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
-        COLLABORATION ✦ CREATIVE ENERGY ✦
-        NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
-
-    </div>
+    FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
+    COLLABORATION ✦ CREATIVE ENERGY ✦
+    NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
 
 </div>
+
+</div>
+
 
 
 <!-- ABOUT -->
 
 <section id="about">
 
-    <div class="container reveal">
+<div class="container reveal">
 
-        <div class="section-header">
 
-            <div class="label">
-                01 / About
-            </div>
+    <div class="section-header">
 
-            <div class="number">
-                001
-            </div>
+        <div class="label">
+            01 / About
+        </div>
+
+        <div class="number">
+            001
+        </div>
+
+    </div>
+
+
+
+    <div class="about-grid">
+
+
+        <div>
+
+            <h2 class="heading">
+
+                FLXNR is an
+                <span>artist.</span>
+
+            </h2>
 
         </div>
 
-        <div class="about-grid">
-
-            <div>
-
-                <h2 class="heading">
-
-                    FLXNR is an
-                    <span>artist.</span>
-
-                </h2>
-
-            </div>
-
-            <div>
-
-                <p class="about-text">
-
-                    FLXNR is an independent artist
-                    and producer focused on creating
-                    music and exploring different sounds.
-
-                    <br><br>
-
-                    I like working with people who
-                    have their own ideas, their own
-                    sound and something interesting
-                    to bring to a track.
-
-                    <br><br>
-
-                    If you're an artist, producer,
-                    vocalist or another creative person
-                    and you think we could make
-                    something together, I'd love
-                    to hear what you're working on.
-
-                    <br><br>
-
-                    <strong>
-                        Send your music and let's see
-                        what we can create.
-                    </strong>
-
-                </p>
 
 
-                <div class="socials">
+        <div>
 
-                    <a
-                        href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social">
-                        Spotify
-                    </a>
+            <p class="about-text">
 
-                    <a
-                        href="https://www.instagram.com/irasso2/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social">
-                        Instagram
-                    </a>
+                FLXNR is an independent artist
+                and producer focused on creating
+                music and exploring different sounds.
 
-                    <a
-                        href="https://www.tiktok.com/@flixonar_official"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social">
-                        TikTok
-                    </a>
+                <br><br>
 
-                    <a
-                        href="https://www.youtube.com/@flixonar_music"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social">
-                        YouTube
-                    </a>
+                I like working with people who
+                have their own ideas, their own
+                sound and something interesting
+                to bring to a track.
 
-                </div>
+                <br><br>
+
+                If you're an artist, producer,
+                vocalist or another creative person
+                and you think we could make
+                something together, I'd love
+                to hear what you're working on.
+
+                <br><br>
+
+                <strong>
+                    Send your music and let's see
+                    what we can create.
+                </strong>
+
+            </p>
+
+
+
+            <div class="socials">
+
+
+                <a
+                    href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social">
+
+                    Spotify
+
+                </a>
+
+
+                <a
+                    href="https://www.instagram.com/irasso2/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social">
+
+                    Instagram
+
+                </a>
+
+
+                <a
+                    href="https://www.tiktok.com/@flixonar_official"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social">
+
+                    TikTok
+
+                </a>
+
+
+                <a
+                    href="https://www.youtube.com/@flixonar_music"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social">
+
+                    YouTube
+
+                </a>
+
 
             </div>
 
@@ -1434,214 +1796,780 @@ footer {
 
     </div>
 
+</div>
+
 </section>
+
 
 
 <!-- CREATIVE -->
 
 <section id="creative">
 
-    <div class="container reveal">
+<div class="container reveal">
 
-        <div class="section-header">
 
-            <div class="label">
-                02 / Creative
-            </div>
+    <div class="section-header">
 
-            <div class="number">
-                002
-            </div>
-
+        <div class="label">
+            02 / Creative
         </div>
 
-        <h2 class="heading">
-
-            Different people.
-            <span>Different sounds.</span>
-
-        </h2>
-
-
-        <div class="cards">
-
-            <div class="card">
-
-                <div class="card-number">
-                    01
-                </div>
-
-                <h3>
-                    Artists
-                </h3>
-
-                <p>
-                    Work together on a track,
-                    idea or completely new
-                    musical direction.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-number">
-                    02
-                </div>
-
-                <h3>
-                    Producers
-                </h3>
-
-                <p>
-                    Beats, production,
-                    sound design and
-                    unexpected combinations.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-number">
-                    03
-                </div>
-
-                <h3>
-                    Vocalists
-                </h3>
-
-                <p>
-                    Vocals, hooks, melodies
-                    and ideas that can turn
-                    into something bigger.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-number">
-                    04
-                </div>
-
-                <h3>
-                    New ideas
-                </h3>
-
-                <p>
-                    Anything creative that
-                    could become an interesting
-                    musical project.
-                </p>
-
-            </div>
-
+        <div class="number">
+            002
         </div>
 
     </div>
 
+
+    <h2 class="heading">
+
+        Different people.
+        <span>Different sounds.</span>
+
+    </h2>
+
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Artists
+            </h3>
+
+            <p>
+                Work together on a track,
+                idea or completely new
+                musical direction.
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Producers
+            </h3>
+
+            <p>
+                Beats, production,
+                sound design and
+                unexpected combinations.
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Vocalists
+            </h3>
+
+            <p>
+                Vocals, hooks, melodies
+                and ideas that can turn
+                into something bigger.
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="card-number">
+                04
+            </div>
+
+            <h3>
+                New ideas
+            </h3>
+
+            <p>
+                Anything creative that
+                could become an interesting
+                musical project.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
 </section>
 
 
-<!-- COLLABORATION -->
+
+<!-- COLLAB -->
 
 <section id="collab" class="collab">
 
-    <div class="container reveal">
+<div class="container reveal">
 
-        <div class="section-header">
 
-            <div class="label">
-                03 / Collaboration
-            </div>
+    <div class="section-header">
 
-            <div class="number">
-                003
-            </div>
-
+        <div class="label">
+            03 / Collaboration
         </div>
 
-        <h2 class="heading">
-
-            Bring your sound.
-            <span>I'll bring mine.</span>
-
-        </h2>
-
-        <p class="collab-intro">
-
-            Maybe you already have a finished
-            track.
-
-            Maybe you have a beat.
-
-            Maybe you have a vocal.
-
-            Maybe you only have an idea.
-
-            <br><br>
-
-            <strong>
-                It doesn't have to be perfect.
-            </strong>
-
-            Send me what you've got and
-            tell me what you're thinking.
-
-        </p>
+        <div class="number">
+            003
+        </div>
 
     </div>
+
+
+    <h2 class="heading">
+
+        Bring your sound.
+        <span>I'll bring mine.</span>
+
+    </h2>
+
+
+    <p class="collab-intro">
+
+        Maybe you already have a finished
+        track.
+
+        Maybe you have a beat.
+
+        Maybe you have a vocal.
+
+        Maybe you only have an idea.
+
+        <br><br>
+
+        <strong>
+            It doesn't have to be perfect.
+        </strong>
+
+        Send me what you've got and
+        tell me what you're thinking.
+
+    </p>
+
+</div>
 
 </section>
 
 
-<!-- SEND MUSIC -->
+
+<!-- SUBMIT -->
 
 <section id="submit">
 
-    <div class="container reveal">
+<div class="container reveal">
 
-        <div class="section-header">
 
-            <div class="label">
-                04 / Send Music
-            </div>
+    <div class="section-header">
 
-            <div class="number">
-                004
-            </div>
+        <div class="label">
+            04 / Send Music
+        </div>
+
+        <div class="number">
+            004
+        </div>
+
+    </div>
+
+
+
+    <div class="submit-layout">
+
+
+        <!-- LEFT -->
+
+        <div class="submit-title">
+
+            <h2>
+
+                Let's make
+                something
+                <span>together.</span>
+
+            </h2>
+
+
+            <p>
+
+                Tell me who you are,
+                what you create and
+                what you want to build.
+
+                <br><br>
+
+                I'll check out your music
+                and if I feel the connection,
+                we can talk.
+
+                <br><br>
+
+                <strong>
+                    Please allow 1–3 weeks
+                    for a response.
+                </strong>
+
+            </p>
 
         </div>
 
 
-        <div class="submit-layout">
+
+        <!-- FORM -->
+
+        <div class="form">
 
 
-            <div class="submit-title">
+            <form
+                id="demoForm"
+                action="https://formly.email/submit"
+                method="POST"
+                enctype="multipart/form-data"
+            >
 
-                <h2>
 
-                    Let's make
-                    something
-                    <span>together.</span>
+                <!-- FORMLY -->
 
-                </h2>
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="66765f2ac38a459f92e4efcba6e6fdac"
+                >
+
+                <input
+                    type="hidden"
+                    name="subject"
+                    value="FLXNR — New Music Collaboration"
+                >
+
+                <input
+                    type="hidden"
+                    name="from_name"
+                    value="FLXNR Website"
+                >
+
+
+
+                <!-- HONEYPOT -->
+
+                <div style="display:none;">
+
+                    <input
+                        type="text"
+                        name="website"
+                        tabindex="-1"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+
+                <div class="form-top">
+
+                    <h3>
+                        COLLABORATION
+                    </h3>
+
+                    <span>
+                        FLXNR / 001
+                    </span>
+
+                </div>
+
+
+
+                <!-- NAME -->
+
+                <div class="form-row">
+
+
+                    <div class="field">
+
+                        <label>
+                            Real name *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Real Name"
+                            placeholder="Your real name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="field">
+
+                        <label>
+                            Artist name *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Artist Name"
+                            placeholder="Your artist name"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="field">
+
+                    <label>
+                        Email address *
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="your@email.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- TRACK -->
+
+                <div class="field">
+
+                    <label>
+                        Track title *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Track Name"
+                        placeholder="Track name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- SOCIAL SELECTION -->
+
+                <div class="social-selection">
+
+
+                    <div class="social-selection-title">
+
+                        Your social profiles
+
+                    </div>
+
+
+                    <div class="checkbox-list">
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                id="spotifyCheck"
+                                name="Social Platforms"
+                                value="Spotify"
+                            >
+
+                            <span class="checkbox-custom"></span>
+
+                            Spotify
+
+                        </label>
+
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                id="instagramCheck"
+                                name="Social Platforms"
+                                value="Instagram"
+                            >
+
+                            <span class="checkbox-custom"></span>
+
+                            Instagram
+
+                        </label>
+
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                id="tiktokCheck"
+                                name="Social Platforms"
+                                value="TikTok"
+                            >
+
+                            <span class="checkbox-custom"></span>
+
+                            TikTok
+
+                        </label>
+
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                id="youtubeCheck"
+                                name="Social Platforms"
+                                value="YouTube"
+                            >
+
+                            <span class="checkbox-custom"></span>
+
+                            YouTube
+
+                        </label>
+
+
+
+                        <label
+                            class="checkbox-option"
+                            style="grid-column:1/-1;">
+
+                            <input
+                                type="checkbox"
+                                id="noSocialCheck"
+                                name="Social Platforms"
+                                value="No social media"
+                            >
+
+                            <span class="checkbox-custom"></span>
+
+                            I don't have social media yet
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SPOTIFY -->
+
+                <div
+                    class="field social-link-field"
+                    id="spotifyField">
+
+                    <label>
+                        Spotify profile link *
+                    </label>
+
+                    <input
+                        type="url"
+                        id="spotifyInput"
+                        name="Spotify Profile Link"
+                        placeholder="https://open.spotify.com/artist/..."
+                    >
+
+                </div>
+
+
+
+                <!-- INSTAGRAM -->
+
+                <div
+                    class="field social-link-field"
+                    id="instagramField">
+
+                    <label>
+                        Instagram profile link *
+                    </label>
+
+                    <input
+                        type="url"
+                        id="instagramInput"
+                        name="Instagram Profile Link"
+                        placeholder="https://instagram.com/..."
+                    >
+
+                </div>
+
+
+
+                <!-- TIKTOK -->
+
+                <div
+                    class="field social-link-field"
+                    id="tiktokField">
+
+                    <label>
+                        TikTok profile link *
+                    </label>
+
+                    <input
+                        type="url"
+                        id="tiktokInput"
+                        name="TikTok Profile Link"
+                        placeholder="https://tiktok.com/@..."
+                    >
+
+                </div>
+
+
+
+                <!-- YOUTUBE -->
+
+                <div
+                    class="field social-link-field"
+                    id="youtubeField">
+
+                    <label>
+                        YouTube channel link *
+                    </label>
+
+                    <input
+                        type="url"
+                        id="youtubeInput"
+                        name="YouTube Channel Link"
+                        placeholder="https://youtube.com/@..."
+                    >
+
+                </div>
+
+
+
+                <!-- GENRE -->
+
+                <div class="field">
+
+                    <label>
+                        Genre
+                    </label>
+
+                    <select name="Genre">
+
+                        <option value="">
+                            Select your genre
+                        </option>
+
+                        <option>Pop</option>
+                        <option>Hip-Hop</option>
+                        <option>Rap</option>
+                        <option>R&B</option>
+                        <option>Rock</option>
+                        <option>Alternative Rock</option>
+                        <option>Indie</option>
+                        <option>Indie Rock</option>
+                        <option>Metal</option>
+                        <option>Heavy Metal</option>
+                        <option>Punk</option>
+                        <option>Pop Punk</option>
+                        <option>Electronic</option>
+                        <option>EDM</option>
+                        <option>House</option>
+                        <option>Tech House</option>
+                        <option>Techno</option>
+                        <option>Trance</option>
+                        <option>Drum & Bass</option>
+                        <option>Dubstep</option>
+                        <option>Garage</option>
+                        <option>Ambient</option>
+                        <option>Lo-fi</option>
+                        <option>Phonk</option>
+                        <option>Brazilian Funk</option>
+                        <option>Afrobeats</option>
+                        <option>Reggae</option>
+                        <option>Dancehall</option>
+                        <option>Reggaeton</option>
+                        <option>Latin</option>
+                        <option>Jazz</option>
+                        <option>Blues</option>
+                        <option>Country</option>
+                        <option>Folk</option>
+                        <option>Classical</option>
+                        <option>Soundtrack</option>
+                        <option>Hyperpop</option>
+                        <option>Hardstyle</option>
+                        <option>Hardcore</option>
+                        <option>Breakbeat</option>
+                        <option>Experimental</option>
+                        <option>Trap</option>
+                        <option>Drill</option>
+                        <option>Jersey Club</option>
+                        <option>Afro House</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- ABOUT ARTIST -->
+
+                <div class="field">
+
+                    <label>
+                        About you *
+                    </label>
+
+                    <textarea
+                        name="About Artist"
+                        placeholder="Tell me about yourself, your music and what you create..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- ABOUT TRACK -->
+
+                <div class="field">
+
+                    <label>
+                        About the track *
+                    </label>
+
+                    <textarea
+                        name="About Track"
+                        placeholder="Tell me about the track and what you would like to create together..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- MP3 -->
+
+                <div class="audio-box">
+
+                    <label>
+                        Upload your MP3 *
+                    </label>
+
+                    <input
+                        id="audioFile"
+                        type="file"
+                        name="audio"
+                        accept=".mp3,audio/mpeg"
+                        required
+                    >
+
+                    <div class="file-info">
+
+                        MP3 only · Maximum 10 MB
+                        · One file per submission
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ERROR -->
+
+                <div
+                    class="error-message"
+                    id="errorMessage">
+                </div>
+
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton">
+
+                    SEND DEMO →
+
+                </button>
+
+
+
+                <div class="notice">
+
+                    <strong>
+                        Response time: 1–3 weeks
+                    </strong>
+
+                    <br>
+
+                    After sending your demo,
+                    please allow approximately
+                    1–3 weeks for a response.
+
+                </div>
+
+
+            </form>
+
+
+
+            <!-- SUCCESS -->
+
+            <div
+                class="success-message"
+                id="successMessage">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    DEMO SENT.
+                </h3>
 
                 <p>
 
-                    Tell me who you are,
-                    what you create and
-                    what you want to build.
+                    Your music has been sent
+                    successfully.
 
                     <br><br>
 
-                    I'll check out your music
-                    and if I feel the connection,
-                    we can talk.
+                    Thanks for reaching out.
+                    I'll check it out and if I
+                    feel there's a creative
+                    connection, I'll contact you.
 
                     <br><br>
 
@@ -1655,508 +2583,130 @@ footer {
             </div>
 
 
-            <div class="form">
-
-
-                <form
-                    id="demoForm"
-                    action="https://formly.email/submit"
-                    method="POST"
-                    enctype="multipart/form-data"
-                >
-
-                    <!-- FORMLY -->
-
-                    <input
-                        type="hidden"
-                        name="access_key"
-                        value="66765f2ac38a459f92e4efcba6e6fdac"
-                    >
-
-                    <input
-                        type="hidden"
-                        name="subject"
-                        value="FLXNR — New Music Collaboration"
-                    >
-
-                    <input
-                        type="hidden"
-                        name="from_name"
-                        value="FLXNR Website"
-                    >
-
-
-                    <!-- HONEYPOT -->
-
-                    <div style="display:none;">
-                        <input
-                            type="text"
-                            name="website"
-                            tabindex="-1"
-                            autocomplete="off"
-                        >
-                    </div>
-
-
-                    <div class="form-top">
-
-                        <h3>
-                            COLLABORATION
-                        </h3>
-
-                        <span>
-                            FLXNR / 001
-                        </span>
-
-                    </div>
-
-
-                    <!-- REAL NAME -->
-
-                    <div class="form-row">
-
-                        <div class="field">
-
-                            <label>
-                                Real name *
-                            </label>
-
-                            <input
-                                type="text"
-                                name="Real Name"
-                                placeholder="Your real name"
-                                required
-                            >
-
-                        </div>
-
-
-                        <!-- ARTIST NAME -->
-
-                        <div class="field">
-
-                            <label>
-                                Artist name *
-                            </label>
-
-                            <input
-                                type="text"
-                                name="Artist Name"
-                                placeholder="Your artist name"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- EMAIL -->
-
-                    <div class="field">
-
-                        <label>
-                            Email address *
-                        </label>
-
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="your@email.com"
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- TRACK -->
-
-                    <div class="field">
-
-                        <label>
-                            Track title *
-                        </label>
-
-                        <input
-                            type="text"
-                            name="Track Name"
-                            placeholder="Track name"
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- SPOTIFY -->
-
-                    <div class="field">
-
-                        <label>
-                            Spotify profile link *
-                        </label>
-
-                        <input
-                            type="url"
-                            name="Spotify Profile Link"
-                            placeholder="https://open.spotify.com/artist/..."
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- INSTAGRAM -->
-
-                    <div class="field">
-
-                        <label>
-                            Instagram profile link *
-                        </label>
-
-                        <input
-                            type="url"
-                            name="Instagram Profile Link"
-                            placeholder="https://instagram.com/..."
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- TIKTOK -->
-
-                    <div class="field">
-
-                        <label>
-                            TikTok profile link *
-                        </label>
-
-                        <input
-                            type="url"
-                            name="TikTok Profile Link"
-                            placeholder="https://tiktok.com/@..."
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- YOUTUBE -->
-
-                    <div class="field">
-
-                        <label>
-                            YouTube channel link *
-                        </label>
-
-                        <input
-                            type="url"
-                            name="YouTube Channel Link"
-                            placeholder="https://youtube.com/@..."
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- GENRE -->
-
-                    <div class="field">
-
-                        <label>
-                            Genre
-                        </label>
-
-                        <select name="Genre">
-
-                            <option value="">
-                                Select your genre
-                            </option>
-
-                            <option>Pop</option>
-                            <option>Hip-Hop</option>
-                            <option>Rap</option>
-                            <option>R&B</option>
-                            <option>Rock</option>
-                            <option>Alternative Rock</option>
-                            <option>Indie</option>
-                            <option>Indie Rock</option>
-                            <option>Metal</option>
-                            <option>Heavy Metal</option>
-                            <option>Punk</option>
-                            <option>Pop Punk</option>
-                            <option>Electronic</option>
-                            <option>EDM</option>
-                            <option>House</option>
-                            <option>Tech House</option>
-                            <option>Techno</option>
-                            <option>Trance</option>
-                            <option>Drum & Bass</option>
-                            <option>Dubstep</option>
-                            <option>Garage</option>
-                            <option>Ambient</option>
-                            <option>Lo-fi</option>
-                            <option>Phonk</option>
-                            <option>Brazilian Funk</option>
-                            <option>Afrobeats</option>
-                            <option>Reggae</option>
-                            <option>Dancehall</option>
-                            <option>Reggaeton</option>
-                            <option>Latin</option>
-                            <option>Jazz</option>
-                            <option>Blues</option>
-                            <option>Country</option>
-                            <option>Folk</option>
-                            <option>Classical</option>
-                            <option>Soundtrack</option>
-                            <option>Hyperpop</option>
-                            <option>Hardstyle</option>
-                            <option>Hardcore</option>
-                            <option>Breakbeat</option>
-                            <option>Experimental</option>
-                            <option>Trap</option>
-                            <option>Drill</option>
-                            <option>Jersey Club</option>
-                            <option>Afro House</option>
-                            <option>Other</option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- ABOUT YOU -->
-
-                    <div class="field">
-
-                        <label>
-                            About you *
-                        </label>
-
-                        <textarea
-                            name="About Artist"
-                            placeholder="Tell me about yourself, your music and what you create..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <!-- ABOUT TRACK -->
-
-                    <div class="field">
-
-                        <label>
-                            About the track *
-                        </label>
-
-                        <textarea
-                            name="About Track"
-                            placeholder="Tell me about the track and what you would like to create together..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <!-- MP3 -->
-
-                    <div class="audio-box">
-
-                        <label>
-                            Upload your MP3 *
-                        </label>
-
-                        <input
-                            id="audioFile"
-                            type="file"
-                            name="audio"
-                            accept=".mp3,audio/mpeg"
-                            required
-                        >
-
-                        <div class="file-info">
-                            MP3 only · Maximum 10 MB · One file per submission
-                        </div>
-
-                    </div>
-
-
-                    <!-- ERROR -->
-
-                    <div
-                        class="error-message"
-                        id="errorMessage">
-                    </div>
-
-
-                    <!-- SUBMIT -->
-
-                    <button
-                        type="submit"
-                        class="submit-button"
-                        id="submitButton">
-
-                        SEND DEMO →
-
-                    </button>
-
-
-                    <div class="notice">
-
-                        <strong>
-                            Response time: 1–3 weeks
-                        </strong>
-
-                        <br>
-
-                        After sending your demo,
-                        please allow approximately
-                        1–3 weeks for a response.
-
-                    </div>
-
-                </form>
-
-
-                <!-- SUCCESS -->
-
-                <div
-                    class="success-message"
-                    id="successMessage">
-
-                    <div class="success-icon">
-                        ✓
-                    </div>
-
-                    <h3>
-                        DEMO SENT.
-                    </h3>
-
-                    <p>
-
-                        Your music has been sent
-                        successfully.
-
-                        <br><br>
-
-                        Thanks for reaching out.
-                        I'll check it out and if I
-                        feel there's a creative
-                        connection, I'll contact you.
-
-                        <br><br>
-
-                        <strong>
-                            Please allow 1–3 weeks
-                            for a response.
-                        </strong>
-
-                    </p>
-
-                </div>
-
-            </div>
-
         </div>
 
     </div>
 
+</div>
+
 </section>
+
 
 
 <!-- FINAL -->
 
 <section class="final">
 
-    <div class="container reveal">
-
-        <div class="final-small">
-            FLXNR / MUSIC / WORLDWIDE
-        </div>
-
-        <h2>
-
-            Your sound.
-            My sound.
-            <span>One track.</span>
-
-        </h2>
+<div class="container reveal">
 
 
-        <div class="socials">
+    <div class="final-small">
+        FLXNR / MUSIC / WORLDWIDE
+    </div>
 
-            <a
-                href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social">
-                Spotify
-            </a>
 
-            <a
-                href="https://www.instagram.com/irasso2/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social">
-                Instagram
-            </a>
+    <h2>
 
-            <a
-                href="https://www.tiktok.com/@flixonar_official"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social">
-                TikTok
-            </a>
+        Your sound.
+        My sound.
+        <span>One track.</span>
 
-            <a
-                href="https://www.youtube.com/@flixonar_music"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social">
-                YouTube
-            </a>
+    </h2>
 
-        </div>
+
+    <div class="socials">
+
+
+        <a
+            href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social">
+
+            Spotify
+
+        </a>
+
+
+        <a
+            href="https://www.instagram.com/irasso2/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social">
+
+            Instagram
+
+        </a>
+
+
+        <a
+            href="https://www.tiktok.com/@flixonar_official"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social">
+
+            TikTok
+
+        </a>
+
+
+        <a
+            href="https://www.youtube.com/@flixonar_music"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social">
+
+            YouTube
+
+        </a>
+
 
     </div>
 
+</div>
+
 </section>
+
 
 
 <!-- FOOTER -->
 
 <footer>
 
-    <div class="container">
+<div class="container">
 
-        <div class="footer">
+<div class="footer">
 
-            <div class="footer-logo">
-                FLXNR
-            </div>
 
-            <div>
-                Independent artist / producer
-            </div>
-
-            <div>
-                © 2026 FLXNR
-            </div>
-
-        </div>
-
+    <div class="footer-logo">
+        FLXNR
     </div>
+
+
+    <div>
+        Independent artist / producer
+    </div>
+
+
+    <div>
+        © 2026 FLXNR
+    </div>
+
+
+</div>
+
+</div>
 
 </footer>
 
 
+
 <script>
 
-/* =========================
+
+/* =================================
    SCROLL REVEAL
-========================= */
+================================= */
 
 const observer =
     new IntersectionObserver(
@@ -2190,15 +2740,21 @@ document
     });
 
 
-/* =========================
+
+/* =================================
    CURSOR
-========================= */
+================================= */
 
 const cursorGlow =
-    document.querySelector(".cursor-glow");
+    document.querySelector(
+        ".cursor-glow"
+    );
 
 const cursorDot =
-    document.querySelector(".cursor-dot");
+    document.querySelector(
+        ".cursor-dot"
+    );
+
 
 let mouseX =
     window.innerWidth / 2;
@@ -2214,8 +2770,11 @@ window.addEventListener(
     "mousemove",
     event => {
 
-        mouseX = event.clientX;
-        mouseY = event.clientY;
+        mouseX =
+            event.clientX;
+
+        mouseY =
+            event.clientY;
 
         cursorDot.style.left =
             mouseX + "px";
@@ -2223,9 +2782,11 @@ window.addEventListener(
         cursorDot.style.top =
             mouseY + "px";
 
-        cursorGlow.style.opacity = "1";
+        cursorGlow.style.opacity =
+            "1";
 
-        cursorDot.style.opacity = "1";
+        cursorDot.style.opacity =
+            "1";
 
     }
 );
@@ -2254,9 +2815,10 @@ function animateCursor() {
 animateCursor();
 
 
-/* =========================
+
+/* =================================
    CURSOR HOVER
-========================= */
+================================= */
 
 document
     .querySelectorAll(
@@ -2275,6 +2837,7 @@ document
             }
         );
 
+
         element.addEventListener(
             "mouseleave",
             () => {
@@ -2289,30 +2852,41 @@ document
     });
 
 
-/* =========================
-   CURSOR PARTICLES
-========================= */
+
+/* =================================
+   PARTICLES
+================================= */
 
 let lastParticle = 0;
+
 
 window.addEventListener(
     "mousemove",
     event => {
 
-        const now = Date.now();
+        const now =
+            Date.now();
 
-        if(now - lastParticle < 35) {
+        if(
+            now - lastParticle < 35
+        ) {
             return;
         }
 
         lastParticle = now;
 
-        if(window.innerWidth <= 850) {
+
+        if(
+            window.innerWidth <= 850
+        ) {
             return;
         }
 
+
         const particle =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         particle.className =
             "cursor-particle";
@@ -2323,13 +2897,17 @@ window.addEventListener(
         particle.style.top =
             event.clientY + "px";
 
+
         document.body.appendChild(
             particle
         );
 
+
         setTimeout(
             () => {
+
                 particle.remove();
+
             },
             700
         );
@@ -2338,31 +2916,272 @@ window.addEventListener(
 );
 
 
-/* =========================
+
+/* =================================
+   SOCIAL SYSTEM
+================================= */
+
+const spotifyCheck =
+    document.getElementById(
+        "spotifyCheck"
+    );
+
+const instagramCheck =
+    document.getElementById(
+        "instagramCheck"
+    );
+
+const tiktokCheck =
+    document.getElementById(
+        "tiktokCheck"
+    );
+
+const youtubeCheck =
+    document.getElementById(
+        "youtubeCheck"
+    );
+
+const noSocialCheck =
+    document.getElementById(
+        "noSocialCheck"
+    );
+
+
+const spotifyField =
+    document.getElementById(
+        "spotifyField"
+    );
+
+const instagramField =
+    document.getElementById(
+        "instagramField"
+    );
+
+const tiktokField =
+    document.getElementById(
+        "tiktokField"
+    );
+
+const youtubeField =
+    document.getElementById(
+        "youtubeField"
+    );
+
+
+const spotifyInput =
+    document.getElementById(
+        "spotifyInput"
+    );
+
+const instagramInput =
+    document.getElementById(
+        "instagramInput"
+    );
+
+const tiktokInput =
+    document.getElementById(
+        "tiktokInput"
+    );
+
+const youtubeInput =
+    document.getElementById(
+        "youtubeInput"
+    );
+
+
+function updateSocialFields() {
+
+
+    /* NO SOCIAL MEDIA */
+
+    if(noSocialCheck.checked) {
+
+        spotifyCheck.checked = false;
+        instagramCheck.checked = false;
+        tiktokCheck.checked = false;
+        youtubeCheck.checked = false;
+
+    }
+
+
+    /* IF ANY SOCIAL SELECTED */
+
+    if(
+        spotifyCheck.checked ||
+        instagramCheck.checked ||
+        tiktokCheck.checked ||
+        youtubeCheck.checked
+    ) {
+
+        noSocialCheck.checked = false;
+
+    }
+
+
+    /* SPOTIFY */
+
+    if(spotifyCheck.checked) {
+
+        spotifyField.classList.add(
+            "active"
+        );
+
+        spotifyInput.required = true;
+
+    } else {
+
+        spotifyField.classList.remove(
+            "active"
+        );
+
+        spotifyInput.required = false;
+
+        spotifyInput.value = "";
+
+    }
+
+
+    /* INSTAGRAM */
+
+    if(instagramCheck.checked) {
+
+        instagramField.classList.add(
+            "active"
+        );
+
+        instagramInput.required = true;
+
+    } else {
+
+        instagramField.classList.remove(
+            "active"
+        );
+
+        instagramInput.required = false;
+
+        instagramInput.value = "";
+
+    }
+
+
+    /* TIKTOK */
+
+    if(tiktokCheck.checked) {
+
+        tiktokField.classList.add(
+            "active"
+        );
+
+        tiktokInput.required = true;
+
+    } else {
+
+        tiktokField.classList.remove(
+            "active"
+        );
+
+        tiktokInput.required = false;
+
+        tiktokInput.value = "";
+
+    }
+
+
+    /* YOUTUBE */
+
+    if(youtubeCheck.checked) {
+
+        youtubeField.classList.add(
+            "active"
+        );
+
+        youtubeInput.required = true;
+
+    } else {
+
+        youtubeField.classList.remove(
+            "active"
+        );
+
+        youtubeInput.required = false;
+
+        youtubeInput.value = "";
+
+    }
+
+}
+
+
+spotifyCheck.addEventListener(
+    "change",
+    updateSocialFields
+);
+
+instagramCheck.addEventListener(
+    "change",
+    updateSocialFields
+);
+
+tiktokCheck.addEventListener(
+    "change",
+    updateSocialFields
+);
+
+youtubeCheck.addEventListener(
+    "change",
+    updateSocialFields
+);
+
+noSocialCheck.addEventListener(
+    "change",
+    updateSocialFields
+);
+
+
+/* INITIAL */
+
+updateSocialFields();
+
+
+
+/* =================================
    FORM
-========================= */
+================================= */
 
 const demoForm =
-    document.getElementById("demoForm");
+    document.getElementById(
+        "demoForm"
+    );
 
 const successMessage =
-    document.getElementById("successMessage");
+    document.getElementById(
+        "successMessage"
+    );
 
 const submitButton =
-    document.getElementById("submitButton");
+    document.getElementById(
+        "submitButton"
+    );
 
 const errorMessage =
-    document.getElementById("errorMessage");
+    document.getElementById(
+        "errorMessage"
+    );
 
 const audioFile =
-    document.getElementById("audioFile");
+    document.getElementById(
+        "audioFile"
+    );
+
 
 
 demoForm.addEventListener(
     "submit",
     async function(event) {
 
+
         event.preventDefault();
+
 
         errorMessage.style.display =
             "none";
@@ -2371,9 +3190,41 @@ demoForm.addEventListener(
             "";
 
 
-        /* FILE REQUIRED */
 
-        if(audioFile.files.length === 0) {
+        /* SOCIAL VALIDATION */
+
+        const selectedSocials =
+            spotifyCheck.checked ||
+            instagramCheck.checked ||
+            tiktokCheck.checked ||
+            youtubeCheck.checked;
+
+        const noSocial =
+            noSocialCheck.checked;
+
+
+        if(
+            !selectedSocials &&
+            !noSocial
+        ) {
+
+            errorMessage.textContent =
+                "Please select at least one social profile, or select \"I don't have social media yet\".";
+
+            errorMessage.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+
+        /* FILE */
+
+        if(
+            audioFile.files.length === 0
+        ) {
 
             errorMessage.textContent =
                 "Please select an MP3 file.";
@@ -2382,6 +3233,7 @@ demoForm.addEventListener(
                 "block";
 
             return;
+
         }
 
 
@@ -2389,11 +3241,13 @@ demoForm.addEventListener(
             audioFile.files[0];
 
 
-        /* ONLY MP3 */
+        /* MP3 ONLY */
 
         const isMP3 =
             file.type === "audio/mpeg" ||
-            file.name.toLowerCase().endsWith(".mp3");
+            file.name
+                .toLowerCase()
+                .endsWith(".mp3");
 
 
         if(!isMP3) {
@@ -2405,7 +3259,9 @@ demoForm.addEventListener(
                 "block";
 
             return;
+
         }
+
 
 
         /* MAX 10 MB */
@@ -2414,7 +3270,9 @@ demoForm.addEventListener(
             10 * 1024 * 1024;
 
 
-        if(file.size > maxSize) {
+        if(
+            file.size > maxSize
+        ) {
 
             errorMessage.textContent =
                 "Your MP3 file is larger than 10 MB. Please choose a smaller file.";
@@ -2423,7 +3281,9 @@ demoForm.addEventListener(
                 "block";
 
             return;
+
         }
+
 
 
         /* SEND */
@@ -2436,10 +3296,13 @@ demoForm.addEventListener(
 
 
         const formData =
-            new FormData(demoForm);
+            new FormData(
+                demoForm
+            );
 
 
         try {
+
 
             const response =
                 await fetch(
@@ -2461,10 +3324,15 @@ demoForm.addEventListener(
                 await response.json();
 
 
-            if(response.ok && result.success) {
+            if(
+                response.ok &&
+                result.success
+            ) {
+
 
                 demoForm.style.display =
                     "none";
+
 
                 successMessage.classList.add(
                     "active"
@@ -2486,9 +3354,8 @@ demoForm.addEventListener(
 
                 });
 
-            }
 
-            else {
+            } else {
 
                 throw new Error(
                     result.message ||
@@ -2497,20 +3364,24 @@ demoForm.addEventListener(
 
             }
 
-        }
 
-        catch(error) {
+        } catch(error) {
+
 
             console.error(error);
+
 
             submitButton.disabled =
                 false;
 
+
             submitButton.textContent =
                 "SEND DEMO →";
 
+
             errorMessage.textContent =
                 "Something went wrong while sending your demo. Please try again.";
+
 
             errorMessage.style.display =
                 "block";
