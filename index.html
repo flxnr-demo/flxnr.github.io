@@ -1,40 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FLXNR — Artist / Producer</title>
-
-<meta
-    name="description"
-    content="FLXNR — independent artist and producer open to creative collaborations worldwide."
->
+<meta name="description" content="FLXNR — independent artist and producer.">
 
 <link rel="icon" type="image/png" href="favicon.png">
 
-<script>
-/* NEVER restore previous scroll position */
-if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-}
-</script>
-
 <style>
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -44,13 +28,9 @@ html {
 
 body {
     background: #050505;
-    color: #f5f5f5;
-    font-family: Inter, Arial, sans-serif;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
-}
-
-body.loading {
-    overflow: hidden;
 }
 
 a {
@@ -65,106 +45,16 @@ select {
     font-family: inherit;
 }
 
-::selection {
-    background: #fff;
-    color: #000;
-}
 
-
-/* =========================================================
-   CURSOR
-========================================================= */
-
-.cursor-glow {
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    width: 180px;
-    height: 180px;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 9999;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.13),
-            rgba(255,255,255,.04) 35%,
-            transparent 72%
-        );
-
-    filter: blur(8px);
-
-    opacity: 0;
-
-    transition:
-        width .25s ease,
-        height .25s ease;
-}
-
-.cursor-dot {
-    position: fixed;
-
-    width: 5px;
-    height: 5px;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: 10000;
-
-    transform:
-        translate(-50%, -50%);
-
-    background: white;
-
-    box-shadow:
-        0 0 10px rgba(255,255,255,.9),
-        0 0 25px rgba(255,255,255,.4);
-
-    opacity: 0;
-}
-
-body.cursor-hover .cursor-glow {
-    width: 260px;
-    height: 260px;
-}
-
-@media (min-width: 851px) {
-
-    body {
-        cursor: none;
-    }
-
-    a,
-    button,
-    input,
-    textarea,
-    select {
-        cursor: none;
-    }
-}
-
-
-/* =========================================================
+/* =====================================================
    BACKGROUND
-========================================================= */
+===================================================== */
 
 .background {
     position: fixed;
     inset: 0;
-
-    pointer-events: none;
-
     z-index: -10;
-
+    pointer-events: none;
     overflow: hidden;
 }
 
@@ -174,38 +64,31 @@ body.cursor-hover .cursor-glow {
 
     background-image:
         linear-gradient(
-            rgba(255,255,255,.035) 1px,
+            rgba(255,255,255,.025) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(255,255,255,.035) 1px,
+            rgba(255,255,255,.025) 1px,
             transparent 1px
         );
 
     background-size: 80px 80px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-        );
 }
 
-.glow {
+.bg-glow {
     position: absolute;
 
-    width: 900px;
-    height: 900px;
+    width: 800px;
+    height: 800px;
 
     right: -300px;
-    top: -400px;
+    top: -300px;
 
     background:
         radial-gradient(
             circle,
-            rgba(100,100,255,.14),
+            rgba(255,255,255,.08),
             transparent 65%
         );
 
@@ -213,9 +96,9 @@ body.cursor-hover .cursor-glow {
 }
 
 
-/* =========================================================
+/* =====================================================
    NAV
-========================================================= */
+===================================================== */
 
 .nav {
     position: fixed;
@@ -224,168 +107,131 @@ body.cursor-hover .cursor-glow {
     left: 0;
     right: 0;
 
-    height: 78px;
+    height: 75px;
 
     padding: 0 35px;
 
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
-    z-index: 100;
+    z-index: 1000;
 
-    background:
-        rgba(5,5,5,.65);
+    background: rgba(5,5,5,.72);
 
     backdrop-filter: blur(20px);
 
     border-bottom:
-        1px solid rgba(255,255,255,.05);
+        1px solid rgba(255,255,255,.06);
 }
 
 .logo {
-    font-size: 23px;
-
+    font-size: 24px;
     font-weight: 900;
-
     letter-spacing: -.08em;
 }
 
 .logo span {
     color: #555;
-
     font-size: 9px;
-
     letter-spacing: .2em;
-
     margin-left: 7px;
 }
 
 .nav-links {
     display: flex;
-
-    gap: 35px;
+    gap: 32px;
 }
 
 .nav-links a {
     color: #666;
-
     font-size: 9px;
-
     font-weight: 800;
-
     letter-spacing: .18em;
-
     text-transform: uppercase;
-
     transition: .25s;
 }
 
 .nav-links a:hover {
-    color: #fff;
+    color: white;
 }
 
 .nav-button {
-    border:
-        1px solid #303035;
-
+    border: 1px solid #333;
     border-radius: 100px;
-
     padding: 11px 17px;
 
     font-size: 9px;
-
     font-weight: 800;
-
     letter-spacing: .15em;
-
     text-transform: uppercase;
 
-    transition: .25s;
+    transition: .3s;
 }
 
 .nav-button:hover {
-    background: #fff;
-    color: #000;
+    background: white;
+    color: black;
 }
 
 
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero {
     min-height: 100vh;
 
     display: flex;
-
     align-items: center;
 
-    padding-top: 90px;
+    padding-top: 80px;
 }
 
 .hero-inner {
-    width:
-        min(
-            1250px,
-            calc(100% - 50px)
-        );
-
+    width: min(1250px, calc(100% - 50px));
     margin: auto;
 }
 
-.hero-top {
+.hero-info {
     display: flex;
-
     justify-content: space-between;
-
-    margin-bottom: 35px;
 
     color: #555;
 
     font-size: 9px;
-
     font-weight: 800;
-
     letter-spacing: .2em;
 }
 
 .online {
     display: flex;
-
     align-items: center;
-
-    gap: 9px;
+    gap: 8px;
 }
 
-.dot {
+.online-dot {
     width: 6px;
     height: 6px;
 
     border-radius: 50%;
 
-    background: #71ff9a;
+    background: #72ff9c;
 
     box-shadow:
-        0 0 15px #71ff9a;
+        0 0 15px #72ff9c;
 }
 
 .hero-title {
-    font-size:
-        clamp(
-            90px,
-            17vw,
-            245px
-        );
+    margin-top: 45px;
+
+    font-size: clamp(100px, 18vw, 250px);
 
     line-height: .72;
 
+    letter-spacing: -.13em;
+
     font-weight: 900;
-
-    letter-spacing: -.12em;
-
-    margin-left: -.06em;
 
     white-space: nowrap;
 }
@@ -393,16 +239,11 @@ body.cursor-hover .cursor-glow {
 .hero-title span {
     display: inline-block;
 
-    opacity: 0;
-
-    transform:
-        translateY(80px);
-
     animation:
         heroIn
         1s
         cubic-bezier(.16,1,.3,1)
-        forwards;
+        both;
 }
 
 .hero-title span:nth-child(1) {
@@ -423,47 +264,45 @@ body.cursor-hover .cursor-glow {
 
 @keyframes heroIn {
 
+    from {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+
     to {
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
 }
 
 .hero-bottom {
-    margin-top: 70px;
+    margin-top: 75px;
 
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    gap: 60px;
+    gap: 70px;
 
-    max-width: 900px;
+    max-width: 950px;
 }
 
-.hero-text {
+.hero-description {
     color: #777;
 
     font-size: 14px;
 
-    line-height: 1.85;
+    line-height: 1.9;
 }
 
-.hero-text strong {
-    color: #fff;
+.hero-description strong {
+    color: white;
 }
 
-.hero-actions {
+.hero-buttons {
     display: flex;
-
     gap: 10px;
-
-    align-items: flex-start;
-
     flex-wrap: wrap;
 }
 
@@ -475,10 +314,9 @@ body.cursor-hover .cursor-glow {
 
     padding: 15px 22px;
 
-    border-radius: 100px;
+    border: 1px solid #303035;
 
-    border:
-        1px solid #303035;
+    border-radius: 100px;
 
     font-size: 9px;
 
@@ -491,47 +329,37 @@ body.cursor-hover .cursor-glow {
     transition: .3s;
 }
 
-.button-primary {
-    background: #fff;
-
-    color: #000;
-}
-
-.button-dark {
-    background: #080808;
+.button.primary {
+    background: white;
+    color: black;
 }
 
 .button:hover {
-    transform:
-        translateY(-4px);
+    transform: translateY(-4px);
 }
 
 
-/* =========================================================
+/* =====================================================
    TICKER
-========================================================= */
+===================================================== */
 
 .ticker {
     overflow: hidden;
 
-    border-top:
-        1px solid #191919;
-
-    border-bottom:
-        1px solid #191919;
-
     padding: 17px 0;
 
-    white-space: nowrap;
+    border-top: 1px solid #191919;
+    border-bottom: 1px solid #191919;
 
     color: #444;
 
-    font-family:
-        monospace;
+    font-family: monospace;
 
     font-size: 9px;
 
     letter-spacing: .25em;
+
+    white-space: nowrap;
 }
 
 .ticker-track {
@@ -547,40 +375,33 @@ body.cursor-hover .cursor-glow {
 @keyframes ticker {
 
     to {
-        transform:
-            translateX(-50%);
+        transform: translateX(-50%);
     }
 
 }
 
 
-/* =========================================================
-   GENERAL
-========================================================= */
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 section {
-    padding: 160px 0;
+    padding: 150px 0;
 }
 
 .container {
-    width:
-        min(
-            1250px,
-            calc(100% - 50px)
-        );
-
+    width: min(1250px, calc(100% - 50px));
     margin: auto;
 }
 
-.section-header {
+.section-top {
     display: flex;
-
     justify-content: space-between;
 
-    margin-bottom: 70px;
+    margin-bottom: 65px;
 }
 
-.label {
+.section-label {
     color: #555;
 
     font-size: 9px;
@@ -592,19 +413,14 @@ section {
     text-transform: uppercase;
 }
 
-.number {
+.section-number {
     color: #444;
 
     font-size: 9px;
 }
 
 .heading {
-    font-size:
-        clamp(
-            50px,
-            7vw,
-            100px
-        );
+    font-size: clamp(55px, 7vw, 100px);
 
     line-height: .9;
 
@@ -618,31 +434,30 @@ section {
 }
 
 
-/* =========================================================
+/* =====================================================
    ABOUT
-========================================================= */
+===================================================== */
 
 .about-grid {
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    gap: 110px;
+    gap: 100px;
 }
 
 .about-text {
-    max-width: 620px;
-
     color: #777;
 
     font-size: 15px;
 
     line-height: 1.9;
+
+    max-width: 600px;
 }
 
 .about-text strong {
-    color: #fff;
+    color: white;
 }
 
 .socials {
@@ -656,8 +471,7 @@ section {
 }
 
 .social {
-    border:
-        1px solid #29292d;
+    border: 1px solid #29292d;
 
     padding: 11px 16px;
 
@@ -677,65 +491,52 @@ section {
 }
 
 .social:hover {
-    background: #fff;
+    background: white;
+    color: black;
 
-    color: #000;
-
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 }
 
 
-/* =========================================================
+/* =====================================================
    CARDS
-========================================================= */
+===================================================== */
 
 .cards {
     display: grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns: 1fr 1fr;
 
-    border-top:
-        1px solid #222;
+    margin-top: 75px;
 
-    border-left:
-        1px solid #222;
-
-    margin-top: 80px;
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
 }
 
 .card {
-    min-height: 250px;
+    min-height: 240px;
 
     padding: 35px;
 
-    border-right:
-        1px solid #222;
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
 
-    border-bottom:
-        1px solid #222;
-
-    transition: .35s;
+    transition: .3s;
 }
 
 .card:hover {
-    background: #0c0c0e;
-
-    transform:
-        translateY(-3px);
+    background: #0c0c0d;
 }
 
 .card-number {
     color: #444;
-
     font-size: 9px;
 }
 
 .card h3 {
     margin-top: 60px;
 
-    font-size: 27px;
+    font-size: 28px;
 
     letter-spacing: -.04em;
 }
@@ -751,65 +552,48 @@ section {
 }
 
 
-/* =========================================================
+/* =====================================================
    COLLAB
-========================================================= */
+===================================================== */
 
 .collab {
     background: #080808;
 
-    border-top:
-        1px solid #171717;
-
-    border-bottom:
-        1px solid #171717;
+    border-top: 1px solid #171717;
+    border-bottom: 1px solid #171717;
 }
 
-.collab-intro {
-    max-width: 900px;
+.collab-text {
+    max-width: 850px;
+
+    margin-top: 35px;
 
     color: #777;
 
     font-size: 15px;
 
     line-height: 1.9;
-
-    margin-top: 35px;
 }
 
-.collab-intro strong {
-    color: #fff;
+.collab-text strong {
+    color: white;
 }
 
 
-/* =========================================================
+/* =====================================================
    SUBMIT
-========================================================= */
+===================================================== */
 
 .submit-layout {
     display: grid;
 
-    grid-template-columns:
-        .75fr 1.25fr;
+    grid-template-columns: .75fr 1.25fr;
 
     gap: 100px;
-
-    align-items: start;
-}
-
-.submit-title {
-    position: sticky;
-
-    top: 120px;
 }
 
 .submit-title h2 {
-    font-size:
-        clamp(
-            55px,
-            6vw,
-            90px
-        );
+    font-size: clamp(55px, 6vw, 90px);
 
     line-height: .88;
 
@@ -821,36 +605,29 @@ section {
 }
 
 .submit-title p {
+    margin-top: 30px;
+
     color: #666;
 
     font-size: 13px;
 
     line-height: 1.8;
-
-    margin-top: 30px;
 }
-
-
-/* =========================================================
-   FORM
-========================================================= */
 
 .form {
     padding: 35px;
 
-    border:
-        1px solid #252529;
+    background: #09090a;
+
+    border: 1px solid #252529;
 
     border-radius: 24px;
 
-    background: #09090a;
-
     box-shadow:
-        0 50px 150px
-        rgba(0,0,0,.4);
+        0 50px 150px rgba(0,0,0,.4);
 }
 
-.form-top {
+.form-header {
     display: flex;
 
     justify-content: space-between;
@@ -859,15 +636,14 @@ section {
 
     margin-bottom: 30px;
 
-    border-bottom:
-        1px solid #202024;
+    border-bottom: 1px solid #202024;
 }
 
-.form-top h3 {
+.form-header h3 {
     font-size: 19px;
 }
 
-.form-top span {
+.form-header span {
     color: #444;
 
     font-family: monospace;
@@ -878,8 +654,7 @@ section {
 .form-row {
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 15px;
 }
@@ -913,18 +688,15 @@ section {
 
     background: #050505;
 
-    border:
-        1px solid #29292d;
+    border: 1px solid #29292d;
 
     border-radius: 10px;
 
     outline: none;
 
-    color: #fff;
+    color: white;
 
     font-size: 12px;
-
-    transition: .25s;
 }
 
 .field input:focus,
@@ -935,35 +707,33 @@ section {
 
 .field textarea {
     min-height: 130px;
-
     resize: vertical;
 }
 
 select option {
     background: #080808;
-
-    color: #fff;
 }
 
 
-/* =========================================================
-   SOCIAL SELECTION
-========================================================= */
+/* =====================================================
+   SOCIAL CHECKBOXES
+===================================================== */
 
 .social-selection {
     margin-bottom: 24px;
 
     padding: 20px;
 
-    border:
-        1px solid #29292d;
+    background: #060606;
+
+    border: 1px solid #29292d;
 
     border-radius: 12px;
-
-    background: #060606;
 }
 
 .social-selection-title {
+    margin-bottom: 16px;
+
     color: #666;
 
     font-size: 8px;
@@ -973,22 +743,17 @@ select option {
     letter-spacing: .18em;
 
     text-transform: uppercase;
-
-    margin-bottom: 16px;
 }
 
 .checkbox-list {
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 10px;
 }
 
 .checkbox-option {
-    position: relative;
-
     display: flex;
 
     align-items: center;
@@ -997,8 +762,7 @@ select option {
 
     padding: 12px;
 
-    border:
-        1px solid #252529;
+    border: 1px solid #252529;
 
     border-radius: 9px;
 
@@ -1006,128 +770,44 @@ select option {
 
     font-size: 10px;
 
-    transition: .25s;
-
-    user-select: none;
-}
-
-.checkbox-option:hover {
-    border-color: #555;
-
-    color: #fff;
+    cursor: pointer;
 }
 
 .checkbox-option input {
-    position: absolute;
-
-    opacity: 0;
-
-    pointer-events: none;
+    accent-color: white;
 }
 
-.checkbox-custom {
-    width: 15px;
-    height: 15px;
-
-    flex-shrink: 0;
-
-    border:
-        1px solid #444;
-
-    border-radius: 4px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    transition: .2s;
-}
-
-.checkbox-option
-input:checked
-~ .checkbox-custom {
-    background: #fff;
-
-    border-color: #fff;
-}
-
-.checkbox-option
-input:checked
-~ .checkbox-custom::after {
-    content: "✓";
-
-    color: #000;
-
-    font-size: 10px;
-
-    font-weight: 900;
-}
-
-.checkbox-option:has(input:checked) {
-    border-color: #777;
-
-    color: #fff;
-
-    background: #0c0c0d;
+.checkbox-option:hover {
+    color: white;
+    border-color: #555;
 }
 
 
-/* =========================================================
+/* =====================================================
    SOCIAL LINK FIELDS
-========================================================= */
+===================================================== */
 
 .social-link-field {
     display: none;
-
-    animation:
-        fieldIn
-        .3s
-        ease forwards;
 }
 
 .social-link-field.active {
     display: block;
 }
 
-@keyframes fieldIn {
 
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(-8px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-/* =========================================================
+/* =====================================================
    AUDIO
-========================================================= */
+===================================================== */
 
 .audio-box {
     margin-bottom: 20px;
 
     padding: 20px;
 
-    border:
-        1px dashed #343438;
+    border: 1px dashed #343438;
 
     border-radius: 12px;
-
-    transition: .3s;
-}
-
-.audio-box:hover {
-    border-color: #666;
 }
 
 .audio-box label {
@@ -1148,7 +828,6 @@ input:checked
 
 .audio-box input {
     width: 100%;
-
     color: #777;
 }
 
@@ -1158,14 +837,12 @@ input:checked
     color: #555;
 
     font-size: 9px;
-
-    line-height: 1.6;
 }
 
 
-/* =========================================================
-   BUTTON
-========================================================= */
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
 
 .submit-button {
     width: 100%;
@@ -1176,9 +853,9 @@ input:checked
 
     border-radius: 10px;
 
-    background: #fff;
+    background: white;
 
-    color: #000;
+    color: black;
 
     font-size: 9px;
 
@@ -1186,20 +863,13 @@ input:checked
 
     letter-spacing: .2em;
 
-    text-transform: uppercase;
+    cursor: pointer;
 
     transition: .3s;
 }
 
 .submit-button:hover {
-    transform:
-        translateY(-3px);
-}
-
-.submit-button:disabled {
-    opacity: .5;
-
-    transform: none;
+    transform: translateY(-3px);
 }
 
 .notice {
@@ -1207,12 +877,11 @@ input:checked
 
     padding: 18px;
 
-    border:
-        1px solid #29292d;
+    background: #070707;
+
+    border: 1px solid #29292d;
 
     border-radius: 12px;
-
-    background: #070707;
 
     color: #777;
 
@@ -1224,102 +893,26 @@ input:checked
 }
 
 .notice strong {
-    color: #fff;
+    color: white;
 }
 
 
-/* =========================================================
-   SUCCESS
-========================================================= */
-
-.success-message {
-    display: none;
-
-    padding: 60px 30px;
-
-    text-align: center;
-}
-
-.success-message.active {
-    display: block;
-}
-
-.success-icon {
-    width: 70px;
-    height: 70px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin: 0 auto 25px;
-
-    border:
-        1px solid #333;
-
-    border-radius: 50%;
-
-    font-size: 25px;
-}
-
-.success-message h3 {
-    font-size: 30px;
-
-    letter-spacing: -.05em;
-}
-
-.success-message p {
-    max-width: 450px;
-
-    margin: 20px auto 0;
-
-    color: #666;
-
-    font-size: 12px;
-
-    line-height: 1.8;
-}
-
-.error-message {
-    display: none;
-
-    margin-top: 15px;
-
-    padding: 15px;
-
-    border:
-        1px solid #3a2020;
-
-    border-radius: 10px;
-
-    color: #ff7b7b;
-
-    background: #120707;
-
-    font-size: 10px;
-
-    line-height: 1.6;
-
-    text-align: center;
-}
-
-
-/* =========================================================
+/* =====================================================
    FINAL
-========================================================= */
+===================================================== */
 
 .final {
     min-height: 80vh;
 
     display: flex;
-
     align-items: center;
 
     position: relative;
 }
 
 .final-small {
+    margin-bottom: 25px;
+
     color: #555;
 
     font-size: 9px;
@@ -1329,19 +922,12 @@ input:checked
     letter-spacing: .22em;
 
     text-transform: uppercase;
-
-    margin-bottom: 25px;
 }
 
 .final h2 {
     max-width: 1000px;
 
-    font-size:
-        clamp(
-            60px,
-            9vw,
-            130px
-        );
+    font-size: clamp(60px, 9vw, 130px);
 
     line-height: .85;
 
@@ -1353,29 +939,27 @@ input:checked
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 footer {
     position: relative;
 
-    z-index: 10;
-
-    border-top:
-        1px solid #191919;
+    z-index: 50;
 
     padding: 40px 0;
 
     background: #050505;
+
+    border-top: 1px solid #191919;
 }
 
 .footer {
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
+    justify-content: space-between;
 
     color: #444;
 
@@ -1389,7 +973,7 @@ footer {
 }
 
 .footer-logo {
-    color: #fff;
+    color: white;
 
     font-size: 19px;
 
@@ -1399,276 +983,283 @@ footer {
 }
 
 
-/* =========================================================
-   REVEAL
-========================================================= */
+/* =====================================================
+   🔥 BOTTOM SMOKE — 10% STRONGER
+===================================================== */
 
-.reveal {
-    opacity: 0;
-
-    transform:
-        translateY(45px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s
-        cubic-bezier(.16,1,.3,1);
-}
-
-.reveal.visible {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-/* =========================================================
-   PARTICLES
-========================================================= */
-
-.cursor-particle {
-    position: fixed;
-
-    width: 4px;
-    height: 4px;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: 9998;
-
-    background:
-        rgba(255,255,255,.35);
-
-    animation:
-        particleFade
-        .7s
-        ease-out
-        forwards;
-}
-
-@keyframes particleFade {
-
-    0% {
-        opacity: .7;
-
-        transform:
-            scale(1);
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            scale(0)
-            translateY(15px);
-    }
-
-}
-
-
-/* =========================================================
-   SMOKE
-========================================================= */
-
-.bottom-smoke {
+#bottomSmoke {
     position: fixed;
 
     left: 0;
-    bottom: -90px;
+    bottom: 0;
 
-    width: 100%;
+    width: 100vw;
+
     height: 330px;
+
+    z-index: 999;
 
     pointer-events: none;
 
-    z-index: 6;
-
     overflow: hidden;
 
-    opacity: 0;
-
-    transition:
-        opacity 1.4s ease;
-}
-
-body.at-bottom
-.bottom-smoke {
     opacity: 1;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to top,
+            black 0%,
+            black 35%,
+            rgba(0,0,0,.82) 55%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to top,
+            black 0%,
+            black 35%,
+            rgba(0,0,0,.82) 55%,
+            transparent 100%
+        );
 }
+
+
+/* BIG SMOKE CLOUDS */
 
 .smoke-cloud {
     position: absolute;
 
-    bottom: -150px;
+    bottom: -180px;
 
-    width: 480px;
-    height: 300px;
+    width: 380px;
+    height: 380px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
-            ellipse at center,
-            rgba(255,255,255,.28) 0%,
-            rgba(235,235,235,.17) 28%,
-            rgba(190,190,190,.10) 48%,
-            rgba(130,130,130,.04) 63%,
-            transparent 76%
+            circle,
+            rgba(255,255,255,.33) 0%,
+            rgba(235,235,235,.245) 18%,
+            rgba(205,205,205,.155) 35%,
+            rgba(170,170,170,.088) 52%,
+            rgba(120,120,120,.033) 65%,
+            transparent 75%
         );
 
     filter: blur(28px);
 
-    opacity: .75;
-
     animation:
-        smokeFloat
-        10s
+        smokeMove
+        var(--time)
         ease-in-out
         infinite;
+
+    animation-delay:
+        var(--delay);
 }
 
+
+/* CLOUD POSITIONS */
+
 .smoke-cloud:nth-child(1) {
-    left: -140px;
+    left: -80px;
 
-    transform:
-        scale(1.3);
-
-    animation-delay: 0s;
+    --time: 11s;
+    --delay: -3s;
 }
 
 .smoke-cloud:nth-child(2) {
-    left: 18%;
+    left: 10%;
 
-    transform:
-        scale(.9);
+    width: 430px;
+    height: 430px;
 
-    animation-delay: -3s;
-
-    opacity: .55;
+    --time: 15s;
+    --delay: -8s;
 }
 
 .smoke-cloud:nth-child(3) {
-    left: 50%;
+    left: 30%;
 
-    transform:
-        scale(1.35);
+    width: 350px;
+    height: 350px;
 
-    animation-delay: -6s;
-
-    opacity: .65;
+    --time: 12s;
+    --delay: -5s;
 }
 
 .smoke-cloud:nth-child(4) {
-    right: -140px;
+    left: 48%;
 
-    transform:
-        scale(1.1);
+    width: 470px;
+    height: 470px;
 
-    animation-delay: -2s;
-
-    opacity: .55;
+    --time: 17s;
+    --delay: -11s;
 }
 
-@keyframes smokeFloat {
+.smoke-cloud:nth-child(5) {
+    left: 70%;
+
+    width: 390px;
+    height: 390px;
+
+    --time: 13s;
+    --delay: -7s;
+}
+
+.smoke-cloud:nth-child(6) {
+    left: 88%;
+
+    width: 350px;
+    height: 350px;
+
+    --time: 16s;
+    --delay: -12s;
+}
+
+
+@keyframes smokeMove {
 
     0% {
+
         transform:
-            translate3d(0,45px,0)
-            scale(1);
+            translate3d(
+                -60px,
+                70px,
+                0
+            )
+            scale(.7)
+            rotate(-5deg);
+
+        opacity: .17;
     }
 
-    25% {
-        transform:
-            translate3d(-45px,-10px,0)
-            scale(1.08);
+    20% {
+        opacity: .55;
     }
 
-    50% {
+    40% {
+
         transform:
-            translate3d(35px,-65px,0)
-            scale(.94);
+            translate3d(
+                60px,
+                -20px,
+                0
+            )
+            scale(1.05)
+            rotate(5deg);
+
+        opacity: .825;
     }
 
-    75% {
+    60% {
+        opacity: .605;
+    }
+
+    80% {
+
         transform:
-            translate3d(-25px,-30px,0)
-            scale(1.06);
+            translate3d(
+                -40px,
+                -90px,
+                0
+            )
+            scale(1.25)
+            rotate(-4deg);
+
+        opacity: .385;
     }
 
     100% {
+
         transform:
-            translate3d(0,45px,0)
-            scale(1);
+            translate3d(
+                40px,
+                -180px,
+                0
+            )
+            scale(1.5)
+            rotate(6deg);
+
+        opacity: 0;
     }
 
 }
 
-.bottom-smoke::after {
-    content: "";
 
+/* SMALL SMOKE BUBBLES */
+
+.smoke-bubble {
     position: absolute;
 
-    left: -10%;
+    bottom: -50px;
 
-    bottom: -110px;
+    width: 55px;
+    height: 55px;
 
-    width: 120%;
-
-    height: 260px;
+    border-radius: 50%;
 
     background:
         radial-gradient(
-            ellipse at center,
-            rgba(255,255,255,.14),
-            rgba(200,200,200,.07) 35%,
+            circle,
+            rgba(255,255,255,.24),
+            rgba(220,220,220,.09) 45%,
             transparent 72%
         );
 
-    filter: blur(40px);
+    filter: blur(10px);
 
     animation:
-        smokeWave
-        13s
-        ease-in-out
+        bubbleMove
+        var(--speed)
+        linear
         infinite;
+
+    animation-delay:
+        var(--delay);
 }
 
-@keyframes smokeWave {
+@keyframes bubbleMove {
 
     0% {
         transform:
-            translateX(-5%)
-            scaleX(1);
+            translate(0,0)
+            scale(.4);
+
+        opacity: 0;
     }
 
-    50% {
-        transform:
-            translateX(5%)
-            scaleX(1.1);
+    15% {
+        opacity: .60;
+    }
+
+    60% {
+        opacity: .33;
     }
 
     100% {
+
         transform:
-            translateX(-5%)
-            scaleX(1);
+            translate(
+                var(--move),
+                -400px
+            )
+            scale(2.5);
+
+        opacity: 0;
     }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
-@media (max-width: 850px) {
-
-    .cursor-glow,
-    .cursor-dot {
-        display: none;
-    }
+@media(max-width:850px) {
 
     .nav {
         padding: 0 18px;
@@ -1678,14 +1269,13 @@ body.at-bottom
         display: none;
     }
 
-    .container,
-    .hero-inner {
-        width:
-            calc(100% - 28px);
+    .nav-button {
+        display: none;
     }
 
-    .hero {
-        min-height: 850px;
+    .hero-inner,
+    .container {
+        width: calc(100% - 28px);
     }
 
     .hero-title {
@@ -1694,10 +1284,7 @@ body.at-bottom
 
     .hero-bottom {
         grid-template-columns: 1fr;
-
-        gap: 30px;
-
-        margin-top: 50px;
+        gap: 35px;
     }
 
     section {
@@ -1707,14 +1294,7 @@ body.at-bottom
     .about-grid,
     .submit-layout {
         grid-template-columns: 1fr;
-
         gap: 55px;
-    }
-
-    .submit-title {
-        position: relative;
-
-        top: auto;
     }
 
     .cards {
@@ -1733,133 +1313,78 @@ body.at-bottom
         padding: 20px;
     }
 
-    .footer {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 20px;
-    }
-
-    .bottom-smoke {
-        height: 230px;
+    #bottomSmoke {
+        height: 240px;
     }
 
     .smoke-cloud {
-        width: 300px;
-        height: 220px;
+        width: 280px !important;
+        height: 280px !important;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
     }
 
 }
 
 </style>
-
 </head>
 
 
-<body class="loading">
+<body>
 
 
-<!-- =========================================================
-     CURSOR
-========================================================= -->
-
-<div class="cursor-glow"></div>
-
-<div class="cursor-dot"></div>
-
-
-<!-- =========================================================
-     SMOKE
-========================================================= -->
-
-<div class="bottom-smoke">
-
-    <div class="smoke-cloud"></div>
-
-    <div class="smoke-cloud"></div>
-
-    <div class="smoke-cloud"></div>
-
-    <div class="smoke-cloud"></div>
-
-</div>
-
-
-<!-- =========================================================
-     BACKGROUND
-========================================================= -->
+<!-- BACKGROUND -->
 
 <div class="background">
-
     <div class="grid"></div>
-
-    <div class="glow"></div>
-
+    <div class="bg-glow"></div>
 </div>
 
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
+<!-- NAV -->
 
 <nav class="nav">
 
     <a href="#" class="logo">
-
         FLXNR
-
         <span>/ ARTIST</span>
-
     </a>
-
 
     <div class="nav-links">
 
         <a href="#about">About</a>
-
         <a href="#creative">Creative</a>
-
         <a href="#collab">Collab</a>
-
         <a href="#submit">Send Music</a>
 
     </div>
 
-
-    <a
-        href="#submit"
-        class="nav-button"
-    >
-
+    <a href="#submit" class="nav-button">
         Start a collaboration →
-
     </a>
 
 </nav>
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- HERO -->
 
 <header class="hero">
 
 <div class="hero-inner">
 
-    <div class="hero-top">
+    <div class="hero-info">
 
         <span>
             INDEPENDENT ARTIST / PRODUCER
         </span>
 
-
         <span class="online">
-
-            <i class="dot"></i>
-
+            <i class="online-dot"></i>
             OPEN WORLDWIDE
-
         </span>
 
     </div>
@@ -1868,11 +1393,8 @@ body.at-bottom
     <h1 class="hero-title">
 
         <span>F</span>
-
         <span>L</span>
-
         <span>X</span>
-
         <span>NR</span>
 
     </h1>
@@ -1880,7 +1402,7 @@ body.at-bottom
 
     <div class="hero-bottom">
 
-        <p class="hero-text">
+        <p class="hero-description">
 
             <strong>
                 Music is better when you build it together.
@@ -1906,19 +1428,18 @@ body.at-bottom
         </p>
 
 
-        <div class="hero-actions">
+        <div class="hero-buttons">
 
             <a
                 href="#submit"
-                class="button button-primary"
+                class="button primary"
             >
                 Send your music
             </a>
 
-
             <a
                 href="#about"
-                class="button button-dark"
+                class="button"
             >
                 Discover FLXNR
             </a>
@@ -1932,9 +1453,7 @@ body.at-bottom
 </header>
 
 
-<!-- =========================================================
-     TICKER
-========================================================= -->
+<!-- TICKER -->
 
 <div class="ticker">
 
@@ -1953,21 +1472,19 @@ body.at-bottom
 </div>
 
 
-<!-- =========================================================
-     ABOUT
-========================================================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
-<div class="container reveal">
+<div class="container">
 
-    <div class="section-header">
+    <div class="section-top">
 
-        <div class="label">
+        <div class="section-label">
             01 / About
         </div>
 
-        <div class="number">
+        <div class="section-number">
             001
         </div>
 
@@ -1976,16 +1493,12 @@ body.at-bottom
 
     <div class="about-grid">
 
-        <div>
+        <h2 class="heading">
 
-            <h2 class="heading">
+            FLXNR is an
+            <span>artist.</span>
 
-                FLXNR is an
-                <span>artist.</span>
-
-            </h2>
-
-        </div>
+        </h2>
 
 
         <div>
@@ -2026,37 +1539,30 @@ body.at-bottom
                 <a
                     href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
                     target="_blank"
-                    rel="noopener noreferrer"
                     class="social"
                 >
                     Spotify
                 </a>
 
-
                 <a
                     href="https://www.instagram.com/irasso2/"
                     target="_blank"
-                    rel="noopener noreferrer"
                     class="social"
                 >
                     Instagram
                 </a>
 
-
                 <a
                     href="https://www.tiktok.com/@flixonar_official"
                     target="_blank"
-                    rel="noopener noreferrer"
                     class="social"
                 >
                     TikTok
                 </a>
 
-
                 <a
                     href="https://www.youtube.com/@flixonar_music"
                     target="_blank"
-                    rel="noopener noreferrer"
                     class="social"
                 >
                     YouTube
@@ -2073,21 +1579,19 @@ body.at-bottom
 </section>
 
 
-<!-- =========================================================
-     CREATIVE
-========================================================= -->
+<!-- CREATIVE -->
 
 <section id="creative">
 
-<div class="container reveal">
+<div class="container">
 
-    <div class="section-header">
+    <div class="section-top">
 
-        <div class="label">
+        <div class="section-label">
             02 / Creative
         </div>
 
-        <div class="number">
+        <div class="section-number">
             002
         </div>
 
@@ -2106,13 +1610,9 @@ body.at-bottom
 
         <div class="card">
 
-            <div class="card-number">
-                01
-            </div>
+            <div class="card-number">01</div>
 
-            <h3>
-                Artists
-            </h3>
+            <h3>Artists</h3>
 
             <p>
                 Work together on a track,
@@ -2125,13 +1625,9 @@ body.at-bottom
 
         <div class="card">
 
-            <div class="card-number">
-                02
-            </div>
+            <div class="card-number">02</div>
 
-            <h3>
-                Producers
-            </h3>
+            <h3>Producers</h3>
 
             <p>
                 Beats, production,
@@ -2144,13 +1640,9 @@ body.at-bottom
 
         <div class="card">
 
-            <div class="card-number">
-                03
-            </div>
+            <div class="card-number">03</div>
 
-            <h3>
-                Vocalists
-            </h3>
+            <h3>Vocalists</h3>
 
             <p>
                 Vocals, hooks, melodies
@@ -2163,13 +1655,9 @@ body.at-bottom
 
         <div class="card">
 
-            <div class="card-number">
-                04
-            </div>
+            <div class="card-number">04</div>
 
-            <h3>
-                New ideas
-            </h3>
+            <h3>New ideas</h3>
 
             <p>
                 Anything creative that
@@ -2186,21 +1674,19 @@ body.at-bottom
 </section>
 
 
-<!-- =========================================================
-     COLLAB
-========================================================= -->
+<!-- COLLAB -->
 
 <section id="collab" class="collab">
 
-<div class="container reveal">
+<div class="container">
 
-    <div class="section-header">
+    <div class="section-top">
 
-        <div class="label">
+        <div class="section-label">
             03 / Collaboration
         </div>
 
-        <div class="number">
+        <div class="section-number">
             003
         </div>
 
@@ -2215,7 +1701,7 @@ body.at-bottom
     </h2>
 
 
-    <p class="collab-intro">
+    <p class="collab-text">
 
         Maybe you already have a finished
         track.
@@ -2242,21 +1728,19 @@ body.at-bottom
 </section>
 
 
-<!-- =========================================================
-     SUBMIT
-========================================================= -->
+<!-- SUBMIT -->
 
 <section id="submit">
 
-<div class="container reveal">
+<div class="container">
 
-    <div class="section-header">
+    <div class="section-top">
 
-        <div class="label">
+        <div class="section-label">
             04 / Send Music
         </div>
 
-        <div class="number">
+        <div class="section-number">
             004
         </div>
 
@@ -2276,7 +1760,6 @@ body.at-bottom
 
             </h2>
 
-
             <p>
 
                 Tell me who you are,
@@ -2285,9 +1768,7 @@ body.at-bottom
 
                 <br><br>
 
-                I'll check out your music
-                and if I feel the connection,
-                we can talk.
+                I'll check out your music.
 
                 <br><br>
 
@@ -2301,12 +1782,9 @@ body.at-bottom
         </div>
 
 
-        <!-- FORM -->
-
         <div class="form">
 
             <form
-                id="demoForm"
                 action="https://formly.email/submit"
                 method="POST"
                 enctype="multipart/form-data"
@@ -2324,26 +1802,8 @@ body.at-bottom
                     value="FLXNR — New Music Collaboration"
                 >
 
-                <input
-                    type="hidden"
-                    name="from_name"
-                    value="FLXNR Website"
-                >
 
-
-                <div style="display:none">
-
-                    <input
-                        type="text"
-                        name="website"
-                        tabindex="-1"
-                        autocomplete="off"
-                    >
-
-                </div>
-
-
-                <div class="form-top">
+                <div class="form-header">
 
                     <h3>
                         COLLABORATION
@@ -2355,8 +1815,6 @@ body.at-bottom
 
                 </div>
 
-
-                <!-- NAME -->
 
                 <div class="form-row">
 
@@ -2394,8 +1852,6 @@ body.at-bottom
                 </div>
 
 
-                <!-- EMAIL -->
-
                 <div class="field">
 
                     <label>
@@ -2411,8 +1867,6 @@ body.at-bottom
 
                 </div>
 
-
-                <!-- TRACK -->
 
                 <div class="field">
 
@@ -2430,8 +1884,6 @@ body.at-bottom
                 </div>
 
 
-                <!-- SOCIALS -->
-
                 <div class="social-selection">
 
                     <div class="social-selection-title">
@@ -2441,17 +1893,12 @@ body.at-bottom
 
                     <div class="checkbox-list">
 
-
                         <label class="checkbox-option">
 
                             <input
                                 type="checkbox"
                                 id="spotifyCheck"
-                                name="Social Platforms"
-                                value="Spotify"
                             >
-
-                            <span class="checkbox-custom"></span>
 
                             Spotify
 
@@ -2463,11 +1910,7 @@ body.at-bottom
                             <input
                                 type="checkbox"
                                 id="instagramCheck"
-                                name="Social Platforms"
-                                value="Instagram"
                             >
-
-                            <span class="checkbox-custom"></span>
 
                             Instagram
 
@@ -2479,11 +1922,7 @@ body.at-bottom
                             <input
                                 type="checkbox"
                                 id="tiktokCheck"
-                                name="Social Platforms"
-                                value="TikTok"
                             >
-
-                            <span class="checkbox-custom"></span>
 
                             TikTok
 
@@ -2495,11 +1934,7 @@ body.at-bottom
                             <input
                                 type="checkbox"
                                 id="youtubeCheck"
-                                name="Social Platforms"
-                                value="YouTube"
                             >
-
-                            <span class="checkbox-custom"></span>
 
                             YouTube
 
@@ -2514,11 +1949,7 @@ body.at-bottom
                             <input
                                 type="checkbox"
                                 id="noSocialCheck"
-                                name="Social Platforms"
-                                value="No social media"
                             >
-
-                            <span class="checkbox-custom"></span>
 
                             I don't have social media yet
 
@@ -2528,8 +1959,6 @@ body.at-bottom
 
                 </div>
 
-
-                <!-- SPOTIFY -->
 
                 <div
                     class="field social-link-field"
@@ -2542,15 +1971,13 @@ body.at-bottom
 
                     <input
                         type="url"
-                        id="spotifyInput"
                         name="Spotify Profile Link"
+                        id="spotifyInput"
                         placeholder="https://open.spotify.com/artist/..."
                     >
 
                 </div>
 
-
-                <!-- INSTAGRAM -->
 
                 <div
                     class="field social-link-field"
@@ -2563,15 +1990,13 @@ body.at-bottom
 
                     <input
                         type="url"
-                        id="instagramInput"
                         name="Instagram Profile Link"
+                        id="instagramInput"
                         placeholder="https://instagram.com/..."
                     >
 
                 </div>
 
-
-                <!-- TIKTOK -->
 
                 <div
                     class="field social-link-field"
@@ -2584,15 +2009,13 @@ body.at-bottom
 
                     <input
                         type="url"
-                        id="tiktokInput"
                         name="TikTok Profile Link"
+                        id="tiktokInput"
                         placeholder="https://tiktok.com/@..."
                     >
 
                 </div>
 
-
-                <!-- YOUTUBE -->
 
                 <div
                     class="field social-link-field"
@@ -2605,15 +2028,13 @@ body.at-bottom
 
                     <input
                         type="url"
-                        id="youtubeInput"
                         name="YouTube Channel Link"
+                        id="youtubeInput"
                         placeholder="https://youtube.com/@..."
                     >
 
                 </div>
 
-
-                <!-- GENRE -->
 
                 <div class="field">
 
@@ -2662,24 +2083,20 @@ body.at-bottom
                         <option>Country</option>
                         <option>Folk</option>
                         <option>Classical</option>
-                        <option>Soundtrack</option>
                         <option>Hyperpop</option>
+                        <option>Trap</option>
+                        <option>Drill</option>
+                        <option>Jersey Club</option>
                         <option>Hardstyle</option>
                         <option>Hardcore</option>
                         <option>Breakbeat</option>
                         <option>Experimental</option>
-                        <option>Trap</option>
-                        <option>Drill</option>
-                        <option>Jersey Club</option>
-                        <option>Afro House</option>
                         <option>Other</option>
 
                     </select>
 
                 </div>
 
-
-                <!-- ABOUT -->
 
                 <div class="field">
 
@@ -2689,14 +2106,12 @@ body.at-bottom
 
                     <textarea
                         name="About Artist"
-                        placeholder="Tell me about yourself, your music and what you create..."
+                        placeholder="Tell me about yourself and your music..."
                         required
                     ></textarea>
 
                 </div>
 
-
-                <!-- TRACK DESCRIPTION -->
 
                 <div class="field">
 
@@ -2706,14 +2121,12 @@ body.at-bottom
 
                     <textarea
                         name="About Track"
-                        placeholder="Tell me about the track and what you would like to create together..."
+                        placeholder="Tell me about this track and what you want to create together..."
                         required
                     ></textarea>
 
                 </div>
 
-
-                <!-- MP3 -->
 
                 <div class="audio-box">
 
@@ -2722,7 +2135,6 @@ body.at-bottom
                     </label>
 
                     <input
-                        id="audioFile"
                         type="file"
                         name="audio"
                         accept=".mp3,audio/mpeg"
@@ -2730,28 +2142,17 @@ body.at-bottom
                     >
 
                     <div class="file-info">
-
-                        MP3 only · Maximum 10 MB
-
+                        MP3 only
                     </div>
 
                 </div>
 
 
-                <div
-                    class="error-message"
-                    id="errorMessage"
-                ></div>
-
-
                 <button
                     type="submit"
                     class="submit-button"
-                    id="submitButton"
                 >
-
                     SEND DEMO →
-
                 </button>
 
 
@@ -2770,45 +2171,6 @@ body.at-bottom
 
             </form>
 
-
-            <!-- SUCCESS -->
-
-            <div
-                class="success-message"
-                id="successMessage"
-            >
-
-                <div class="success-icon">
-                    ✓
-                </div>
-
-                <h3>
-                    DEMO SENT.
-                </h3>
-
-                <p>
-
-                    Your music has been sent
-                    successfully.
-
-                    <br><br>
-
-                    Thanks for reaching out.
-                    I'll check it out and if I
-                    feel there's a creative
-                    connection, I'll contact you.
-
-                    <br><br>
-
-                    <strong>
-                        Please allow 1–3 weeks
-                        for a response.
-                    </strong>
-
-                </p>
-
-            </div>
-
         </div>
 
     </div>
@@ -2818,18 +2180,15 @@ body.at-bottom
 </section>
 
 
-<!-- =========================================================
-     FINAL
-========================================================= -->
+<!-- FINAL -->
 
 <section class="final">
 
-<div class="container reveal">
+<div class="container">
 
     <div class="final-small">
         FLXNR / MUSIC / WORLDWIDE
     </div>
-
 
     <h2>
 
@@ -2845,37 +2204,30 @@ body.at-bottom
         <a
             href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
             target="_blank"
-            rel="noopener noreferrer"
             class="social"
         >
             Spotify
         </a>
 
-
         <a
             href="https://www.instagram.com/irasso2/"
             target="_blank"
-            rel="noopener noreferrer"
             class="social"
         >
             Instagram
         </a>
 
-
         <a
             href="https://www.tiktok.com/@flixonar_official"
             target="_blank"
-            rel="noopener noreferrer"
             class="social"
         >
             TikTok
         </a>
 
-
         <a
             href="https://www.youtube.com/@flixonar_music"
             target="_blank"
-            rel="noopener noreferrer"
             class="social"
         >
             YouTube
@@ -2888,813 +2240,251 @@ body.at-bottom
 </section>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- FOOTER -->
 
 <footer>
 
 <div class="container">
 
-<div class="footer">
+    <div class="footer">
 
-    <div class="footer-logo">
-        FLXNR
+        <div class="footer-logo">
+            FLXNR
+        </div>
+
+        <div>
+            Independent artist / producer
+        </div>
+
+        <div>
+            © 2026 FLXNR
+        </div>
+
     </div>
-
-    <div>
-        Independent artist / producer
-    </div>
-
-    <div>
-        © 2026 FLXNR
-    </div>
-
-</div>
 
 </div>
 
 </footer>
 
 
+<!-- =====================================================
+     BOTTOM SMOKE
+===================================================== -->
+
+<div id="bottomSmoke">
+
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:4%;
+            --speed:8s;
+            --delay:-2s;
+            --move:50px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:12%;
+            --speed:11s;
+            --delay:-5s;
+            --move:-60px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:20%;
+            --speed:9s;
+            --delay:-1s;
+            --move:80px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:30%;
+            --speed:13s;
+            --delay:-7s;
+            --move:-70px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:40%;
+            --speed:10s;
+            --delay:-4s;
+            --move:65px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:50%;
+            --speed:12s;
+            --delay:-9s;
+            --move:-80px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:60%;
+            --speed:9s;
+            --delay:-3s;
+            --move:70px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:70%;
+            --speed:14s;
+            --delay:-8s;
+            --move:-50px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:80%;
+            --speed:11s;
+            --delay:-6s;
+            --move:90px;
+        "
+    ></div>
+
+    <div
+        class="smoke-bubble"
+        style="
+            left:91%;
+            --speed:9s;
+            --delay:-10s;
+            --move:-70px;
+        "
+    ></div>
+
+</div>
+
+
 <script>
 
-/* =========================================================
-   FORCE PAGE TO TOP ON FIRST LOAD
-========================================================= */
+/* =====================================================
+   SOCIAL PROFILE LOGIC
+===================================================== */
 
-window.addEventListener("load", function() {
+const checks = {
+    spotify: document.getElementById("spotifyCheck"),
+    instagram: document.getElementById("instagramCheck"),
+    tiktok: document.getElementById("tiktokCheck"),
+    youtube: document.getElementById("youtubeCheck"),
+    none: document.getElementById("noSocialCheck")
+};
 
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "instant"
+const fields = {
+    spotify: document.getElementById("spotifyField"),
+    instagram: document.getElementById("instagramField"),
+    tiktok: document.getElementById("tiktokField"),
+    youtube: document.getElementById("youtubeField")
+};
+
+const inputs = {
+    spotify: document.getElementById("spotifyInput"),
+    instagram: document.getElementById("instagramInput"),
+    tiktok: document.getElementById("tiktokInput"),
+    youtube: document.getElementById("youtubeInput")
+};
+
+
+function updateSocials() {
+
+    if (checks.none.checked) {
+
+        checks.spotify.checked = false;
+        checks.instagram.checked = false;
+        checks.tiktok.checked = false;
+        checks.youtube.checked = false;
+
+    }
+
+    if (
+        checks.spotify.checked ||
+        checks.instagram.checked ||
+        checks.tiktok.checked ||
+        checks.youtube.checked
+    ) {
+
+        checks.none.checked = false;
+
+    }
+
+    Object.keys(fields).forEach(key => {
+
+        if (checks[key].checked) {
+
+            fields[key].classList.add("active");
+
+            inputs[key].required = true;
+
+        } else {
+
+            fields[key].classList.remove("active");
+
+            inputs[key].required = false;
+
+            inputs[key].value = "";
+
+        }
+
     });
 
-    document.body.classList.remove("loading");
+}
+
+
+Object.values(checks).forEach(check => {
+
+    check.addEventListener(
+        "change",
+        updateSocials
+    );
 
 });
 
+updateSocials();
 
-/* Also handle browser restoring an old position */
+
+/* =====================================================
+   STOP AUTO SCROLL
+===================================================== */
 
 if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
 }
 
+window.addEventListener("load", () => {
 
-/* =========================================================
-   REVEAL
-========================================================= */
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 20);
 
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-                }
-
-            });
-
-        },
-        {
-            threshold: .12
-        }
-    );
-
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-
-/* =========================================================
-   CURSOR
-========================================================= */
-
-const cursorGlow =
-    document.querySelector(
-        ".cursor-glow"
-    );
-
-const cursorDot =
-    document.querySelector(
-        ".cursor-dot"
-    );
-
-
-let mouseX =
-    window.innerWidth / 2;
-
-let mouseY =
-    window.innerHeight / 2;
-
-let glowX = mouseX;
-let glowY = mouseY;
-
-
-window.addEventListener(
-    "mousemove",
-    event => {
-
-        mouseX =
-            event.clientX;
-
-        mouseY =
-            event.clientY;
-
-
-        cursorDot.style.left =
-            mouseX + "px";
-
-        cursorDot.style.top =
-            mouseY + "px";
-
-
-        cursorGlow.style.opacity =
-            "1";
-
-        cursorDot.style.opacity =
-            "1";
-
-    }
-);
-
-
-function animateCursor() {
-
-    glowX +=
-        (mouseX - glowX) * .10;
-
-    glowY +=
-        (mouseY - glowY) * .10;
-
-
-    cursorGlow.style.left =
-        glowX + "px";
-
-    cursorGlow.style.top =
-        glowY + "px";
-
-
-    requestAnimationFrame(
-        animateCursor
-    );
-
-}
-
-animateCursor();
-
-
-/* =========================================================
-   CURSOR HOVER
-========================================================= */
-
-document
-    .querySelectorAll(
-        "a, button, input, textarea, select"
-    )
-    .forEach(element => {
-
-        element.addEventListener(
-            "mouseenter",
-            () => {
-
-                document.body.classList.add(
-                    "cursor-hover"
-                );
-
-            }
-        );
-
-
-        element.addEventListener(
-            "mouseleave",
-            () => {
-
-                document.body.classList.remove(
-                    "cursor-hover"
-                );
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   CURSOR PARTICLES
-========================================================= */
-
-let lastParticle = 0;
-
-
-window.addEventListener(
-    "mousemove",
-    event => {
-
-        const now =
-            Date.now();
-
-
-        if (
-            now - lastParticle < 35
-        ) {
-            return;
-        }
-
-
-        lastParticle = now;
-
-
-        if (
-            window.innerWidth <= 850
-        ) {
-            return;
-        }
-
-
-        const particle =
-            document.createElement(
-                "div"
-            );
-
-
-        particle.className =
-            "cursor-particle";
-
-
-        particle.style.left =
-            event.clientX + "px";
-
-        particle.style.top =
-            event.clientY + "px";
-
-
-        document.body.appendChild(
-            particle
-        );
-
-
-        setTimeout(
-            () => {
-
-                particle.remove();
-
-            },
-            700
-        );
-
-    }
-);
-
-
-/* =========================================================
-   BOTTOM SMOKE
-========================================================= */
-
-function checkBottomSmoke() {
-
-    const scrollPosition =
-        window.innerHeight +
-        window.scrollY;
-
-    const pageHeight =
-        document.documentElement
-            .scrollHeight;
-
-
-    if (
-        scrollPosition >=
-        pageHeight - 220
-    ) {
-
-        document.body.classList.add(
-            "at-bottom"
-        );
-
-    } else {
-
-        document.body.classList.remove(
-            "at-bottom"
-        );
-
-    }
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    checkBottomSmoke
-);
-
-window.addEventListener(
-    "resize",
-    checkBottomSmoke
-);
-
-checkBottomSmoke();
-
-
-/* =========================================================
-   SOCIAL FIELDS
-========================================================= */
-
-const spotifyCheck =
-    document.getElementById(
-        "spotifyCheck"
-    );
-
-const instagramCheck =
-    document.getElementById(
-        "instagramCheck"
-    );
-
-const tiktokCheck =
-    document.getElementById(
-        "tiktokCheck"
-    );
-
-const youtubeCheck =
-    document.getElementById(
-        "youtubeCheck"
-    );
-
-const noSocialCheck =
-    document.getElementById(
-        "noSocialCheck"
-    );
-
-
-const spotifyField =
-    document.getElementById(
-        "spotifyField"
-    );
-
-const instagramField =
-    document.getElementById(
-        "instagramField"
-    );
-
-const tiktokField =
-    document.getElementById(
-        "tiktokField"
-    );
-
-const youtubeField =
-    document.getElementById(
-        "youtubeField"
-    );
-
-
-const spotifyInput =
-    document.getElementById(
-        "spotifyInput"
-    );
-
-const instagramInput =
-    document.getElementById(
-        "instagramInput"
-    );
-
-const tiktokInput =
-    document.getElementById(
-        "tiktokInput"
-    );
-
-const youtubeInput =
-    document.getElementById(
-        "youtubeInput"
-    );
-
-
-function updateSocialFields() {
-
-    if (
-        noSocialCheck.checked
-    ) {
-
-        spotifyCheck.checked =
-            false;
-
-        instagramCheck.checked =
-            false;
-
-        tiktokCheck.checked =
-            false;
-
-        youtubeCheck.checked =
-            false;
-
-    }
-
-
-    if (
-        spotifyCheck.checked ||
-        instagramCheck.checked ||
-        tiktokCheck.checked ||
-        youtubeCheck.checked
-    ) {
-
-        noSocialCheck.checked =
-            false;
-
-    }
-
-
-    /* Spotify */
-
-    if (
-        spotifyCheck.checked
-    ) {
-
-        spotifyField.classList.add(
-            "active"
-        );
-
-        spotifyInput.required =
-            true;
-
-    } else {
-
-        spotifyField.classList.remove(
-            "active"
-        );
-
-        spotifyInput.required =
-            false;
-
-        spotifyInput.value =
-            "";
-
-    }
-
-
-    /* Instagram */
-
-    if (
-        instagramCheck.checked
-    ) {
-
-        instagramField.classList.add(
-            "active"
-        );
-
-        instagramInput.required =
-            true;
-
-    } else {
-
-        instagramField.classList.remove(
-            "active"
-        );
-
-        instagramInput.required =
-            false;
-
-        instagramInput.value =
-            "";
-
-    }
-
-
-    /* TikTok */
-
-    if (
-        tiktokCheck.checked
-    ) {
-
-        tiktokField.classList.add(
-            "active"
-        );
-
-        tiktokInput.required =
-            true;
-
-    } else {
-
-        tiktokField.classList.remove(
-            "active"
-        );
-
-        tiktokInput.required =
-            false;
-
-        tiktokInput.value =
-            "";
-
-    }
-
-
-    /* YouTube */
-
-    if (
-        youtubeCheck.checked
-    ) {
-
-        youtubeField.classList.add(
-            "active"
-        );
-
-        youtubeInput.required =
-            true;
-
-    } else {
-
-        youtubeField.classList.remove(
-            "active"
-        );
-
-        youtubeInput.required =
-            false;
-
-        youtubeInput.value =
-            "";
-
-    }
-
-}
-
-
-spotifyCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
-
-instagramCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
-
-tiktokCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
-
-youtubeCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
-
-noSocialCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
-
-
-updateSocialFields();
-
-
-/* =========================================================
-   FORM
-========================================================= */
-
-const demoForm =
-    document.getElementById(
-        "demoForm"
-    );
-
-const successMessage =
-    document.getElementById(
-        "successMessage"
-    );
-
-const submitButton =
-    document.getElementById(
-        "submitButton"
-    );
-
-const errorMessage =
-    document.getElementById(
-        "errorMessage"
-    );
-
-const audioFile =
-    document.getElementById(
-        "audioFile"
-    );
-
-
-demoForm.addEventListener(
-    "submit",
-    async function(event) {
-
-        event.preventDefault();
-
-
-        errorMessage.style.display =
-            "none";
-
-
-        errorMessage.textContent =
-            "";
-
-
-        /* Social validation */
-
-        const selectedSocial =
-            spotifyCheck.checked ||
-            instagramCheck.checked ||
-            tiktokCheck.checked ||
-            youtubeCheck.checked;
-
-
-        const noSocial =
-            noSocialCheck.checked;
-
-
-        if (
-            !selectedSocial &&
-            !noSocial
-        ) {
-
-            errorMessage.textContent =
-                'Please select at least one social profile, or select "I don\'t have social media yet".';
-
-            errorMessage.style.display =
-                "block";
-
-            return;
-
-        }
-
-
-        /* File validation */
-
-        if (
-            audioFile.files.length === 0
-        ) {
-
-            errorMessage.textContent =
-                "Please select an MP3 file.";
-
-            errorMessage.style.display =
-                "block";
-
-            return;
-
-        }
-
-
-        const file =
-            audioFile.files[0];
-
-
-        const isMP3 =
-            file.type === "audio/mpeg" ||
-            file.name
-                .toLowerCase()
-                .endsWith(".mp3");
-
-
-        if (!isMP3) {
-
-            errorMessage.textContent =
-                "Only MP3 files are accepted.";
-
-            errorMessage.style.display =
-                "block";
-
-            return;
-
-        }
-
-
-        /* 10 MB */
-
-        const maxSize =
-            10 * 1024 * 1024;
-
-
-        if (
-            file.size > maxSize
-        ) {
-
-            errorMessage.textContent =
-                "Your MP3 file is larger than 10 MB.";
-
-            errorMessage.style.display =
-                "block";
-
-            return;
-
-        }
-
-
-        /* Sending */
-
-        submitButton.disabled =
-            true;
-
-        submitButton.textContent =
-            "SENDING...";
-
-
-        const formData =
-            new FormData(
-                demoForm
-            );
-
-
-        try {
-
-            const response =
-                await fetch(
-                    "https://formly.email/submit",
-                    {
-                        method: "POST",
-
-                        body: formData,
-
-                        headers: {
-                            "Accept":
-                                "application/json"
-                        }
-                    }
-                );
-
-
-            const result =
-                await response.json();
-
-
-            if (
-                response.ok &&
-                result.success
-            ) {
-
-                demoForm.style.display =
-                    "none";
-
-
-                successMessage.classList.add(
-                    "active"
-                );
-
-
-                window.scrollTo({
-
-                    top:
-                        successMessage
-                            .getBoundingClientRect()
-                            .top
-                        +
-                        window.scrollY
-                        -
-                        150,
-
-                    behavior:
-                        "smooth"
-
-                });
-
-            } else {
-
-                throw new Error(
-                    result.message ||
-                    "Form submission failed."
-                );
-
-            }
-
-
-        } catch (error) {
-
-            console.error(error);
-
-
-            submitButton.disabled =
-                false;
-
-            submitButton.textContent =
-                "SEND DEMO →";
-
-
-            errorMessage.textContent =
-                "Something went wrong while sending your demo. Please try again.";
-
-
-            errorMessage.style.display =
-                "block";
-
-        }
-
-    }
-);
+});
 
 </script>
 
