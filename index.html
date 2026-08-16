@@ -8,6 +8,11 @@
 <meta name="description" content="FLXNR — independent artist and producer.">
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -21,7 +26,7 @@ html{
 
 body{
     background:#050505;
-    color:white;
+    color:#fff;
     font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
@@ -31,7 +36,10 @@ a{
     text-decoration:none;
 }
 
-/* ================= BACKGROUND ================= */
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
 .background{
     position:fixed;
@@ -43,119 +51,147 @@ a{
 .grid{
     position:absolute;
     inset:0;
+
     background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
     background-size:80px 80px;
 }
 
 .bg-glow{
     position:absolute;
+
     width:800px;
     height:800px;
+
     right:-300px;
     top:-300px;
-    background:radial-gradient(circle,rgba(255,255,255,.08),transparent 65%);
-    filter:blur(50px);
-}
-
-/* ================= CURSOR ================= */
-
-.cursor{
-    position:fixed;
-    width:18px;
-    height:18px;
-    border:1px solid rgba(255,255,255,.75);
-    border-radius:50%;
-    pointer-events:none;
-    z-index:10000;
-    transform:translate(-50%,-50%);
-    transition:
-        width .25s ease,
-        height .25s ease,
-        border-color .25s ease;
-    mix-blend-mode:difference;
-}
-
-.cursor-dot{
-    position:fixed;
-    width:4px;
-    height:4px;
-    background:white;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:10001;
-    transform:translate(-50%,-50%);
-    mix-blend-mode:difference;
-}
-
-.cursor.hover{
-    width:45px;
-    height:45px;
-    border-color:white;
-}
-
-/* dymki za kursorem */
-
-.cursor-smoke{
-    position:fixed;
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:9997;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,.25) 0%,
-            rgba(210,210,210,.14) 35%,
-            rgba(150,150,150,.06) 55%,
-            transparent 75%
+            rgba(255,255,255,.08),
+            transparent 65%
         );
 
-    filter:blur(7px);
-
-    animation:cursorSmoke 1.3s ease-out forwards;
+    filter:blur(50px);
 }
 
-@keyframes cursorSmoke{
+
+/* =========================================================
+   SMOOTH DOT SMOKE FOLLOWING MOUSE
+========================================================= */
+
+.cursor-smoke-dot{
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.78);
+
+    pointer-events:none;
+
+    z-index:9998;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.2);
+
+    filter:blur(.5px);
+
+    animation:
+        smoothDotSmoke
+        1.7s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+}
+
+@keyframes smoothDotSmoke{
+
     0%{
-        opacity:.5;
-        transform:translate(-50%,-50%) scale(.45);
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+
+        filter:blur(.5px);
     }
 
-    35%{
-        opacity:.32;
+    12%{
+        opacity:.8;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    40%{
+        opacity:.55;
+    }
+
+    70%{
+        opacity:.25;
     }
 
     100%{
         opacity:0;
+
         transform:
             translate(
-                calc(-50% + var(--moveX)),
-                calc(-50% + var(--moveY))
+                calc(-50% + var(--drift-x)),
+                calc(-50% + var(--drift-y))
             )
-            scale(2.4);
+            scale(2.8);
+
+        filter:blur(3px);
     }
 }
 
-/* ================= NAV ================= */
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .nav{
     position:fixed;
+
     top:0;
     left:0;
     right:0;
+
     height:75px;
+
     padding:0 35px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     z-index:1000;
-    background:rgba(5,5,5,.72);
+
+    background:
+        rgba(5,5,5,.72);
+
     backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
 }
 
 .logo{
@@ -166,8 +202,11 @@ a{
 
 .logo span{
     color:#555;
+
     font-size:9px;
+
     letter-spacing:.2em;
+
     margin-left:7px;
 }
 
@@ -178,89 +217,133 @@ a{
 
 .nav-links a{
     color:#666;
+
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     transition:.25s;
 }
 
 .nav-links a:hover{
-    color:white;
+    color:#fff;
 }
 
 .nav-button{
     border:1px solid #333;
+
     border-radius:8px;
+
     padding:11px 17px;
+
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.15em;
+
     text-transform:uppercase;
+
     transition:.3s;
 }
 
 .nav-button:hover{
-    background:white;
-    color:black;
+    background:#fff;
+    color:#000;
 }
 
-/* ================= HERO ================= */
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
     min-height:100vh;
+
     display:flex;
     align-items:center;
+
     padding-top:80px;
 }
 
 .hero-inner{
-    width:min(1250px,calc(100% - 50px));
+    width:min(
+        1250px,
+        calc(100% - 50px)
+    );
+
     margin:auto;
 }
 
 .hero-info{
     display:flex;
     justify-content:space-between;
+
     color:#555;
+
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.2em;
 }
 
 .online{
     display:flex;
     align-items:center;
+
     gap:8px;
 }
 
 .online-dot{
     width:6px;
     height:6px;
+
     border-radius:50%;
+
     background:#72ff9c;
-    box-shadow:0 0 15px #72ff9c;
+
+    box-shadow:
+        0 0 15px #72ff9c;
 }
 
 .hero-title{
     margin-top:45px;
-    font-size:clamp(100px,18vw,250px);
+
+    font-size:
+        clamp(
+            100px,
+            18vw,
+            250px
+        );
+
     line-height:.72;
+
     letter-spacing:-.13em;
+
     font-weight:900;
+
     white-space:nowrap;
 }
 
 .hero-title span{
     display:inline-block;
-    animation:heroIn 1s cubic-bezier(.16,1,.3,1) both;
+
+    animation:
+        heroIn
+        1s
+        cubic-bezier(.16,1,.3,1)
+        both;
 }
 
 @keyframes heroIn{
+
     from{
         opacity:0;
         transform:translateY(70px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
@@ -269,116 +352,177 @@ a{
 
 .hero-bottom{
     margin-top:75px;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:70px;
+
     max-width:950px;
 }
 
 .hero-description{
     color:#777;
+
     font-size:14px;
+
     line-height:1.9;
 }
 
 .hero-description strong{
-    color:white;
+    color:#fff;
 }
-
-/* ================= BUTTONS ================= */
 
 .hero-buttons{
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
     flex-wrap:wrap;
 }
 
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
 .button{
     display:inline-flex;
+
     align-items:center;
     justify-content:center;
+
     min-height:48px;
+
     padding:0 23px;
+
     border:1px solid #303035;
+
     border-radius:8px;
+
     font-size:9px;
     font-weight:900;
+
     letter-spacing:.17em;
+
     text-transform:uppercase;
+
     transition:.3s;
+
     white-space:nowrap;
 }
 
 .button.primary{
-    background:white;
-    color:black;
-    border-color:white;
+    background:#fff;
+    color:#000;
+
+    border-color:#fff;
 }
 
 .button:hover{
     transform:translateY(-3px);
 }
 
-/* ================= TICKER ================= */
+
+/* =========================================================
+   TICKER
+========================================================= */
 
 .ticker{
     overflow:hidden;
+
     padding:17px 0;
+
     border-top:1px solid #191919;
     border-bottom:1px solid #191919;
+
     color:#444;
+
     font-family:monospace;
+
     font-size:9px;
+
     letter-spacing:.25em;
+
     white-space:nowrap;
 }
 
 .ticker-track{
     display:inline-block;
-    animation:ticker 35s linear infinite;
+
+    animation:
+        ticker
+        35s
+        linear
+        infinite;
 }
 
 @keyframes ticker{
+
     to{
         transform:translateX(-50%);
     }
 }
 
-/* ================= GENERAL ================= */
+
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 section{
     padding:150px 0;
 }
 
 .container{
-    width:min(1250px,calc(100% - 50px));
+    width:min(
+        1250px,
+        calc(100% - 50px)
+    );
+
     margin:auto;
 }
 
 .section-top{
     display:flex;
+
     justify-content:space-between;
+
     margin-bottom:65px;
 }
 
 .section-label{
     color:#555;
+
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.23em;
+
     text-transform:uppercase;
 }
 
 .section-number{
     color:#444;
+
     font-size:9px;
 }
 
 .heading{
-    font-size:clamp(55px,7vw,100px);
+    font-size:
+        clamp(
+            55px,
+            7vw,
+            100px
+        );
+
     line-height:.9;
+
     letter-spacing:-.075em;
+
     font-weight:800;
 }
 
@@ -386,135 +530,216 @@ section{
     color:#555;
 }
 
-/* ================= ABOUT ================= */
+
+/* =========================================================
+   ABOUT
+   FLXNR.JPEG IS ONLY A BACKGROUND
+========================================================= */
 
 #about{
     position:relative;
+
     overflow:hidden;
+
     isolation:isolate;
 }
 
-#about::before{
-    content:"";
-    position:absolute;
-    inset:-80px;
 
-    background-image:url("./flxnr.jpeg");
-    background-repeat:no-repeat;
+/*
+   Main blurred photograph
+*/
+
+#about::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-120px;
+
+    background-image:
+        url("./flxnr.jpeg");
+
     background-size:cover;
+
     background-position:center;
 
-    filter:blur(28px);
-    transform:scale(1.12);
+    background-repeat:no-repeat;
 
-    opacity:.30;
+    filter:
+        blur(38px)
+        grayscale(.25)
+        contrast(1.05);
+
+    transform:scale(1.18);
+
+    opacity:.34;
 
     z-index:-3;
 }
 
+
+/*
+   Black gradient over the photograph.
+   This makes the picture dissolve into the page.
+*/
+
 #about::after{
+
     content:"";
+
     position:absolute;
+
     inset:0;
 
+    z-index:-2;
+
     background:
+
+        radial-gradient(
+            ellipse at center,
+            rgba(5,5,5,.40) 0%,
+            rgba(5,5,5,.72) 45%,
+            rgba(5,5,5,.96) 88%
+        ),
+
         linear-gradient(
             90deg,
-            rgba(5,5,5,.97) 0%,
-            rgba(5,5,5,.88) 35%,
-            rgba(5,5,5,.65) 70%,
-            rgba(5,5,5,.92) 100%
+            rgba(5,5,5,.95),
+            rgba(5,5,5,.45),
+            rgba(5,5,5,.92)
+        );
+}
+
+
+/*
+   Extra soft light over the photo
+*/
+
+#about .container::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.055),
+            transparent 68%
         );
 
-    z-index:-2;
+    filter:blur(35px);
+
+    pointer-events:none;
+
+    z-index:-1;
 }
 
 .about-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:100px;
+
     align-items:center;
 }
 
-.about-photo{
-    width:100%;
-    max-width:520px;
-    height:620px;
-
-    object-fit:cover;
-    object-position:center;
-
-    display:block;
-
-    border-radius:18px;
-
-    opacity:.92;
-
-    filter:contrast(1.05);
-
-    box-shadow:0 30px 100px rgba(0,0,0,.65);
-
-    transition:
-        transform .7s cubic-bezier(.16,1,.3,1),
-        opacity .4s;
-}
-
-.about-photo:hover{
-    transform:scale(1.025);
-    opacity:1;
-}
-
 .about-text{
+
     color:#777;
+
     font-size:15px;
+
     line-height:1.9;
+
     max-width:600px;
 }
 
 .about-text strong{
-    color:white;
+    color:#fff;
 }
 
 .socials{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:9px;
+
     margin-top:35px;
 }
 
 .social{
+
     border:1px solid #29292d;
+
     padding:11px 16px;
+
     border-radius:7px;
+
     color:#777;
+
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.15em;
+
     text-transform:uppercase;
+
     transition:.25s;
 }
 
 .social:hover{
-    background:white;
-    color:black;
+    background:#fff;
+
+    color:#000;
+
     transform:translateY(-3px);
 }
 
-/* ================= CARDS ================= */
+
+/* =========================================================
+   CREATIVE CARDS
+========================================================= */
 
 .cards{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     margin-top:75px;
+
     border-top:1px solid #222;
+
     border-left:1px solid #222;
 }
 
 .card{
+
     min-height:240px;
+
     padding:35px;
+
     border-right:1px solid #222;
+
     border-bottom:1px solid #222;
+
     transition:.3s;
 }
 
@@ -524,53 +749,86 @@ section{
 
 .card-number{
     color:#444;
+
     font-size:9px;
 }
 
 .card h3{
+
     margin-top:60px;
+
     font-size:28px;
+
     letter-spacing:-.04em;
 }
 
 .card p{
+
     margin-top:12px;
+
     color:#666;
+
     font-size:12px;
+
     line-height:1.7;
 }
 
-/* ================= COLLAB ================= */
+
+/* =========================================================
+   COLLAB
+========================================================= */
 
 .collab{
+
     background:#080808;
+
     border-top:1px solid #171717;
     border-bottom:1px solid #171717;
 }
 
 .collab-text{
+
     max-width:850px;
+
     margin-top:35px;
+
     color:#777;
+
     font-size:15px;
+
     line-height:1.9;
 }
 
 .collab-text strong{
-    color:white;
+    color:#fff;
 }
 
-/* ================= SUBMIT ================= */
+
+/* =========================================================
+   SUBMIT
+========================================================= */
 
 .submit-layout{
+
     display:grid;
-    grid-template-columns:.75fr 1.25fr;
+
+    grid-template-columns:
+        .75fr 1.25fr;
+
     gap:100px;
 }
 
 .submit-title h2{
-    font-size:clamp(55px,6vw,90px);
+
+    font-size:
+        clamp(
+            55px,
+            6vw,
+            90px
+        );
+
     line-height:.88;
+
     letter-spacing:-.075em;
 }
 
@@ -579,25 +837,41 @@ section{
 }
 
 .submit-title p{
+
     margin-top:30px;
+
     color:#666;
+
     font-size:13px;
+
     line-height:1.8;
 }
 
 .form{
+
     padding:35px;
+
     background:#09090a;
+
     border:1px solid #252529;
+
     border-radius:16px;
-    box-shadow:0 50px 150px rgba(0,0,0,.4);
+
+    box-shadow:
+        0 50px 150px
+        rgba(0,0,0,.4);
 }
 
 .form-header{
+
     display:flex;
+
     justify-content:space-between;
+
     padding-bottom:25px;
+
     margin-bottom:30px;
+
     border-bottom:1px solid #202024;
 }
 
@@ -606,14 +880,21 @@ section{
 }
 
 .form-header span{
+
     color:#444;
+
     font-family:monospace;
+
     font-size:9px;
 }
 
 .form-row{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:15px;
 }
 
@@ -622,25 +903,40 @@ section{
 }
 
 .field label{
+
     display:block;
+
     margin-bottom:8px;
+
     color:#666;
+
     font-size:8px;
+
     font-weight:800;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
 }
 
 .field input,
 .field textarea,
 .field select{
+
     width:100%;
+
     padding:14px;
+
     background:#050505;
+
     border:1px solid #29292d;
+
     border-radius:8px;
+
     outline:none;
-    color:white;
+
+    color:#fff;
+
     font-size:12px;
 }
 
@@ -651,7 +947,9 @@ section{
 }
 
 .field textarea{
+
     min-height:130px;
+
     resize:vertical;
 }
 
@@ -659,51 +957,83 @@ select option{
     background:#080808;
 }
 
-/* ================= SOCIAL SELECTION ================= */
+
+/* =========================================================
+   SOCIAL SELECTION
+========================================================= */
 
 .social-selection{
+
     margin-bottom:24px;
+
     padding:20px;
+
     background:#060606;
+
     border:1px solid #29292d;
+
     border-radius:10px;
 }
 
 .social-selection-title{
+
     margin-bottom:16px;
+
     color:#666;
+
     font-size:8px;
+
     font-weight:800;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
 }
 
 .checkbox-list{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:10px;
 }
 
 .checkbox-option{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     padding:12px;
+
     border:1px solid #252529;
+
     border-radius:7px;
+
     color:#777;
+
     font-size:10px;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
 .checkbox-option input{
+
     width:auto;
-    accent-color:white;
+
+    accent-color:#fff;
 }
 
 .checkbox-option:hover{
-    color:white;
+
+    color:#fff;
+
     border-color:#555;
 }
 
@@ -715,49 +1045,82 @@ select option{
     display:block;
 }
 
-/* ================= MP3 ================= */
+
+/* =========================================================
+   MP3
+========================================================= */
 
 .audio-box{
+
     margin-bottom:20px;
+
     padding:20px;
+
     border:1px dashed #343438;
+
     border-radius:10px;
 }
 
 .audio-box label{
+
     display:block;
+
     margin-bottom:12px;
+
     color:#666;
+
     font-size:8px;
+
     font-weight:800;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
 }
 
 .audio-box input{
+
     width:100%;
+
     color:#777;
 }
 
 .file-info{
+
     margin-top:10px;
+
     color:#555;
+
     font-size:9px;
 }
 
-/* ================= SUBMIT BUTTON ================= */
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
 
 .submit-button{
+
     width:100%;
+
     padding:17px;
+
     border:none;
+
     border-radius:8px;
-    background:white;
-    color:black;
+
+    background:#fff;
+
+    color:#000;
+
     font-size:9px;
+
     font-weight:900;
+
     letter-spacing:.2em;
+
     cursor:pointer;
+
     transition:.3s;
 }
 
@@ -766,43 +1129,74 @@ select option{
 }
 
 .notice{
+
     margin-top:18px;
+
     padding:18px;
+
     background:#070707;
+
     border:1px solid #29292d;
+
     border-radius:10px;
+
     color:#777;
+
     font-size:10px;
+
     line-height:1.7;
+
     text-align:center;
 }
 
 .notice strong{
-    color:white;
+    color:#fff;
 }
 
-/* ================= FINAL ================= */
+
+/* =========================================================
+   FINAL
+========================================================= */
 
 .final{
+
     min-height:80vh;
+
     display:flex;
+
     align-items:center;
+
     position:relative;
 }
 
 .final-small{
+
     margin-bottom:25px;
+
     color:#555;
+
     font-size:9px;
+
     font-weight:800;
+
     letter-spacing:.22em;
+
     text-transform:uppercase;
 }
 
 .final h2{
+
     max-width:1000px;
-    font-size:clamp(60px,9vw,130px);
+
+    font-size:
+        clamp(
+            60px,
+            9vw,
+            130px
+        );
+
     line-height:.85;
+
     letter-spacing:-.085em;
 }
 
@@ -810,44 +1204,74 @@ select option{
     color:#555;
 }
 
-/* ================= FOOTER ================= */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
+
     position:relative;
+
     z-index:50;
+
     padding:40px 0;
+
     background:#050505;
+
     border-top:1px solid #191919;
 }
 
 .footer{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     color:#444;
+
     font-size:8px;
+
     font-weight:700;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
 }
 
 .footer-logo{
-    color:white;
+
+    color:#fff;
+
     font-size:19px;
+
     font-weight:900;
+
     letter-spacing:-.07em;
 }
 
-/* ================= BOTTOM SMOKE ================= */
+
+/* =========================================================
+   BOTTOM ANIMATED SMOKE
+========================================================= */
 
 #bottomSmoke{
+
     position:fixed;
+
     left:0;
     bottom:0;
+
     width:100vw;
+
     height:330px;
+
     z-index:999;
+
     pointer-events:none;
+
     overflow:hidden;
 
     -webkit-mask-image:
@@ -870,7 +1294,9 @@ footer{
 }
 
 .smoke-cloud{
+
     position:absolute;
+
     bottom:-180px;
 
     width:380px;
@@ -896,51 +1322,69 @@ footer{
         ease-in-out
         infinite;
 
-    animation-delay:var(--delay);
+    animation-delay:
+        var(--delay);
 }
 
 .smoke-cloud:nth-child(1){
+
     left:-80px;
+
     --time:11s;
     --delay:-3s;
 }
 
 .smoke-cloud:nth-child(2){
+
     left:10%;
+
     width:430px;
     height:430px;
+
     --time:15s;
     --delay:-8s;
 }
 
 .smoke-cloud:nth-child(3){
+
     left:30%;
+
     width:350px;
     height:350px;
+
     --time:12s;
     --delay:-5s;
 }
 
 .smoke-cloud:nth-child(4){
+
     left:48%;
+
     width:470px;
     height:470px;
+
     --time:17s;
     --delay:-11s;
 }
 
 .smoke-cloud:nth-child(5){
+
     left:70%;
+
     width:390px;
     height:390px;
+
     --time:13s;
     --delay:-7s;
 }
 
 .smoke-cloud:nth-child(6){
+
     left:88%;
+
     width:350px;
     height:350px;
+
     --time:16s;
     --delay:-12s;
 }
@@ -948,49 +1392,80 @@ footer{
 @keyframes smokeMove{
 
     0%{
+
         transform:
-            translate3d(-60px,70px,0)
+            translate3d(
+                -60px,
+                70px,
+                0
+            )
             scale(.7)
             rotate(-5deg);
+
         opacity:.15;
     }
 
     40%{
+
         transform:
-            translate3d(60px,-20px,0)
+            translate3d(
+                60px,
+                -20px,
+                0
+            )
             scale(1.05)
             rotate(5deg);
+
         opacity:.75;
     }
 
     80%{
+
         transform:
-            translate3d(-40px,-90px,0)
+            translate3d(
+                -40px,
+                -90px,
+                0
+            )
             scale(1.25)
             rotate(-4deg);
+
         opacity:.35;
     }
 
     100%{
+
         transform:
-            translate3d(40px,-180px,0)
+            translate3d(
+                40px,
+                -180px,
+                0
+            )
             scale(1.5)
             rotate(6deg);
+
         opacity:0;
     }
 }
 
-/* ================= MOBILE ================= */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:850px){
 
-    .cursor,
-    .cursor-dot,
-    .cursor-smoke{
+    /*
+       Mobile does not have a mouse,
+       so cursor smoke is disabled.
+    */
+
+    .cursor-smoke-dot{
         display:none;
     }
 
     .nav{
+
         padding:0 18px;
     }
 
@@ -1004,122 +1479,197 @@ footer{
 
     .hero-inner,
     .container{
-        width:calc(100% - 28px);
+
+        width:
+            calc(100% - 28px);
     }
 
     .hero-title{
+
         font-size:25vw;
     }
 
     .hero-bottom{
+
         grid-template-columns:1fr;
+
         gap:35px;
     }
 
     .hero-buttons{
+
         width:100%;
     }
 
     .button{
+
         flex:1;
     }
 
     section{
+
         padding:100px 0;
     }
 
     .about-grid,
     .submit-layout{
+
         grid-template-columns:1fr;
+
         gap:55px;
     }
 
-    .about-photo{
-        height:430px;
-        max-width:100%;
-        order:2;
-    }
-
     .cards{
+
         grid-template-columns:1fr;
     }
 
     .form-row{
+
         grid-template-columns:1fr;
     }
 
     .checkbox-list{
+
         grid-template-columns:1fr;
     }
 
     .form{
+
         padding:20px;
     }
 
     #bottomSmoke{
+
         height:240px;
     }
 
     .smoke-cloud{
-        width:280px!important;
-        height:280px!important;
+
+        width:280px !important;
+        height:280px !important;
     }
 
     .footer{
+
         flex-direction:column;
+
         align-items:flex-start;
+
         gap:18px;
     }
 
+    /*
+       Make the blurred FLXNR photo
+       even softer on mobile.
+    */
+
+    #about::before{
+
+        filter:
+            blur(45px)
+            grayscale(.3);
+
+        opacity:.27;
+    }
+
     #about::after{
+
         background:
-            linear-gradient(
-                180deg,
-                rgba(5,5,5,.95),
-                rgba(5,5,5,.78),
-                rgba(5,5,5,.96)
+
+            radial-gradient(
+                ellipse at center,
+                rgba(5,5,5,.45),
+                rgba(5,5,5,.90) 80%
             );
     }
+
 }
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    .ticker-track,
+    .smoke-cloud,
+    .hero-title span{
+
+        animation:none;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- BACKGROUND -->
+
+<!-- =======================================================
+     BACKGROUND
+======================================================= -->
 
 <div class="background">
+
     <div class="grid"></div>
+
     <div class="bg-glow"></div>
+
 </div>
 
-<!-- CURSOR -->
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-
-<!-- NAV -->
+<!-- =======================================================
+     NAVIGATION
+======================================================= -->
 
 <nav class="nav">
 
     <a href="#" class="logo">
-        FLXNR <span>/ ARTIST</span>
+        FLXNR
+        <span>/ ARTIST</span>
     </a>
 
     <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#creative">Creative</a>
-        <a href="#collab">Collab</a>
-        <a href="#submit">Send Music</a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#creative">
+            Creative
+        </a>
+
+        <a href="#collab">
+            Collab
+        </a>
+
+        <a href="#submit">
+            Send Music
+        </a>
+
     </div>
 
-    <a href="#submit" class="nav-button">
+    <a
+        href="#submit"
+        class="nav-button"
+    >
         Start a collaboration →
     </a>
 
 </nav>
 
-<!-- HERO -->
+
+<!-- =======================================================
+     HERO
+======================================================= -->
 
 <header class="hero">
 
@@ -1132,15 +1682,26 @@ footer{
         </span>
 
         <span class="online">
+
             <i class="online-dot"></i>
+
             OPEN WORLDWIDE
+
         </span>
 
     </div>
 
+
     <h1 class="hero-title">
-        <span>F</span><span>L</span><span>X</span><span>NR</span>
+
+        <span>F</span>
+        <span>L</span>
+        <span>X</span>
+        <span>N</span>
+        <span>R</span>
+
     </h1>
+
 
     <div class="hero-bottom">
 
@@ -1169,13 +1730,20 @@ footer{
 
         </p>
 
+
         <div class="hero-buttons">
 
-            <a href="#submit" class="button primary">
+            <a
+                href="#submit"
+                class="button primary"
+            >
                 Send your music
             </a>
 
-            <a href="#about" class="button">
+            <a
+                href="#about"
+                class="button"
+            >
                 Discover FLXNR
             </a>
 
@@ -1187,25 +1755,31 @@ footer{
 
 </header>
 
-<!-- TICKER -->
+
+<!-- =======================================================
+     TICKER
+======================================================= -->
 
 <div class="ticker">
 
-    <div class="ticker-track">
+<div class="ticker-track">
 
-        FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
-        COLLABORATION ✦ CREATIVE ENERGY ✦
-        NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
+    FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
+    COLLABORATION ✦ CREATIVE ENERGY ✦
+    NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
 
-        FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
-        COLLABORATION ✦ CREATIVE ENERGY ✦
-        NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
-
-    </div>
+    FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
+    COLLABORATION ✦ CREATIVE ENERGY ✦
+    NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
 
 </div>
 
-<!-- ABOUT -->
+</div>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
 
 <section id="about">
 
@@ -1223,24 +1797,20 @@ footer{
 
     </div>
 
+
     <div class="about-grid">
 
         <div>
 
             <h2 class="heading">
+
                 FLXNR is an
                 <span>artist.</span>
+
             </h2>
 
-            <br><br>
-
-            <img
-                src="./flxnr.jpeg"
-                alt="FLXNR"
-                class="about-photo"
-            >
-
         </div>
+
 
         <div>
 
@@ -1276,31 +1846,40 @@ footer{
 
             </p>
 
+
             <div class="socials">
 
                 <a
                     href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
                     target="_blank"
                     class="social"
-                >Spotify</a>
+                >
+                    Spotify
+                </a>
 
                 <a
                     href="https://www.instagram.com/irasso2/"
                     target="_blank"
                     class="social"
-                >Instagram</a>
+                >
+                    Instagram
+                </a>
 
                 <a
                     href="https://www.tiktok.com/@flixonar_official"
                     target="_blank"
                     class="social"
-                >TikTok</a>
+                >
+                    TikTok
+                </a>
 
                 <a
                     href="https://www.youtube.com/@flixnr_music"
                     target="_blank"
                     class="social"
-                >YouTube</a>
+                >
+                    YouTube
+                </a>
 
             </div>
 
@@ -1312,7 +1891,10 @@ footer{
 
 </section>
 
-<!-- CREATIVE -->
+
+<!-- =======================================================
+     CREATIVE
+======================================================= -->
 
 <section id="creative">
 
@@ -1330,51 +1912,90 @@ footer{
 
     </div>
 
+
     <h2 class="heading">
+
         Different people.
         <span>Different sounds.</span>
+
     </h2>
+
 
     <div class="cards">
 
         <div class="card">
-            <div class="card-number">01</div>
-            <h3>Artists</h3>
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Artists
+            </h3>
+
             <p>
                 Work together on a track,
                 idea or completely new
                 musical direction.
             </p>
+
         </div>
 
+
         <div class="card">
-            <div class="card-number">02</div>
-            <h3>Producers</h3>
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Producers
+            </h3>
+
             <p>
                 Beats, production,
                 sound design and
                 unexpected combinations.
             </p>
+
         </div>
 
+
         <div class="card">
-            <div class="card-number">03</div>
-            <h3>Vocalists</h3>
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Vocalists
+            </h3>
+
             <p>
                 Vocals, hooks, melodies
                 and ideas that can turn
                 into something bigger.
             </p>
+
         </div>
 
+
         <div class="card">
-            <div class="card-number">04</div>
-            <h3>New ideas</h3>
+
+            <div class="card-number">
+                04
+            </div>
+
+            <h3>
+                New ideas
+            </h3>
+
             <p>
                 Anything creative that
                 could become an interesting
                 musical project.
             </p>
+
         </div>
 
     </div>
@@ -1383,9 +2004,15 @@ footer{
 
 </section>
 
-<!-- COLLAB -->
 
-<section id="collab" class="collab">
+<!-- =======================================================
+     COLLAB
+======================================================= -->
+
+<section
+    id="collab"
+    class="collab"
+>
 
 <div class="container">
 
@@ -1401,10 +2028,14 @@ footer{
 
     </div>
 
+
     <h2 class="heading">
+
         Bring your sound.
         <span>I'll bring mine.</span>
+
     </h2>
+
 
     <p class="collab-text">
 
@@ -1432,7 +2063,10 @@ footer{
 
 </section>
 
-<!-- SUBMIT -->
+
+<!-- =======================================================
+     SUBMIT
+======================================================= -->
 
 <section id="submit">
 
@@ -1450,15 +2084,20 @@ footer{
 
     </div>
 
+
     <div class="submit-layout">
+
 
         <div class="submit-title">
 
             <h2>
+
                 Let's make
                 something
                 <span>together.</span>
+
             </h2>
+
 
             <p>
 
@@ -1481,6 +2120,7 @@ footer{
 
         </div>
 
+
         <div class="form">
 
             <form
@@ -1502,19 +2142,28 @@ footer{
                     value="FLXNR — New Music Collaboration"
                 >
 
+
                 <div class="form-header">
 
-                    <h3>COLLABORATION</h3>
+                    <h3>
+                        COLLABORATION
+                    </h3>
 
-                    <span>FLXNR / 001</span>
+                    <span>
+                        FLXNR / 001
+                    </span>
 
                 </div>
 
+
                 <div class="form-row">
+
 
                     <div class="field">
 
-                        <label>Real name *</label>
+                        <label>
+                            Real name *
+                        </label>
 
                         <input
                             type="text"
@@ -1525,9 +2174,12 @@ footer{
 
                     </div>
 
+
                     <div class="field">
 
-                        <label>Artist name *</label>
+                        <label>
+                            Artist name *
+                        </label>
 
                         <input
                             type="text"
@@ -1540,9 +2192,12 @@ footer{
 
                 </div>
 
+
                 <div class="field">
 
-                    <label>Email address *</label>
+                    <label>
+                        Email address *
+                    </label>
 
                     <input
                         type="email"
@@ -1553,9 +2208,12 @@ footer{
 
                 </div>
 
+
                 <div class="field">
 
-                    <label>Track title *</label>
+                    <label>
+                        Track title *
+                    </label>
 
                     <input
                         type="text"
@@ -1566,130 +2224,190 @@ footer{
 
                 </div>
 
+
+                <!-- SOCIALS -->
+
                 <div class="social-selection">
 
                     <div class="social-selection-title">
+
                         Select your social profiles
+
                     </div>
+
 
                     <div class="checkbox-list">
 
+
                         <label class="checkbox-option">
+
                             <input
                                 type="checkbox"
                                 id="spotifyCheck"
                                 name="Socials"
                                 value="Spotify"
                             >
+
                             Spotify
+
                         </label>
 
+
                         <label class="checkbox-option">
+
                             <input
                                 type="checkbox"
                                 id="instagramCheck"
                                 name="Socials"
                                 value="Instagram"
                             >
+
                             Instagram
+
                         </label>
 
+
                         <label class="checkbox-option">
+
                             <input
                                 type="checkbox"
                                 id="tiktokCheck"
                                 name="Socials"
                                 value="TikTok"
                             >
+
                             TikTok
+
                         </label>
 
+
                         <label class="checkbox-option">
+
                             <input
                                 type="checkbox"
                                 id="youtubeCheck"
                                 name="Socials"
                                 value="YouTube"
                             >
+
                             YouTube
+
                         </label>
+
 
                         <label
                             class="checkbox-option"
                             style="grid-column:1/-1"
                         >
+
                             <input
                                 type="checkbox"
                                 id="noSocialCheck"
                                 name="Socials"
                                 value="None"
                             >
+
                             I don't have social media yet
+
                         </label>
+
 
                     </div>
 
                 </div>
 
+
+                <!-- SPOTIFY -->
+
                 <div
                     class="field social-link-field"
                     id="spotifyField"
                 >
-                    <label>Spotify profile link</label>
+
+                    <label>
+                        Spotify profile link
+                    </label>
 
                     <input
-                        type="text"
+                        type="url"
                         name="Spotify Profile Link"
                         id="spotifyInput"
-                        placeholder="Paste your Spotify profile link"
+                        placeholder="https://open.spotify.com/..."
                     >
+
                 </div>
+
+
+                <!-- INSTAGRAM -->
 
                 <div
                     class="field social-link-field"
                     id="instagramField"
                 >
-                    <label>Instagram profile link</label>
+
+                    <label>
+                        Instagram profile link
+                    </label>
 
                     <input
-                        type="text"
+                        type="url"
                         name="Instagram Profile Link"
                         id="instagramInput"
-                        placeholder="Paste your Instagram profile link"
+                        placeholder="https://instagram.com/..."
                     >
+
                 </div>
+
+
+                <!-- TIKTOK -->
 
                 <div
                     class="field social-link-field"
                     id="tiktokField"
                 >
-                    <label>TikTok profile link</label>
+
+                    <label>
+                        TikTok profile link
+                    </label>
 
                     <input
-                        type="text"
+                        type="url"
                         name="TikTok Profile Link"
                         id="tiktokInput"
-                        placeholder="Paste your TikTok profile link"
+                        placeholder="https://tiktok.com/@..."
                     >
+
                 </div>
+
+
+                <!-- YOUTUBE -->
 
                 <div
                     class="field social-link-field"
                     id="youtubeField"
                 >
-                    <label>YouTube channel link</label>
+
+                    <label>
+                        YouTube channel link
+                    </label>
 
                     <input
-                        type="text"
+                        type="url"
                         name="YouTube Channel Link"
                         id="youtubeInput"
-                        placeholder="Paste your YouTube channel link"
+                        placeholder="https://youtube.com/@..."
                     >
+
                 </div>
+
+
+                <!-- GENRE -->
 
                 <div class="field">
 
-                    <label>Genre</label>
+                    <label>
+                        Genre
+                    </label>
 
                     <select name="Genre">
 
@@ -1697,37 +2415,110 @@ footer{
                             Select your genre
                         </option>
 
-                        <option>Pop</option>
-                        <option>Hip-Hop</option>
-                        <option>Rap</option>
-                        <option>R&B</option>
-                        <option>Rock</option>
-                        <option>Indie</option>
-                        <option>Electronic</option>
-                        <option>EDM</option>
-                        <option>House</option>
-                        <option>Techno</option>
-                        <option>Drum & Bass</option>
-                        <option>Dubstep</option>
-                        <option>Phonk</option>
-                        <option>Brazilian Funk</option>
-                        <option>Afrobeats</option>
-                        <option>Reggaeton</option>
-                        <option>Trap</option>
-                        <option>Drill</option>
-                        <option>Jersey Club</option>
-                        <option>Hardstyle</option>
-                        <option>Hyperpop</option>
-                        <option>Experimental</option>
-                        <option>Other</option>
+                        <option>
+                            Pop
+                        </option>
+
+                        <option>
+                            Hip-Hop
+                        </option>
+
+                        <option>
+                            Rap
+                        </option>
+
+                        <option>
+                            R&B
+                        </option>
+
+                        <option>
+                            Rock
+                        </option>
+
+                        <option>
+                            Indie
+                        </option>
+
+                        <option>
+                            Electronic
+                        </option>
+
+                        <option>
+                            EDM
+                        </option>
+
+                        <option>
+                            House
+                        </option>
+
+                        <option>
+                            Techno
+                        </option>
+
+                        <option>
+                            Drum & Bass
+                        </option>
+
+                        <option>
+                            Dubstep
+                        </option>
+
+                        <option>
+                            Phonk
+                        </option>
+
+                        <option>
+                            Brazilian Funk
+                        </option>
+
+                        <option>
+                            Afrobeats
+                        </option>
+
+                        <option>
+                            Reggaeton
+                        </option>
+
+                        <option>
+                            Trap
+                        </option>
+
+                        <option>
+                            Drill
+                        </option>
+
+                        <option>
+                            Jersey Club
+                        </option>
+
+                        <option>
+                            Hardstyle
+                        </option>
+
+                        <option>
+                            Hyperpop
+                        </option>
+
+                        <option>
+                            Experimental
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
 
                     </select>
 
                 </div>
 
+
+                <!-- ABOUT ARTIST -->
+
                 <div class="field">
 
-                    <label>About you *</label>
+                    <label>
+                        About you *
+                    </label>
 
                     <textarea
                         name="About Artist"
@@ -1737,9 +2528,14 @@ footer{
 
                 </div>
 
+
+                <!-- ABOUT TRACK -->
+
                 <div class="field">
 
-                    <label>About the track *</label>
+                    <label>
+                        About the track *
+                    </label>
 
                     <textarea
                         name="About Track"
@@ -1748,6 +2544,9 @@ footer{
                     ></textarea>
 
                 </div>
+
+
+                <!-- MP3 -->
 
                 <div class="audio-box">
 
@@ -1764,17 +2563,24 @@ footer{
                     >
 
                     <div class="file-info">
-                        MP3 only — please upload your demo as an MP3 file.
+
+                        MP3 only — please upload
+                        your demo as an MP3 file.
+
                     </div>
 
                 </div>
+
 
                 <button
                     type="submit"
                     class="submit-button"
                 >
+
                     SEND DEMO →
+
                 </button>
+
 
                 <div class="notice">
 
@@ -1789,6 +2595,7 @@ footer{
 
                 </div>
 
+
             </form>
 
         </div>
@@ -1799,21 +2606,30 @@ footer{
 
 </section>
 
-<!-- FINAL -->
+
+<!-- =======================================================
+     FINAL
+======================================================= -->
 
 <section class="final">
 
 <div class="container">
 
     <div class="final-small">
+
         FLXNR / MUSIC / WORLDWIDE
+
     </div>
 
+
     <h2>
+
         Your sound.
         My sound.
         <span>One track.</span>
+
     </h2>
+
 
     <div class="socials">
 
@@ -1821,25 +2637,33 @@ footer{
             href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
             target="_blank"
             class="social"
-        >Spotify</a>
+        >
+            Spotify
+        </a>
 
         <a
             href="https://www.instagram.com/irasso2/"
             target="_blank"
             class="social"
-        >Instagram</a>
+        >
+            Instagram
+        </a>
 
         <a
             href="https://www.tiktok.com/@flixonar_official"
             target="_blank"
             class="social"
-        >TikTok</a>
+        >
+            TikTok
+        </a>
 
         <a
             href="https://www.youtube.com/@flixnr_music"
             target="_blank"
             class="social"
-        >YouTube</a>
+        >
+            YouTube
+        </a>
 
     </div>
 
@@ -1847,7 +2671,10 @@ footer{
 
 </section>
 
-<!-- FOOTER -->
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
@@ -1873,203 +2700,362 @@ footer{
 
 </footer>
 
-<!-- BOTTOM SMOKE -->
+
+<!-- =======================================================
+     BOTTOM SMOKE
+======================================================= -->
 
 <div id="bottomSmoke">
 
-    <div class="smoke-cloud"></div>
-    <div class="smoke-cloud"></div>
-    <div class="smoke-cloud"></div>
-    <div class="smoke-cloud"></div>
-    <div class="smoke-cloud"></div>
-    <div class="smoke-cloud"></div>
+    <div
+        class="smoke-cloud"
+    ></div>
+
+    <div
+        class="smoke-cloud"
+    ></div>
+
+    <div
+        class="smoke-cloud"
+    ></div>
+
+    <div
+        class="smoke-cloud"
+    ></div>
+
+    <div
+        class="smoke-cloud"
+    ></div>
+
+    <div
+        class="smoke-cloud"
+    ></div>
 
 </div>
 
+
 <script>
 
-/* ================= CURSOR ================= */
+/* =========================================================
+   SMOOTH DOT SMOKE
+========================================================= */
 
-const cursor =
-    document.getElementById("cursor");
+let lastX = null;
+let lastY = null;
 
-const cursorDot =
-    document.getElementById("cursorDot");
+let lastSpawnX = 0;
+let lastSpawnY = 0;
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+let lastSpawnTime = 0;
 
-let cursorX = mouseX;
-let cursorY = mouseY;
 
-let lastSmokeX = mouseX;
-let lastSmokeY = mouseY;
+document.addEventListener(
+    "mousemove",
+    function(e){
 
-let smokeTimer = 0;
+        const x = e.clientX;
+        const y = e.clientY;
 
-document.addEventListener("mousemove", function(e){
+        const now =
+            performance.now();
 
-    mouseX = e.clientX;
-    mouseY = e.clientY;
 
-    cursorDot.style.left = mouseX + "px";
-    cursorDot.style.top = mouseY + "px";
+        if(lastX === null){
 
-    const distance = Math.hypot(
-        mouseX - lastSmokeX,
-        mouseY - lastSmokeY
-    );
+            lastX = x;
+            lastY = y;
 
-    if(distance > 22){
+            lastSpawnX = x;
+            lastSpawnY = y;
 
-        createCursorSmoke(
-            mouseX,
-            mouseY
-        );
+            return;
+        }
 
-        lastSmokeX = mouseX;
-        lastSmokeY = mouseY;
+
+        const distance =
+            Math.hypot(
+                x - lastSpawnX,
+                y - lastSpawnY
+            );
+
+
+        /*
+           Limit the amount of particles
+           so the website stays smooth.
+        */
+
+        if(
+            distance >= 10 &&
+            now - lastSpawnTime > 18
+        ){
+
+            createSmokeDot(x,y);
+
+            lastSpawnX = x;
+            lastSpawnY = y;
+
+            lastSpawnTime = now;
+
+        }
+
+
+        lastX = x;
+        lastY = y;
+
     }
-});
-
-function animateCursor(){
-
-    cursorX += (mouseX - cursorX) * .16;
-    cursorY += (mouseY - cursorY) * .16;
-
-    cursor.style.left = cursorX + "px";
-    cursor.style.top = cursorY + "px";
-
-    requestAnimationFrame(animateCursor);
-}
-
-animateCursor();
+);
 
 
-function createCursorSmoke(x,y){
+function createSmokeDot(x,y){
 
-    const smoke =
+    const dot =
         document.createElement("div");
 
-    smoke.className = "cursor-smoke";
 
-    const randomX =
-        (Math.random() * 70 - 35) + "px";
+    dot.className =
+        "cursor-smoke-dot";
 
-    const randomY =
-        (Math.random() * 70 + 20) + "px";
 
-    smoke.style.left = x + "px";
-    smoke.style.top = y + "px";
+    dot.style.left =
+        x + "px";
 
-    smoke.style.setProperty(
-        "--moveX",
-        randomX
+
+    dot.style.top =
+        y + "px";
+
+
+    /*
+       Random movement.
+    */
+
+    const driftX =
+        (
+            Math.random() * 70
+            - 35
+        ) + "px";
+
+
+    const driftY =
+        (
+            Math.random() * 55
+            - 10
+        ) + "px";
+
+
+    dot.style.setProperty(
+        "--drift-x",
+        driftX
     );
 
-    smoke.style.setProperty(
-        "--moveY",
-        randomY
+
+    dot.style.setProperty(
+        "--drift-y",
+        driftY
     );
 
-    document.body.appendChild(smoke);
 
-    setTimeout(() => {
-        smoke.remove();
-    }, 1400);
+    /*
+       Different dot sizes.
+    */
+
+    const size =
+        2.2 +
+        Math.random() * 3.5;
+
+
+    dot.style.width =
+        size + "px";
+
+
+    dot.style.height =
+        size + "px";
+
+
+    /*
+       Different opacity.
+    */
+
+    dot.style.opacity =
+        .45 +
+        Math.random() * .4;
+
+
+    /*
+       Different animation times.
+    */
+
+    dot.style.animationDuration =
+        (
+            1.35 +
+            Math.random() * .8
+        ) + "s";
+
+
+    document.body.appendChild(dot);
+
+
+    setTimeout(
+        () => dot.remove(),
+        2300
+    );
+
 }
 
 
-/* Cursor hover effect */
-
-const hoverElements =
-    document.querySelectorAll(
-        "a, button, input, textarea, select, label"
-    );
-
-hoverElements.forEach(element => {
-
-    element.addEventListener(
-        "mouseenter",
-        () => {
-            cursor.classList.add("hover");
-        }
-    );
-
-    element.addEventListener(
-        "mouseleave",
-        () => {
-            cursor.classList.remove("hover");
-        }
-    );
-
-});
-
-
-/* ================= SOCIAL MEDIA ================= */
+/* =========================================================
+   SOCIAL PROFILE FIELDS
+========================================================= */
 
 const socialChecks = {
-    spotify: document.getElementById("spotifyCheck"),
-    instagram: document.getElementById("instagramCheck"),
-    tiktok: document.getElementById("tiktokCheck"),
-    youtube: document.getElementById("youtubeCheck")
+
+    spotify:
+        document.getElementById(
+            "spotifyCheck"
+        ),
+
+    instagram:
+        document.getElementById(
+            "instagramCheck"
+        ),
+
+    tiktok:
+        document.getElementById(
+            "tiktokCheck"
+        ),
+
+    youtube:
+        document.getElementById(
+            "youtubeCheck"
+        )
+
 };
+
 
 const socialFields = {
-    spotify: document.getElementById("spotifyField"),
-    instagram: document.getElementById("instagramField"),
-    tiktok: document.getElementById("tiktokField"),
-    youtube: document.getElementById("youtubeField")
+
+    spotify:
+        document.getElementById(
+            "spotifyField"
+        ),
+
+    instagram:
+        document.getElementById(
+            "instagramField"
+        ),
+
+    tiktok:
+        document.getElementById(
+            "tiktokField"
+        ),
+
+    youtube:
+        document.getElementById(
+            "youtubeField"
+        )
+
 };
+
 
 const socialInputs = {
-    spotify: document.getElementById("spotifyInput"),
-    instagram: document.getElementById("instagramInput"),
-    tiktok: document.getElementById("tiktokInput"),
-    youtube: document.getElementById("youtubeInput")
+
+    spotify:
+        document.getElementById(
+            "spotifyInput"
+        ),
+
+    instagram:
+        document.getElementById(
+            "instagramInput"
+        ),
+
+    tiktok:
+        document.getElementById(
+            "tiktokInput"
+        ),
+
+    youtube:
+        document.getElementById(
+            "youtubeInput"
+        )
+
 };
 
+
 const noSocialCheck =
-    document.getElementById("noSocialCheck");
+    document.getElementById(
+        "noSocialCheck"
+    );
+
 
 function updateSocialFields(){
 
+    /*
+       If user selects
+       "I don't have social media",
+       uncheck everything else.
+    */
+
     if(noSocialCheck.checked){
 
-        Object.values(socialChecks).forEach(
-            checkbox => checkbox.checked = false
+        Object.values(
+            socialChecks
+        ).forEach(
+            checkbox =>
+                checkbox.checked = false
         );
 
     }
 
+
+    /*
+       If user selects any social,
+       remove "no social".
+    */
+
     if(
-        Object.values(socialChecks).some(
-            checkbox => checkbox.checked
+        Object.values(
+            socialChecks
+        ).some(
+            checkbox =>
+                checkbox.checked
         )
     ){
 
-        noSocialCheck.checked = false;
+        noSocialCheck.checked =
+            false;
 
     }
 
-    Object.keys(socialChecks).forEach(key => {
+
+    /*
+       Show only selected fields.
+    */
+
+    Object.keys(
+        socialChecks
+    ).forEach(key => {
 
         const checked =
             socialChecks[key].checked;
 
+
         if(checked){
 
             socialFields[key]
-                .classList.add("active");
+                .classList
+                .add("active");
 
-            socialInputs[key].required = true;
+            socialInputs[key]
+                .required = true;
 
         }else{
 
             socialFields[key]
-                .classList.remove("active");
+                .classList
+                .remove("active");
 
-            socialInputs[key].required = false;
+            socialInputs[key]
+                .required = false;
 
             socialInputs[key].value = "";
 
@@ -2079,7 +3065,10 @@ function updateSocialFields(){
 
 }
 
-Object.values(socialChecks).forEach(
+
+Object.values(
+    socialChecks
+).forEach(
     checkbox => {
 
         checkbox.addEventListener(
@@ -2090,21 +3079,31 @@ Object.values(socialChecks).forEach(
     }
 );
 
+
 noSocialCheck.addEventListener(
     "change",
     updateSocialFields
 );
 
+
 updateSocialFields();
 
 
-/* ================= MP3 VALIDATION ================= */
+/* =========================================================
+   MP3 VALIDATION
+========================================================= */
 
 const musicForm =
-    document.getElementById("musicForm");
+    document.getElementById(
+        "musicForm"
+    );
+
 
 const audioInput =
-    document.getElementById("audioInput");
+    document.getElementById(
+        "audioInput"
+    );
+
 
 musicForm.addEventListener(
     "submit",
@@ -2112,6 +3111,7 @@ musicForm.addEventListener(
 
         const file =
             audioInput.files[0];
+
 
         if(!file){
 
@@ -2122,8 +3122,8 @@ musicForm.addEventListener(
             );
 
             return;
-
         }
+
 
         if(
             !file.name
@@ -2140,23 +3140,35 @@ musicForm.addEventListener(
             audioInput.value = "";
 
             return;
-
         }
 
     }
 );
 
 
-/* ================= PREVENT AUTO SCROLL ================= */
+/* =========================================================
+   ALWAYS START AT TOP
+========================================================= */
 
-if("scrollRestoration" in history){
-    history.scrollRestoration = "manual";
+if(
+    "scrollRestoration"
+    in history
+){
+
+    history.scrollRestoration =
+        "manual";
 }
+
 
 window.addEventListener(
     "load",
-    () => {
-        window.scrollTo(0,0);
+    function(){
+
+        window.scrollTo(
+            0,
+            0
+        );
+
     }
 );
 
