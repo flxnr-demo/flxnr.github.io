@@ -42,7 +42,9 @@ select {
 }
 
 
-/* ================= BACKGROUND ================= */
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
 .background {
     position: fixed;
@@ -57,15 +59,8 @@ select {
     inset: 0;
 
     background-image:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
 
     background-size: 80px 80px;
 }
@@ -90,7 +85,9 @@ select {
 }
 
 
-/* ================= NAV ================= */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 .nav {
     position: fixed;
@@ -167,7 +164,9 @@ select {
 }
 
 
-/* ================= HERO ================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero {
     min-height: 100vh;
@@ -208,8 +207,7 @@ select {
 
     background: #72ff9c;
 
-    box-shadow:
-        0 0 15px #72ff9c;
+    box-shadow: 0 0 15px #72ff9c;
 }
 
 .hero-title {
@@ -275,7 +273,9 @@ select {
 }
 
 
-/* ================= BUTTONS ================= */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 .hero-buttons {
     display: flex;
@@ -326,7 +326,9 @@ select {
 }
 
 
-/* ================= TICKER ================= */
+/* =====================================================
+   TICKER
+===================================================== */
 
 .ticker {
     overflow: hidden;
@@ -366,7 +368,9 @@ select {
 }
 
 
-/* ================= SECTIONS ================= */
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
 
 section {
     padding: 150px 0;
@@ -417,7 +421,93 @@ section {
 }
 
 
-/* ================= ABOUT ================= */
+/* =====================================================
+   ABOUT SECTION WITH FLXNR IMAGE
+===================================================== */
+
+#about {
+    position: relative;
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+
+/* BIG BLURRED IMAGE */
+
+#about::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -100px;
+
+    z-index: -3;
+
+    background-image:
+        url("flxnr.jpeg");
+
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(22px);
+
+    transform: scale(1.08);
+
+    opacity: .22;
+}
+
+
+/* DARK GRADIENT OVER PHOTO */
+
+#about::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,5,5,.98) 0%,
+            rgba(5,5,5,.88) 35%,
+            rgba(5,5,5,.72) 65%,
+            rgba(5,5,5,.96) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* EXTRA SOFT LIGHT */
+
+.about-photo-glow {
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -150px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.09),
+            transparent 68%
+        );
+
+    filter: blur(60px);
+
+    pointer-events: none;
+}
 
 .about-grid {
     display: grid;
@@ -479,7 +569,9 @@ section {
 }
 
 
-/* ================= CARDS ================= */
+/* =====================================================
+   CARDS
+===================================================== */
 
 .cards {
     display: grid;
@@ -531,7 +623,9 @@ section {
 }
 
 
-/* ================= COLLAB ================= */
+/* =====================================================
+   COLLAB
+===================================================== */
 
 .collab {
     background: #080808;
@@ -557,7 +651,9 @@ section {
 }
 
 
-/* ================= SUBMIT ================= */
+/* =====================================================
+   SUBMIT
+===================================================== */
 
 .submit-layout {
     display: grid;
@@ -690,7 +786,9 @@ select option {
 }
 
 
-/* ================= SOCIAL SELECT ================= */
+/* =====================================================
+   SOCIAL SELECTION
+===================================================== */
 
 .social-selection {
     margin-bottom: 24px;
@@ -744,6 +842,8 @@ select option {
     font-size: 10px;
 
     cursor: pointer;
+
+    transition: .2s;
 }
 
 .checkbox-option input {
@@ -758,7 +858,9 @@ select option {
 }
 
 
-/* ================= SOCIAL LINK FIELDS ================= */
+/* =====================================================
+   SOCIAL LINK FIELDS
+===================================================== */
 
 .social-link-field {
     display: none;
@@ -769,7 +871,9 @@ select option {
 }
 
 
-/* ================= AUDIO ================= */
+/* =====================================================
+   AUDIO UPLOAD
+===================================================== */
 
 .audio-box {
     margin-bottom: 20px;
@@ -811,7 +915,9 @@ select option {
 }
 
 
-/* ================= SUBMIT BUTTON ================= */
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
 
 .submit-button {
     width: 100%;
@@ -866,7 +972,9 @@ select option {
 }
 
 
-/* ================= FINAL ================= */
+/* =====================================================
+   FINAL
+===================================================== */
 
 .final {
     min-height: 80vh;
@@ -906,7 +1014,9 @@ select option {
 }
 
 
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer {
     position: relative;
@@ -948,7 +1058,9 @@ footer {
 }
 
 
-/* ================= SMOKE ================= */
+/* =====================================================
+   SMOKE
+===================================================== */
 
 #bottomSmoke {
     position: fixed;
@@ -1113,7 +1225,9 @@ footer {
 }
 
 
-/* ================= MOBILE ================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:850px) {
 
@@ -1191,6 +1305,17 @@ footer {
         align-items: flex-start;
         gap: 18px;
     }
+
+    #about::after {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5,5,5,.96),
+                rgba(5,5,5,.82),
+                rgba(5,5,5,.97)
+            );
+    }
+
 }
 
 </style>
@@ -1200,13 +1325,22 @@ footer {
 <body>
 
 
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
 <div class="background">
+
     <div class="grid"></div>
+
     <div class="bg-glow"></div>
+
 </div>
 
 
-<!-- NAV -->
+<!-- =====================================================
+     NAV
+===================================================== -->
 
 <nav class="nav">
 
@@ -1216,10 +1350,23 @@ footer {
     </a>
 
     <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#creative">Creative</a>
-        <a href="#collab">Collab</a>
-        <a href="#submit">Send Music</a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#creative">
+            Creative
+        </a>
+
+        <a href="#collab">
+            Collab
+        </a>
+
+        <a href="#submit">
+            Send Music
+        </a>
+
     </div>
 
     <a href="#submit" class="nav-button">
@@ -1229,7 +1376,9 @@ footer {
 </nav>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <header class="hero">
 
@@ -1242,8 +1391,11 @@ footer {
         </span>
 
         <span class="online">
+
             <i class="online-dot"></i>
+
             OPEN WORLDWIDE
+
         </span>
 
     </div>
@@ -1289,11 +1441,17 @@ footer {
 
         <div class="hero-buttons">
 
-            <a href="#submit" class="button primary">
+            <a
+                href="#submit"
+                class="button primary"
+            >
                 Send your music
             </a>
 
-            <a href="#about" class="button">
+            <a
+                href="#about"
+                class="button"
+            >
                 Discover FLXNR
             </a>
 
@@ -1306,110 +1464,130 @@ footer {
 </header>
 
 
-<!-- TICKER -->
+<!-- =====================================================
+     TICKER
+===================================================== -->
 
 <div class="ticker">
 
-<div class="ticker-track">
+    <div class="ticker-track">
 
-    FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
-    COLLABORATION ✦ CREATIVE ENERGY ✦
-    NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
+        FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
+        COLLABORATION ✦ CREATIVE ENERGY ✦
+        NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
 
-    FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
-    COLLABORATION ✦ CREATIVE ENERGY ✦
-    NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
-
-</div>
-
-</div>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="container">
-
-    <div class="section-top">
-
-        <div class="section-label">
-            01 / About
-        </div>
-
-        <div class="section-number">
-            001
-        </div>
+        FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
+        COLLABORATION ✦ CREATIVE ENERGY ✦
+        NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
 
     </div>
 
-
-    <div class="about-grid">
-
-        <h2 class="heading">
-            FLXNR is an
-            <span>artist.</span>
-        </h2>
+</div>
 
 
-        <div>
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-            <p class="about-text">
+<section id="about">
 
-                FLXNR is an independent artist
-                and producer focused on creating
-                music and exploring different sounds.
+    <div class="about-photo-glow"></div>
 
-                <br><br>
+    <div class="container">
 
-                I like working with people who
-                have their own ideas, their own
-                sound and something interesting
-                to bring to a track.
+        <div class="section-top">
 
-                <br><br>
+            <div class="section-label">
+                01 / About
+            </div>
 
-                If you're an artist, producer,
-                vocalist or another creative person
-                and you think we could make
-                something together, I'd love
-                to hear what you're working on.
+            <div class="section-number">
+                001
+            </div>
 
-                <br><br>
-
-                <strong>
-                    Send your music and let's see
-                    what we can create.
-                </strong>
-
-            </p>
+        </div>
 
 
-            <div class="socials">
+        <div class="about-grid">
 
-                <a href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
-                   target="_blank"
-                   class="social">
-                    Spotify
-                </a>
+            <h2 class="heading">
 
-                <a href="https://www.instagram.com/irasso2/"
-                   target="_blank"
-                   class="social">
-                    Instagram
-                </a>
+                FLXNR is an
+                <span>artist.</span>
 
-                <a href="https://www.tiktok.com/@flixonar_official"
-                   target="_blank"
-                   class="social">
-                    TikTok
-                </a>
+            </h2>
 
-                <a href="https://www.youtube.com/@flixonar_music"
-                   target="_blank"
-                   class="social">
-                    YouTube
-                </a>
+
+            <div>
+
+                <p class="about-text">
+
+                    <strong>
+                        FLXNR is an independent artist
+                        and producer focused on creating
+                        music and exploring different sounds.
+                    </strong>
+
+                    <br><br>
+
+                    I like working with people who
+                    have their own ideas, their own
+                    sound and something interesting
+                    to bring to a track.
+
+                    <br><br>
+
+                    If you're an artist, producer,
+                    vocalist or another creative person
+                    and you think we could make
+                    something together, I'd love
+                    to hear what you're working on.
+
+                    <br><br>
+
+                    <strong>
+                        Send your music and let's see
+                        what we can create.
+                    </strong>
+
+                </p>
+
+
+                <div class="socials">
+
+                    <a
+                        href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
+                        target="_blank"
+                        class="social"
+                    >
+                        Spotify
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/irasso2/"
+                        target="_blank"
+                        class="social"
+                    >
+                        Instagram
+                    </a>
+
+                    <a
+                        href="https://www.tiktok.com/@flixonar_official"
+                        target="_blank"
+                        class="social"
+                    >
+                        TikTok
+                    </a>
+
+                    <a
+                        href="https://www.youtube.com/@flixonar_music"
+                        target="_blank"
+                        class="social"
+                    >
+                        YouTube
+                    </a>
+
+                </div>
 
             </div>
 
@@ -1417,12 +1595,12 @@ footer {
 
     </div>
 
-</div>
-
 </section>
 
 
-<!-- CREATIVE -->
+<!-- =====================================================
+     CREATIVE
+===================================================== -->
 
 <section id="creative">
 
@@ -1453,9 +1631,13 @@ footer {
 
         <div class="card">
 
-            <div class="card-number">01</div>
+            <div class="card-number">
+                01
+            </div>
 
-            <h3>Artists</h3>
+            <h3>
+                Artists
+            </h3>
 
             <p>
                 Work together on a track,
@@ -1468,9 +1650,13 @@ footer {
 
         <div class="card">
 
-            <div class="card-number">02</div>
+            <div class="card-number">
+                02
+            </div>
 
-            <h3>Producers</h3>
+            <h3>
+                Producers
+            </h3>
 
             <p>
                 Beats, production,
@@ -1483,9 +1669,13 @@ footer {
 
         <div class="card">
 
-            <div class="card-number">03</div>
+            <div class="card-number">
+                03
+            </div>
 
-            <h3>Vocalists</h3>
+            <h3>
+                Vocalists
+            </h3>
 
             <p>
                 Vocals, hooks, melodies
@@ -1498,9 +1688,13 @@ footer {
 
         <div class="card">
 
-            <div class="card-number">04</div>
+            <div class="card-number">
+                04
+            </div>
 
-            <h3>New ideas</h3>
+            <h3>
+                New ideas
+            </h3>
 
             <p>
                 Anything creative that
@@ -1517,7 +1711,9 @@ footer {
 </section>
 
 
-<!-- COLLAB -->
+<!-- =====================================================
+     COLLAB
+===================================================== -->
 
 <section id="collab" class="collab">
 
@@ -1571,7 +1767,9 @@ footer {
 </section>
 
 
-<!-- SUBMIT -->
+<!-- =====================================================
+     SEND MUSIC
+===================================================== -->
 
 <section id="submit">
 
@@ -1596,10 +1794,13 @@ footer {
         <div class="submit-title">
 
             <h2>
+
                 Let's make
                 something
                 <span>together.</span>
+
             </h2>
+
 
             <p>
 
@@ -1625,17 +1826,14 @@ footer {
 
         <div class="form">
 
-            <!--
-                IMPORTANT:
-                Formly access key stays here.
-            -->
-
             <form
                 action="https://formly.email/submit"
                 method="POST"
                 enctype="multipart/form-data"
                 id="musicForm"
             >
+
+                <!-- FORM CONFIG -->
 
                 <input
                     type="hidden"
@@ -1662,6 +1860,8 @@ footer {
 
                 </div>
 
+
+                <!-- NAME -->
 
                 <div class="form-row">
 
@@ -1699,6 +1899,8 @@ footer {
                 </div>
 
 
+                <!-- EMAIL -->
+
                 <div class="field">
 
                     <label>
@@ -1714,6 +1916,8 @@ footer {
 
                 </div>
 
+
+                <!-- TRACK -->
 
                 <div class="field">
 
@@ -1731,7 +1935,7 @@ footer {
                 </div>
 
 
-                <!-- SOCIAL SELECTION -->
+                <!-- SOCIALS -->
 
                 <div class="social-selection">
 
@@ -1741,6 +1945,7 @@ footer {
 
 
                     <div class="checkbox-list">
+
 
                         <label class="checkbox-option">
 
@@ -1814,12 +2019,13 @@ footer {
 
                         </label>
 
+
                     </div>
 
                 </div>
 
 
-                <!-- SPOTIFY -->
+                <!-- SPOTIFY LINK -->
 
                 <div
                     class="field social-link-field"
@@ -1836,13 +2042,12 @@ footer {
                         id="spotifyInput"
                         placeholder="Paste your Spotify profile link"
                         inputmode="url"
-                        autocomplete="url"
                     >
 
                 </div>
 
 
-                <!-- INSTAGRAM -->
+                <!-- INSTAGRAM LINK -->
 
                 <div
                     class="field social-link-field"
@@ -1859,13 +2064,12 @@ footer {
                         id="instagramInput"
                         placeholder="Paste your Instagram profile link"
                         inputmode="url"
-                        autocomplete="url"
                     >
 
                 </div>
 
 
-                <!-- TIKTOK -->
+                <!-- TIKTOK LINK -->
 
                 <div
                     class="field social-link-field"
@@ -1882,13 +2086,12 @@ footer {
                         id="tiktokInput"
                         placeholder="Paste your TikTok profile link"
                         inputmode="url"
-                        autocomplete="url"
                     >
 
                 </div>
 
 
-                <!-- YOUTUBE -->
+                <!-- YOUTUBE LINK -->
 
                 <div
                     class="field social-link-field"
@@ -1905,7 +2108,6 @@ footer {
                         id="youtubeInput"
                         placeholder="Paste your YouTube channel link"
                         inputmode="url"
-                        autocomplete="url"
                     >
 
                 </div>
@@ -1945,7 +2147,6 @@ footer {
                         <option>Trance</option>
                         <option>Drum & Bass</option>
                         <option>Dubstep</option>
-                        <option>Garage</option>
                         <option>Ambient</option>
                         <option>Lo-fi</option>
                         <option>Phonk</option>
@@ -2009,7 +2210,7 @@ footer {
                 </div>
 
 
-                <!-- MP3 -->
+                <!-- MP3 ONLY -->
 
                 <div class="audio-box">
 
@@ -2020,22 +2221,30 @@ footer {
                     <input
                         type="file"
                         name="audio"
+                        id="audioInput"
                         accept=".mp3,audio/mpeg"
                         required
                     >
 
                     <div class="file-info">
-                        MP3 only
+
+                        MP3 only — please upload your demo
+                        as an MP3 file.
+
                     </div>
 
                 </div>
 
 
+                <!-- SUBMIT -->
+
                 <button
                     type="submit"
                     class="submit-button"
                 >
+
                     SEND DEMO →
+
                 </button>
 
 
@@ -2052,6 +2261,7 @@ footer {
 
                 </div>
 
+
             </form>
 
         </div>
@@ -2063,7 +2273,9 @@ footer {
 </section>
 
 
-<!-- FINAL -->
+<!-- =====================================================
+     FINAL
+===================================================== -->
 
 <section class="final">
 
@@ -2073,10 +2285,13 @@ footer {
         FLXNR / MUSIC / WORLDWIDE
     </div>
 
+
     <h2>
+
         Your sound.
         My sound.
         <span>One track.</span>
+
     </h2>
 
 
@@ -2090,6 +2305,7 @@ footer {
             Spotify
         </a>
 
+
         <a
             href="https://www.instagram.com/irasso2/"
             target="_blank"
@@ -2098,6 +2314,7 @@ footer {
             Instagram
         </a>
 
+
         <a
             href="https://www.tiktok.com/@flixonar_official"
             target="_blank"
@@ -2105,6 +2322,7 @@ footer {
         >
             TikTok
         </a>
+
 
         <a
             href="https://www.youtube.com/@flixonar_music"
@@ -2121,7 +2339,9 @@ footer {
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -2148,15 +2368,22 @@ footer {
 </footer>
 
 
-<!-- SMOKE -->
+<!-- =====================================================
+     SMOKE
+===================================================== -->
 
 <div id="bottomSmoke">
 
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
+
     <div class="smoke-cloud"></div>
 
 </div>
@@ -2165,192 +2392,134 @@ footer {
 <script>
 
 /* =====================================================
-   SOCIAL FORM LOGIC
+   SOCIAL PROFILE LOGIC
 ===================================================== */
 
-const spotifyCheck =
-    document.getElementById("spotifyCheck");
+const socialChecks = {
 
-const instagramCheck =
-    document.getElementById("instagramCheck");
+    spotify:
+        document.getElementById("spotifyCheck"),
 
-const tiktokCheck =
-    document.getElementById("tiktokCheck");
+    instagram:
+        document.getElementById("instagramCheck"),
 
-const youtubeCheck =
-    document.getElementById("youtubeCheck");
+    tiktok:
+        document.getElementById("tiktokCheck"),
+
+    youtube:
+        document.getElementById("youtubeCheck")
+
+};
+
+
+const socialFields = {
+
+    spotify:
+        document.getElementById("spotifyField"),
+
+    instagram:
+        document.getElementById("instagramField"),
+
+    tiktok:
+        document.getElementById("tiktokField"),
+
+    youtube:
+        document.getElementById("youtubeField")
+
+};
+
+
+const socialInputs = {
+
+    spotify:
+        document.getElementById("spotifyInput"),
+
+    instagram:
+        document.getElementById("instagramInput"),
+
+    tiktok:
+        document.getElementById("tiktokInput"),
+
+    youtube:
+        document.getElementById("youtubeInput")
+
+};
+
 
 const noSocialCheck =
     document.getElementById("noSocialCheck");
 
 
-const spotifyField =
-    document.getElementById("spotifyField");
-
-const instagramField =
-    document.getElementById("instagramField");
-
-const tiktokField =
-    document.getElementById("tiktokField");
-
-const youtubeField =
-    document.getElementById("youtubeField");
-
-
-const spotifyInput =
-    document.getElementById("spotifyInput");
-
-const instagramInput =
-    document.getElementById("instagramInput");
-
-const tiktokInput =
-    document.getElementById("tiktokInput");
-
-const youtubeInput =
-    document.getElementById("youtubeInput");
-
-
 function updateSocialFields() {
-
-    /*
-     * NONE SELECTED
-     */
 
     if (noSocialCheck.checked) {
 
-        spotifyCheck.checked = false;
-        instagramCheck.checked = false;
-        tiktokCheck.checked = false;
-        youtubeCheck.checked = false;
+        Object.values(socialChecks).forEach(
+            checkbox => {
+                checkbox.checked = false;
+            }
+        );
 
     }
 
 
-    /*
-     * ANY SOCIAL SELECTED
-     */
+    const hasSocial =
+        Object.values(socialChecks).some(
+            checkbox => checkbox.checked
+        );
 
-    if (
-        spotifyCheck.checked ||
-        instagramCheck.checked ||
-        tiktokCheck.checked ||
-        youtubeCheck.checked
-    ) {
 
+    if (hasSocial) {
         noSocialCheck.checked = false;
-
     }
 
 
-    /*
-     * SPOTIFY
-     */
+    Object.keys(socialChecks).forEach(
+        key => {
 
-    if (spotifyCheck.checked) {
+            const checked =
+                socialChecks[key].checked;
 
-        spotifyField.classList.add("active");
+            const field =
+                socialFields[key];
 
-        spotifyInput.required = true;
-
-    } else {
-
-        spotifyField.classList.remove("active");
-
-        spotifyInput.required = false;
-
-        spotifyInput.value = "";
-
-    }
+            const input =
+                socialInputs[key];
 
 
-    /*
-     * INSTAGRAM
-     */
+            if (checked) {
 
-    if (instagramCheck.checked) {
+                field.classList.add("active");
 
-        instagramField.classList.add("active");
+                input.required = true;
 
-        instagramInput.required = true;
+            } else {
 
-    } else {
+                field.classList.remove("active");
 
-        instagramField.classList.remove("active");
+                input.required = false;
 
-        instagramInput.required = false;
+                input.value = "";
 
-        instagramInput.value = "";
+            }
 
-    }
-
-
-    /*
-     * TIKTOK
-     */
-
-    if (tiktokCheck.checked) {
-
-        tiktokField.classList.add("active");
-
-        tiktokInput.required = true;
-
-    } else {
-
-        tiktokField.classList.remove("active");
-
-        tiktokInput.required = false;
-
-        tiktokInput.value = "";
-
-    }
-
-
-    /*
-     * YOUTUBE
-     */
-
-    if (youtubeCheck.checked) {
-
-        youtubeField.classList.add("active");
-
-        youtubeInput.required = true;
-
-    } else {
-
-        youtubeField.classList.remove("active");
-
-        youtubeInput.required = false;
-
-        youtubeInput.value = "";
-
-    }
+        }
+    );
 
 }
 
 
-/*
- * Listen for changes
- */
+Object.values(socialChecks).forEach(
+    checkbox => {
 
-spotifyCheck.addEventListener(
-    "change",
-    updateSocialFields
+        checkbox.addEventListener(
+            "change",
+            updateSocialFields
+        );
+
+    }
 );
 
-instagramCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
-
-tiktokCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
-
-youtubeCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
 
 noSocialCheck.addEventListener(
     "change",
@@ -2358,11 +2527,61 @@ noSocialCheck.addEventListener(
 );
 
 
-/*
- * Run once when page loads
- */
-
 updateSocialFields();
+
+
+/* =====================================================
+   MP3 VALIDATION
+===================================================== */
+
+const musicForm =
+    document.getElementById("musicForm");
+
+const audioInput =
+    document.getElementById("audioInput");
+
+
+musicForm.addEventListener(
+    "submit",
+    function(event) {
+
+        const file =
+            audioInput.files[0];
+
+
+        if (!file) {
+
+            event.preventDefault();
+
+            alert(
+                "Please upload your MP3 file."
+            );
+
+            return;
+
+        }
+
+
+        const fileName =
+            file.name.toLowerCase();
+
+
+        if (!fileName.endsWith(".mp3")) {
+
+            event.preventDefault();
+
+            alert(
+                "Only MP3 files are accepted."
+            );
+
+            audioInput.value = "";
+
+            return;
+
+        }
+
+    }
+);
 
 
 /* =====================================================
@@ -2375,15 +2594,22 @@ if ("scrollRestoration" in history) {
 
 }
 
-window.addEventListener("load", function() {
 
-    setTimeout(function() {
+window.addEventListener(
+    "load",
+    function() {
 
-        window.scrollTo(0, 0);
+        setTimeout(
+            function() {
 
-    }, 50);
+                window.scrollTo(0, 0);
 
-});
+            },
+            50
+        );
+
+    }
+);
 
 </script>
 
