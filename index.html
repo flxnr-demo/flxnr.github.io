@@ -158,7 +158,7 @@ select {
 
 .nav-button {
     border: 1px solid #333;
-    border-radius: 100px;
+    border-radius: 8px;
     padding: 11px 17px;
 
     font-size: 9px;
@@ -300,9 +300,15 @@ select {
     color: white;
 }
 
+
+/* =====================================================
+   HERO BUTTONS — FIXED
+===================================================== */
+
 .hero-buttons {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
@@ -312,11 +318,13 @@ select {
     align-items: center;
     justify-content: center;
 
-    padding: 15px 22px;
+    min-height: 48px;
+
+    padding: 0 23px;
 
     border: 1px solid #303035;
 
-    border-radius: 100px;
+    border-radius: 8px;
 
     font-size: 9px;
 
@@ -326,16 +334,29 @@ select {
 
     text-transform: uppercase;
 
-    transition: .3s;
+    transition:
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
+
+    white-space: nowrap;
 }
 
 .button.primary {
     background: white;
     color: black;
+    border-color: white;
 }
 
 .button:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
+    border-color: #777;
+}
+
+.button.primary:hover {
+    background: #e8e8e8;
+    border-color: #e8e8e8;
 }
 
 
@@ -475,7 +496,7 @@ section {
 
     padding: 11px 16px;
 
-    border-radius: 100px;
+    border-radius: 7px;
 
     color: #777;
 
@@ -621,7 +642,7 @@ section {
 
     border: 1px solid #252529;
 
-    border-radius: 24px;
+    border-radius: 16px;
 
     box-shadow:
         0 50px 150px rgba(0,0,0,.4);
@@ -690,7 +711,7 @@ section {
 
     border: 1px solid #29292d;
 
-    border-radius: 10px;
+    border-radius: 8px;
 
     outline: none;
 
@@ -728,7 +749,7 @@ select option {
 
     border: 1px solid #29292d;
 
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 .social-selection-title {
@@ -764,7 +785,7 @@ select option {
 
     border: 1px solid #252529;
 
-    border-radius: 9px;
+    border-radius: 7px;
 
     color: #777;
 
@@ -807,7 +828,7 @@ select option {
 
     border: 1px dashed #343438;
 
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 .audio-box label {
@@ -851,7 +872,7 @@ select option {
 
     border: none;
 
-    border-radius: 10px;
+    border-radius: 8px;
 
     background: white;
 
@@ -881,7 +902,7 @@ select option {
 
     border: 1px solid #29292d;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     color: #777;
 
@@ -984,7 +1005,8 @@ footer {
 
 
 /* =====================================================
-   🔥 BOTTOM SMOKE — 10% STRONGER
+   BOTTOM SMOKE
+   ~2% WEAKER THAN PREVIOUS VERSION
 ===================================================== */
 
 #bottomSmoke {
@@ -994,7 +1016,6 @@ footer {
     bottom: 0;
 
     width: 100vw;
-
     height: 330px;
 
     z-index: 999;
@@ -1003,14 +1024,14 @@ footer {
 
     overflow: hidden;
 
-    opacity: 1;
+    opacity: .98;
 
     -webkit-mask-image:
         linear-gradient(
             to top,
             black 0%,
-            black 35%,
-            rgba(0,0,0,.82) 55%,
+            black 34%,
+            rgba(0,0,0,.79) 55%,
             transparent 100%
         );
 
@@ -1018,14 +1039,14 @@ footer {
         linear-gradient(
             to top,
             black 0%,
-            black 35%,
-            rgba(0,0,0,.82) 55%,
+            black 34%,
+            rgba(0,0,0,.79) 55%,
             transparent 100%
         );
 }
 
 
-/* BIG SMOKE CLOUDS */
+/* SMOKE CLOUDS */
 
 .smoke-cloud {
     position: absolute;
@@ -1040,11 +1061,11 @@ footer {
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,.33) 0%,
-            rgba(235,235,235,.245) 18%,
-            rgba(205,205,205,.155) 35%,
-            rgba(170,170,170,.088) 52%,
-            rgba(120,120,120,.033) 65%,
+            rgba(255,255,255,.323) 0%,
+            rgba(235,235,235,.240) 18%,
+            rgba(205,205,205,.152) 35%,
+            rgba(170,170,170,.086) 52%,
+            rgba(120,120,120,.032) 65%,
             transparent 75%
         );
 
@@ -1065,57 +1086,46 @@ footer {
 
 .smoke-cloud:nth-child(1) {
     left: -80px;
-
     --time: 11s;
     --delay: -3s;
 }
 
 .smoke-cloud:nth-child(2) {
     left: 10%;
-
     width: 430px;
     height: 430px;
-
     --time: 15s;
     --delay: -8s;
 }
 
 .smoke-cloud:nth-child(3) {
     left: 30%;
-
     width: 350px;
     height: 350px;
-
     --time: 12s;
     --delay: -5s;
 }
 
 .smoke-cloud:nth-child(4) {
     left: 48%;
-
     width: 470px;
     height: 470px;
-
     --time: 17s;
     --delay: -11s;
 }
 
 .smoke-cloud:nth-child(5) {
     left: 70%;
-
     width: 390px;
     height: 390px;
-
     --time: 13s;
     --delay: -7s;
 }
 
 .smoke-cloud:nth-child(6) {
     left: 88%;
-
     width: 350px;
     height: 350px;
-
     --time: 16s;
     --delay: -12s;
 }
@@ -1124,63 +1134,43 @@ footer {
 @keyframes smokeMove {
 
     0% {
-
         transform:
-            translate3d(
-                -60px,
-                70px,
-                0
-            )
+            translate3d(-60px,70px,0)
             scale(.7)
             rotate(-5deg);
 
-        opacity: .17;
+        opacity: .166;
     }
 
     20% {
-        opacity: .55;
+        opacity: .539;
     }
 
     40% {
-
         transform:
-            translate3d(
-                60px,
-                -20px,
-                0
-            )
+            translate3d(60px,-20px,0)
             scale(1.05)
             rotate(5deg);
 
-        opacity: .825;
+        opacity: .809;
     }
 
     60% {
-        opacity: .605;
+        opacity: .593;
     }
 
     80% {
-
         transform:
-            translate3d(
-                -40px,
-                -90px,
-                0
-            )
+            translate3d(-40px,-90px,0)
             scale(1.25)
             rotate(-4deg);
 
-        opacity: .385;
+        opacity: .377;
     }
 
     100% {
-
         transform:
-            translate3d(
-                40px,
-                -180px,
-                0
-            )
+            translate3d(40px,-180px,0)
             scale(1.5)
             rotate(6deg);
 
@@ -1190,7 +1180,7 @@ footer {
 }
 
 
-/* SMALL SMOKE BUBBLES */
+/* SMALL SMOKE */
 
 .smoke-bubble {
     position: absolute;
@@ -1205,8 +1195,8 @@ footer {
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,.24),
-            rgba(220,220,220,.09) 45%,
+            rgba(255,255,255,.235),
+            rgba(220,220,220,.088) 45%,
             transparent 72%
         );
 
@@ -1222,6 +1212,7 @@ footer {
         var(--delay);
 }
 
+
 @keyframes bubbleMove {
 
     0% {
@@ -1233,20 +1224,16 @@ footer {
     }
 
     15% {
-        opacity: .60;
+        opacity: .588;
     }
 
     60% {
-        opacity: .33;
+        opacity: .323;
     }
 
     100% {
-
         transform:
-            translate(
-                var(--move),
-                -400px
-            )
+            translate(var(--move),-400px)
             scale(2.5);
 
         opacity: 0;
@@ -1285,6 +1272,14 @@ footer {
     .hero-bottom {
         grid-template-columns: 1fr;
         gap: 35px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .button {
+        flex: 1;
     }
 
     section {
@@ -2268,7 +2263,7 @@ footer {
 
 
 <!-- =====================================================
-     BOTTOM SMOKE
+     SMOKE
 ===================================================== -->
 
 <div id="bottomSmoke">
@@ -2280,105 +2275,54 @@ footer {
     <div class="smoke-cloud"></div>
     <div class="smoke-cloud"></div>
 
-
     <div
         class="smoke-bubble"
-        style="
-            left:4%;
-            --speed:8s;
-            --delay:-2s;
-            --move:50px;
-        "
+        style="left:4%;--speed:8s;--delay:-2s;--move:50px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:12%;
-            --speed:11s;
-            --delay:-5s;
-            --move:-60px;
-        "
+        style="left:12%;--speed:11s;--delay:-5s;--move:-60px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:20%;
-            --speed:9s;
-            --delay:-1s;
-            --move:80px;
-        "
+        style="left:20%;--speed:9s;--delay:-1s;--move:80px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:30%;
-            --speed:13s;
-            --delay:-7s;
-            --move:-70px;
-        "
+        style="left:30%;--speed:13s;--delay:-7s;--move:-70px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:40%;
-            --speed:10s;
-            --delay:-4s;
-            --move:65px;
-        "
+        style="left:40%;--speed:10s;--delay:-4s;--move:65px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:50%;
-            --speed:12s;
-            --delay:-9s;
-            --move:-80px;
-        "
+        style="left:50%;--speed:12s;--delay:-9s;--move:-80px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:60%;
-            --speed:9s;
-            --delay:-3s;
-            --move:70px;
-        "
+        style="left:60%;--speed:9s;--delay:-3s;--move:70px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:70%;
-            --speed:14s;
-            --delay:-8s;
-            --move:-50px;
-        "
+        style="left:70%;--speed:14s;--delay:-8s;--move:-50px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:80%;
-            --speed:11s;
-            --delay:-6s;
-            --move:90px;
-        "
+        style="left:80%;--speed:11s;--delay:-6s;--move:90px;"
     ></div>
 
     <div
         class="smoke-bubble"
-        style="
-            left:91%;
-            --speed:9s;
-            --delay:-10s;
-            --move:-70px;
-        "
+        style="left:91%;--speed:9s;--delay:-10s;--move:-70px;"
     ></div>
 
 </div>
@@ -2471,7 +2415,7 @@ updateSocials();
 
 
 /* =====================================================
-   STOP AUTO SCROLL
+   KEEP PAGE AT TOP
 ===================================================== */
 
 if ("scrollRestoration" in history) {
