@@ -5,14 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FLXNR — Artist / Producer</title>
-<meta name="description" content="FLXNR — independent artist and producer.">
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
     margin:0;
     padding:0;
@@ -36,10 +30,9 @@ a{
     text-decoration:none;
 }
 
-
-/* =========================================================
+/* =========================
    BACKGROUND
-========================================================= */
+========================= */
 
 .background{
     position:fixed;
@@ -53,100 +46,112 @@ a{
     inset:0;
 
     background-image:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
 
     background-size:80px 80px;
 }
 
 .bg-glow{
     position:absolute;
-
     width:800px;
     height:800px;
-
     right:-300px;
     top:-300px;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.08),
-            transparent 65%
-        );
+    background:radial-gradient(
+        circle,
+        rgba(255,255,255,.08),
+        transparent 65%
+    );
 
     filter:blur(50px);
 }
 
 
-/* =========================================================
-   SMOOTH DOT SMOKE FOLLOWING MOUSE
-========================================================= */
+/* =========================
+   ROUND CURSOR
+========================= */
 
-.cursor-smoke-dot{
+.custom-cursor{
     position:fixed;
 
     left:0;
     top:0;
+
+    width:12px;
+    height:12px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    transform:translate(-50%,-50%);
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,.9),
+        0 0 25px rgba(255,255,255,.35);
+
+    transition:
+        width .18s ease,
+        height .18s ease,
+        opacity .2s ease;
+
+    display:block;
+}
+
+
+/* =========================
+   CURSOR SMOKE
+========================= */
+
+.cursor-smoke-dot{
+    position:fixed;
 
     width:4px;
     height:4px;
 
     border-radius:50%;
 
-    background:
-        rgba(255,255,255,.78);
+    background:rgba(255,255,255,.72);
 
     pointer-events:none;
 
-    z-index:9998;
+    z-index:99998;
 
-    transform:
-        translate(-50%,-50%)
-        scale(.2);
+    transform:translate(-50%,-50%);
 
     filter:blur(.5px);
 
     animation:
-        smoothDotSmoke
-        1.7s
+        cursorSmoke
+        1.6s
         cubic-bezier(.16,1,.3,1)
         forwards;
 }
 
-@keyframes smoothDotSmoke{
+@keyframes cursorSmoke{
 
     0%{
-        opacity:0;
+        opacity:.85;
 
         transform:
             translate(-50%,-50%)
-            scale(.2);
+            scale(.35);
 
-        filter:blur(.5px);
+        filter:blur(.4px);
     }
 
-    12%{
-        opacity:.8;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1);
+    25%{
+        opacity:.7;
     }
 
-    40%{
-        opacity:.55;
-    }
-
-    70%{
-        opacity:.25;
+    50%{
+        opacity:.45;
     }
 
     100%{
@@ -157,16 +162,16 @@ a{
                 calc(-50% + var(--drift-x)),
                 calc(-50% + var(--drift-y))
             )
-            scale(2.8);
+            scale(3);
 
         filter:blur(3px);
     }
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* =========================
+   NAV
+========================= */
 
 .nav{
     position:fixed;
@@ -185,13 +190,11 @@ a{
 
     z-index:1000;
 
-    background:
-        rgba(5,5,5,.72);
+    background:rgba(5,5,5,.72);
 
     backdrop-filter:blur(20px);
 
-    border-bottom:
-        1px solid rgba(255,255,255,.06);
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo{
@@ -202,11 +205,8 @@ a{
 
 .logo span{
     color:#555;
-
     font-size:9px;
-
     letter-spacing:.2em;
-
     margin-left:7px;
 }
 
@@ -217,14 +217,10 @@ a{
 
 .nav-links a{
     color:#666;
-
     font-size:9px;
     font-weight:800;
-
     letter-spacing:.18em;
-
     text-transform:uppercase;
-
     transition:.25s;
 }
 
@@ -234,16 +230,13 @@ a{
 
 .nav-button{
     border:1px solid #333;
-
     border-radius:8px;
 
     padding:11px 17px;
 
     font-size:9px;
     font-weight:800;
-
     letter-spacing:.15em;
-
     text-transform:uppercase;
 
     transition:.3s;
@@ -255,9 +248,9 @@ a{
 }
 
 
-/* =========================================================
+/* =========================
    HERO
-========================================================= */
+========================= */
 
 .hero{
     min-height:100vh;
@@ -269,11 +262,7 @@ a{
 }
 
 .hero-inner{
-    width:min(
-        1250px,
-        calc(100% - 50px)
-    );
-
+    width:min(1250px,calc(100% - 50px));
     margin:auto;
 }
 
@@ -285,14 +274,12 @@ a{
 
     font-size:9px;
     font-weight:800;
-
     letter-spacing:.2em;
 }
 
 .online{
     display:flex;
     align-items:center;
-
     gap:8px;
 }
 
@@ -304,19 +291,13 @@ a{
 
     background:#72ff9c;
 
-    box-shadow:
-        0 0 15px #72ff9c;
+    box-shadow:0 0 15px #72ff9c;
 }
 
 .hero-title{
     margin-top:45px;
 
-    font-size:
-        clamp(
-            100px,
-            18vw,
-            250px
-        );
+    font-size:clamp(100px,18vw,250px);
 
     line-height:.72;
 
@@ -355,8 +336,7 @@ a{
 
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:70px;
 
@@ -365,9 +345,7 @@ a{
 
 .hero-description{
     color:#777;
-
     font-size:14px;
-
     line-height:1.9;
 }
 
@@ -377,18 +355,15 @@ a{
 
 .hero-buttons{
     display:flex;
-
     align-items:center;
-
     gap:12px;
-
     flex-wrap:wrap;
 }
 
 
-/* =========================================================
+/* =========================
    BUTTONS
-========================================================= */
+========================= */
 
 .button{
     display:inline-flex;
@@ -406,9 +381,7 @@ a{
 
     font-size:9px;
     font-weight:900;
-
     letter-spacing:.17em;
-
     text-transform:uppercase;
 
     transition:.3s;
@@ -419,7 +392,6 @@ a{
 .button.primary{
     background:#fff;
     color:#000;
-
     border-color:#fff;
 }
 
@@ -428,9 +400,9 @@ a{
 }
 
 
-/* =========================================================
+/* =========================
    TICKER
-========================================================= */
+========================= */
 
 .ticker{
     overflow:hidden;
@@ -454,43 +426,32 @@ a{
 .ticker-track{
     display:inline-block;
 
-    animation:
-        ticker
-        35s
-        linear
-        infinite;
+    animation:ticker 35s linear infinite;
 }
 
 @keyframes ticker{
-
     to{
         transform:translateX(-50%);
     }
 }
 
 
-/* =========================================================
+/* =========================
    SECTIONS
-========================================================= */
+========================= */
 
 section{
     padding:150px 0;
 }
 
 .container{
-    width:min(
-        1250px,
-        calc(100% - 50px)
-    );
-
+    width:min(1250px,calc(100% - 50px));
     margin:auto;
 }
 
 .section-top{
     display:flex;
-
     justify-content:space-between;
-
     margin-bottom:65px;
 }
 
@@ -499,7 +460,6 @@ section{
 
     font-size:9px;
     font-weight:800;
-
     letter-spacing:.23em;
 
     text-transform:uppercase;
@@ -507,17 +467,11 @@ section{
 
 .section-number{
     color:#444;
-
     font-size:9px;
 }
 
 .heading{
-    font-size:
-        clamp(
-            55px,
-            7vw,
-            100px
-        );
+    font-size:clamp(55px,7vw,100px);
 
     line-height:.9;
 
@@ -531,61 +485,42 @@ section{
 }
 
 
-/* =========================================================
+/* =========================
    ABOUT
-   FLXNR.JPEG IS ONLY A BACKGROUND
-========================================================= */
+========================= */
 
 #about{
     position:relative;
-
     overflow:hidden;
-
     isolation:isolate;
 }
 
-
-/*
-   Main blurred photograph
-*/
-
 #about::before{
-
     content:"";
 
     position:absolute;
 
-    inset:-120px;
+    inset:-130px;
 
-    background-image:
-        url("./flxnr.jpeg");
+    background-image:url("./flxnr.jpeg");
 
     background-size:cover;
-
     background-position:center;
-
     background-repeat:no-repeat;
 
     filter:
-        blur(38px)
+        blur(42px)
         grayscale(.25)
         contrast(1.05);
 
-    transform:scale(1.18);
+    transform:scale(1.2);
 
     opacity:.34;
 
     z-index:-3;
 }
 
-
-/*
-   Black gradient over the photograph.
-   This makes the picture dissolve into the page.
-*/
-
 #about::after{
-
     content:"";
 
     position:absolute;
@@ -595,62 +530,25 @@ section{
     z-index:-2;
 
     background:
-
         radial-gradient(
             ellipse at center,
-            rgba(5,5,5,.40) 0%,
-            rgba(5,5,5,.72) 45%,
-            rgba(5,5,5,.96) 88%
+            rgba(5,5,5,.38) 0%,
+            rgba(5,5,5,.72) 48%,
+            rgba(5,5,5,.97) 90%
         ),
 
         linear-gradient(
             90deg,
-            rgba(5,5,5,.95),
+            rgba(5,5,5,.94),
             rgba(5,5,5,.45),
-            rgba(5,5,5,.92)
+            rgba(5,5,5,.94)
         );
-}
-
-
-/*
-   Extra soft light over the photo
-*/
-
-#about .container::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:650px;
-    height:650px;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.055),
-            transparent 68%
-        );
-
-    filter:blur(35px);
-
-    pointer-events:none;
-
-    z-index:-1;
 }
 
 .about-grid{
-
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:100px;
 
@@ -658,7 +556,6 @@ section{
 }
 
 .about-text{
-
     color:#777;
 
     font-size:15px;
@@ -673,7 +570,6 @@ section{
 }
 
 .socials{
-
     display:flex;
 
     flex-wrap:wrap;
@@ -684,7 +580,6 @@ section{
 }
 
 .social{
-
     border:1px solid #29292d;
 
     padding:11px 16px;
@@ -705,39 +600,32 @@ section{
 
 .social:hover{
     background:#fff;
-
     color:#000;
-
     transform:translateY(-3px);
 }
 
 
-/* =========================================================
-   CREATIVE CARDS
-========================================================= */
+/* =========================
+   CARDS
+========================= */
 
 .cards{
-
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     margin-top:75px;
 
     border-top:1px solid #222;
-
     border-left:1px solid #222;
 }
 
 .card{
-
     min-height:240px;
 
     padding:35px;
 
     border-right:1px solid #222;
-
     border-bottom:1px solid #222;
 
     transition:.3s;
@@ -749,12 +637,10 @@ section{
 
 .card-number{
     color:#444;
-
     font-size:9px;
 }
 
 .card h3{
-
     margin-top:60px;
 
     font-size:28px;
@@ -763,7 +649,6 @@ section{
 }
 
 .card p{
-
     margin-top:12px;
 
     color:#666;
@@ -774,12 +659,11 @@ section{
 }
 
 
-/* =========================================================
+/* =========================
    COLLAB
-========================================================= */
+========================= */
 
 .collab{
-
     background:#080808;
 
     border-top:1px solid #171717;
@@ -787,7 +671,6 @@ section{
 }
 
 .collab-text{
-
     max-width:850px;
 
     margin-top:35px;
@@ -804,28 +687,20 @@ section{
 }
 
 
-/* =========================================================
+/* =========================
    SUBMIT
-========================================================= */
+========================= */
 
 .submit-layout{
-
     display:grid;
 
-    grid-template-columns:
-        .75fr 1.25fr;
+    grid-template-columns:.75fr 1.25fr;
 
     gap:100px;
 }
 
 .submit-title h2{
-
-    font-size:
-        clamp(
-            55px,
-            6vw,
-            90px
-        );
+    font-size:clamp(55px,6vw,90px);
 
     line-height:.88;
 
@@ -837,7 +712,6 @@ section{
 }
 
 .submit-title p{
-
     margin-top:30px;
 
     color:#666;
@@ -848,7 +722,6 @@ section{
 }
 
 .form{
-
     padding:35px;
 
     background:#09090a;
@@ -858,12 +731,10 @@ section{
     border-radius:16px;
 
     box-shadow:
-        0 50px 150px
-        rgba(0,0,0,.4);
+        0 50px 150px rgba(0,0,0,.4);
 }
 
 .form-header{
-
     display:flex;
 
     justify-content:space-between;
@@ -880,7 +751,6 @@ section{
 }
 
 .form-header span{
-
     color:#444;
 
     font-family:monospace;
@@ -889,11 +759,9 @@ section{
 }
 
 .form-row{
-
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:15px;
 }
@@ -903,7 +771,6 @@ section{
 }
 
 .field label{
-
     display:block;
 
     margin-bottom:8px;
@@ -922,7 +789,6 @@ section{
 .field input,
 .field textarea,
 .field select{
-
     width:100%;
 
     padding:14px;
@@ -947,9 +813,7 @@ section{
 }
 
 .field textarea{
-
     min-height:130px;
-
     resize:vertical;
 }
 
@@ -958,12 +822,11 @@ select option{
 }
 
 
-/* =========================================================
-   SOCIAL SELECTION
-========================================================= */
+/* =========================
+   SOCIAL CHECKBOXES
+========================= */
 
 .social-selection{
-
     margin-bottom:24px;
 
     padding:20px;
@@ -976,7 +839,6 @@ select option{
 }
 
 .social-selection-title{
-
     margin-bottom:16px;
 
     color:#666;
@@ -991,17 +853,14 @@ select option{
 }
 
 .checkbox-list{
-
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:10px;
 }
 
 .checkbox-option{
-
     display:flex;
 
     align-items:center;
@@ -1024,16 +883,12 @@ select option{
 }
 
 .checkbox-option input{
-
     width:auto;
-
     accent-color:#fff;
 }
 
 .checkbox-option:hover{
-
     color:#fff;
-
     border-color:#555;
 }
 
@@ -1046,12 +901,11 @@ select option{
 }
 
 
-/* =========================================================
+/* =========================
    MP3
-========================================================= */
+========================= */
 
 .audio-box{
-
     margin-bottom:20px;
 
     padding:20px;
@@ -1062,7 +916,6 @@ select option{
 }
 
 .audio-box label{
-
     display:block;
 
     margin-bottom:12px;
@@ -1079,14 +932,11 @@ select option{
 }
 
 .audio-box input{
-
     width:100%;
-
     color:#777;
 }
 
 .file-info{
-
     margin-top:10px;
 
     color:#555;
@@ -1095,12 +945,11 @@ select option{
 }
 
 
-/* =========================================================
+/* =========================
    SUBMIT BUTTON
-========================================================= */
+========================= */
 
 .submit-button{
-
     width:100%;
 
     padding:17px;
@@ -1129,7 +978,6 @@ select option{
 }
 
 .notice{
-
     margin-top:18px;
 
     padding:18px;
@@ -1154,12 +1002,11 @@ select option{
 }
 
 
-/* =========================================================
+/* =========================
    FINAL
-========================================================= */
+========================= */
 
 .final{
-
     min-height:80vh;
 
     display:flex;
@@ -1170,7 +1017,6 @@ select option{
 }
 
 .final-small{
-
     margin-bottom:25px;
 
     color:#555;
@@ -1185,15 +1031,9 @@ select option{
 }
 
 .final h2{
-
     max-width:1000px;
 
-    font-size:
-        clamp(
-            60px,
-            9vw,
-            130px
-        );
+    font-size:clamp(60px,9vw,130px);
 
     line-height:.85;
 
@@ -1205,12 +1045,11 @@ select option{
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 footer{
-
     position:relative;
 
     z-index:50;
@@ -1223,7 +1062,6 @@ footer{
 }
 
 .footer{
-
     display:flex;
 
     align-items:center;
@@ -1242,7 +1080,6 @@ footer{
 }
 
 .footer-logo{
-
     color:#fff;
 
     font-size:19px;
@@ -1253,22 +1090,20 @@ footer{
 }
 
 
-/* =========================================================
-   BOTTOM ANIMATED SMOKE
-========================================================= */
+/* =========================
+   BOTTOM SMOKE
+========================= */
 
 #bottomSmoke{
-
     position:fixed;
 
     left:0;
     bottom:0;
 
     width:100vw;
-
     height:330px;
 
-    z-index:999;
+    z-index:20;
 
     pointer-events:none;
 
@@ -1294,7 +1129,6 @@ footer{
 }
 
 .smoke-cloud{
-
     position:absolute;
 
     bottom:-180px;
@@ -1322,69 +1156,51 @@ footer{
         ease-in-out
         infinite;
 
-    animation-delay:
-        var(--delay);
+    animation-delay:var(--delay);
 }
 
 .smoke-cloud:nth-child(1){
-
     left:-80px;
-
     --time:11s;
     --delay:-3s;
 }
 
 .smoke-cloud:nth-child(2){
-
     left:10%;
-
     width:430px;
     height:430px;
-
     --time:15s;
     --delay:-8s;
 }
 
 .smoke-cloud:nth-child(3){
-
     left:30%;
-
     width:350px;
     height:350px;
-
     --time:12s;
     --delay:-5s;
 }
 
 .smoke-cloud:nth-child(4){
-
     left:48%;
-
     width:470px;
     height:470px;
-
     --time:17s;
     --delay:-11s;
 }
 
 .smoke-cloud:nth-child(5){
-
     left:70%;
-
     width:390px;
     height:390px;
-
     --time:13s;
     --delay:-7s;
 }
 
 .smoke-cloud:nth-child(6){
-
     left:88%;
-
     width:350px;
     height:350px;
-
     --time:16s;
     --delay:-12s;
 }
@@ -1392,13 +1208,8 @@ footer{
 @keyframes smokeMove{
 
     0%{
-
         transform:
-            translate3d(
-                -60px,
-                70px,
-                0
-            )
+            translate3d(-60px,70px,0)
             scale(.7)
             rotate(-5deg);
 
@@ -1406,13 +1217,8 @@ footer{
     }
 
     40%{
-
         transform:
-            translate3d(
-                60px,
-                -20px,
-                0
-            )
+            translate3d(60px,-20px,0)
             scale(1.05)
             rotate(5deg);
 
@@ -1420,13 +1226,8 @@ footer{
     }
 
     80%{
-
         transform:
-            translate3d(
-                -40px,
-                -90px,
-                0
-            )
+            translate3d(-40px,-90px,0)
             scale(1.25)
             rotate(-4deg);
 
@@ -1434,13 +1235,8 @@ footer{
     }
 
     100%{
-
         transform:
-            translate3d(
-                40px,
-                -180px,
-                0
-            )
+            translate3d(40px,-180px,0)
             scale(1.5)
             rotate(6deg);
 
@@ -1449,23 +1245,18 @@ footer{
 }
 
 
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media(max-width:850px){
 
-    /*
-       Mobile does not have a mouse,
-       so cursor smoke is disabled.
-    */
-
+    .custom-cursor,
     .cursor-smoke-dot{
         display:none;
     }
 
     .nav{
-
         padding:0 18px;
     }
 
@@ -1479,93 +1270,62 @@ footer{
 
     .hero-inner,
     .container{
-
-        width:
-            calc(100% - 28px);
+        width:calc(100% - 28px);
     }
 
     .hero-title{
-
         font-size:25vw;
     }
 
     .hero-bottom{
-
         grid-template-columns:1fr;
-
         gap:35px;
     }
 
     .hero-buttons{
-
         width:100%;
     }
 
     .button{
-
         flex:1;
     }
 
     section{
-
         padding:100px 0;
     }
 
     .about-grid,
     .submit-layout{
-
         grid-template-columns:1fr;
-
         gap:55px;
     }
 
     .cards{
-
         grid-template-columns:1fr;
     }
 
     .form-row{
-
         grid-template-columns:1fr;
     }
 
     .checkbox-list{
-
         grid-template-columns:1fr;
     }
 
     .form{
-
         padding:20px;
     }
 
     #bottomSmoke{
-
         height:240px;
     }
 
     .smoke-cloud{
-
         width:280px !important;
         height:280px !important;
     }
 
-    .footer{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:18px;
-    }
-
-    /*
-       Make the blurred FLXNR photo
-       even softer on mobile.
-    */
-
     #about::before{
-
         filter:
             blur(45px)
             grayscale(.3);
@@ -1573,37 +1333,11 @@ footer{
         opacity:.27;
     }
 
-    #about::after{
-
-        background:
-
-            radial-gradient(
-                ellipse at center,
-                rgba(5,5,5,.45),
-                rgba(5,5,5,.90) 80%
-            );
+    .footer{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
     }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    html{
-        scroll-behavior:auto;
-    }
-
-    .ticker-track,
-    .smoke-cloud,
-    .hero-title span{
-
-        animation:none;
-    }
-
 }
 
 </style>
@@ -1612,65 +1346,38 @@ footer{
 
 <body>
 
-
-<!-- =======================================================
-     BACKGROUND
-======================================================= -->
-
 <div class="background">
-
     <div class="grid"></div>
-
     <div class="bg-glow"></div>
-
 </div>
 
 
-<!-- =======================================================
-     NAVIGATION
-======================================================= -->
+<!-- KURSOR -->
+<div class="custom-cursor" id="customCursor"></div>
 
+
+<!-- NAV -->
 <nav class="nav">
 
     <a href="#" class="logo">
-        FLXNR
-        <span>/ ARTIST</span>
+        FLXNR <span>/ ARTIST</span>
     </a>
 
     <div class="nav-links">
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#creative">
-            Creative
-        </a>
-
-        <a href="#collab">
-            Collab
-        </a>
-
-        <a href="#submit">
-            Send Music
-        </a>
-
+        <a href="#about">About</a>
+        <a href="#creative">Creative</a>
+        <a href="#collab">Collab</a>
+        <a href="#submit">Send Music</a>
     </div>
 
-    <a
-        href="#submit"
-        class="nav-button"
-    >
+    <a href="#submit" class="nav-button">
         Start a collaboration →
     </a>
 
 </nav>
 
 
-<!-- =======================================================
-     HERO
-======================================================= -->
-
+<!-- HERO -->
 <header class="hero">
 
 <div class="hero-inner">
@@ -1682,26 +1389,15 @@ footer{
         </span>
 
         <span class="online">
-
             <i class="online-dot"></i>
-
             OPEN WORLDWIDE
-
         </span>
 
     </div>
 
-
     <h1 class="hero-title">
-
-        <span>F</span>
-        <span>L</span>
-        <span>X</span>
-        <span>N</span>
-        <span>R</span>
-
+        <span>F</span><span>L</span><span>X</span><span>N</span><span>R</span>
     </h1>
-
 
     <div class="hero-bottom">
 
@@ -1724,26 +1420,17 @@ footer{
             Have a track, idea or sound
             you think we could build on?
 
-            <strong>
-                Send it.
-            </strong>
+            <strong>Send it.</strong>
 
         </p>
 
-
         <div class="hero-buttons">
 
-            <a
-                href="#submit"
-                class="button primary"
-            >
+            <a href="#submit" class="button primary">
                 Send your music
             </a>
 
-            <a
-                href="#about"
-                class="button"
-            >
+            <a href="#about" class="button">
                 Discover FLXNR
             </a>
 
@@ -1756,31 +1443,25 @@ footer{
 </header>
 
 
-<!-- =======================================================
-     TICKER
-======================================================= -->
-
+<!-- TICKER -->
 <div class="ticker">
 
-<div class="ticker-track">
+    <div class="ticker-track">
 
-    FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
-    COLLABORATION ✦ CREATIVE ENERGY ✦
-    NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
+        FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
+        COLLABORATION ✦ CREATIVE ENERGY ✦
+        NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
 
-    FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
-    COLLABORATION ✦ CREATIVE ENERGY ✦
-    NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
+        FLXNR ✦ MUSIC ✦ ARTIST ✦ PRODUCER ✦
+        COLLABORATION ✦ CREATIVE ENERGY ✦
+        NEW SOUNDS ✦ GLOBAL CONNECTIONS ✦
+
+    </div>
 
 </div>
 
-</div>
 
-
-<!-- =======================================================
-     ABOUT
-======================================================= -->
-
+<!-- ABOUT -->
 <section id="about">
 
 <div class="container">
@@ -1797,20 +1478,16 @@ footer{
 
     </div>
 
-
     <div class="about-grid">
 
         <div>
 
             <h2 class="heading">
-
                 FLXNR is an
                 <span>artist.</span>
-
             </h2>
 
         </div>
-
 
         <div>
 
@@ -1846,11 +1523,10 @@ footer{
 
             </p>
 
-
             <div class="socials">
 
                 <a
-                    href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
+                    href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz"
                     target="_blank"
                     class="social"
                 >
@@ -1892,10 +1568,7 @@ footer{
 </section>
 
 
-<!-- =======================================================
-     CREATIVE
-======================================================= -->
-
+<!-- CREATIVE -->
 <section id="creative">
 
 <div class="container">
@@ -1912,90 +1585,51 @@ footer{
 
     </div>
 
-
     <h2 class="heading">
-
         Different people.
         <span>Different sounds.</span>
-
     </h2>
-
 
     <div class="cards">
 
         <div class="card">
-
-            <div class="card-number">
-                01
-            </div>
-
-            <h3>
-                Artists
-            </h3>
-
+            <div class="card-number">01</div>
+            <h3>Artists</h3>
             <p>
                 Work together on a track,
                 idea or completely new
                 musical direction.
             </p>
-
         </div>
 
-
         <div class="card">
-
-            <div class="card-number">
-                02
-            </div>
-
-            <h3>
-                Producers
-            </h3>
-
+            <div class="card-number">02</div>
+            <h3>Producers</h3>
             <p>
                 Beats, production,
                 sound design and
                 unexpected combinations.
             </p>
-
         </div>
 
-
         <div class="card">
-
-            <div class="card-number">
-                03
-            </div>
-
-            <h3>
-                Vocalists
-            </h3>
-
+            <div class="card-number">03</div>
+            <h3>Vocalists</h3>
             <p>
                 Vocals, hooks, melodies
                 and ideas that can turn
                 into something bigger.
             </p>
-
         </div>
 
-
         <div class="card">
-
-            <div class="card-number">
-                04
-            </div>
-
-            <h3>
-                New ideas
-            </h3>
-
+            <div class="card-number">04</div>
+            <h3>New ideas</h3>
             <p>
                 Anything creative that
                 could become an interesting
                 musical project.
             </p>
-
         </div>
 
     </div>
@@ -2005,14 +1639,8 @@ footer{
 </section>
 
 
-<!-- =======================================================
-     COLLAB
-======================================================= -->
-
-<section
-    id="collab"
-    class="collab"
->
+<!-- COLLAB -->
+<section id="collab" class="collab">
 
 <div class="container">
 
@@ -2028,14 +1656,10 @@ footer{
 
     </div>
 
-
     <h2 class="heading">
-
         Bring your sound.
         <span>I'll bring mine.</span>
-
     </h2>
-
 
     <p class="collab-text">
 
@@ -2064,10 +1688,7 @@ footer{
 </section>
 
 
-<!-- =======================================================
-     SUBMIT
-======================================================= -->
-
+<!-- SUBMIT -->
 <section id="submit">
 
 <div class="container">
@@ -2084,20 +1705,16 @@ footer{
 
     </div>
 
-
     <div class="submit-layout">
 
 
         <div class="submit-title">
 
             <h2>
-
                 Let's make
                 something
                 <span>together.</span>
-
             </h2>
-
 
             <p>
 
@@ -2139,7 +1756,7 @@ footer{
                 <input
                     type="hidden"
                     name="subject"
-                    value="FLXNR — New Music Collaboration"
+                    value="FLXNR — New Music Demo"
                 >
 
 
@@ -2157,7 +1774,6 @@ footer{
 
 
                 <div class="form-row">
-
 
                     <div class="field">
 
@@ -2225,19 +1841,15 @@ footer{
                 </div>
 
 
-                <!-- SOCIALS -->
+                <!-- SOCIAL MEDIA -->
 
                 <div class="social-selection">
 
                     <div class="social-selection-title">
-
                         Select your social profiles
-
                     </div>
 
-
                     <div class="checkbox-list">
-
 
                         <label class="checkbox-option">
 
@@ -2310,7 +1922,6 @@ footer{
                             I don't have social media yet
 
                         </label>
-
 
                     </div>
 
@@ -2415,97 +2026,29 @@ footer{
                             Select your genre
                         </option>
 
-                        <option>
-                            Pop
-                        </option>
-
-                        <option>
-                            Hip-Hop
-                        </option>
-
-                        <option>
-                            Rap
-                        </option>
-
-                        <option>
-                            R&B
-                        </option>
-
-                        <option>
-                            Rock
-                        </option>
-
-                        <option>
-                            Indie
-                        </option>
-
-                        <option>
-                            Electronic
-                        </option>
-
-                        <option>
-                            EDM
-                        </option>
-
-                        <option>
-                            House
-                        </option>
-
-                        <option>
-                            Techno
-                        </option>
-
-                        <option>
-                            Drum & Bass
-                        </option>
-
-                        <option>
-                            Dubstep
-                        </option>
-
-                        <option>
-                            Phonk
-                        </option>
-
-                        <option>
-                            Brazilian Funk
-                        </option>
-
-                        <option>
-                            Afrobeats
-                        </option>
-
-                        <option>
-                            Reggaeton
-                        </option>
-
-                        <option>
-                            Trap
-                        </option>
-
-                        <option>
-                            Drill
-                        </option>
-
-                        <option>
-                            Jersey Club
-                        </option>
-
-                        <option>
-                            Hardstyle
-                        </option>
-
-                        <option>
-                            Hyperpop
-                        </option>
-
-                        <option>
-                            Experimental
-                        </option>
-
-                        <option>
-                            Other
-                        </option>
+                        <option>Pop</option>
+                        <option>Hip-Hop</option>
+                        <option>Rap</option>
+                        <option>R&B</option>
+                        <option>Rock</option>
+                        <option>Indie</option>
+                        <option>Electronic</option>
+                        <option>EDM</option>
+                        <option>House</option>
+                        <option>Techno</option>
+                        <option>Drum & Bass</option>
+                        <option>Dubstep</option>
+                        <option>Phonk</option>
+                        <option>Brazilian Funk</option>
+                        <option>Afrobeats</option>
+                        <option>Reggaeton</option>
+                        <option>Trap</option>
+                        <option>Drill</option>
+                        <option>Jersey Club</option>
+                        <option>Hardstyle</option>
+                        <option>Hyperpop</option>
+                        <option>Experimental</option>
+                        <option>Other</option>
 
                     </select>
 
@@ -2539,7 +2082,7 @@ footer{
 
                     <textarea
                         name="About Track"
-                        placeholder="Tell me about this track and what you want to create together..."
+                        placeholder="Tell me about this track..."
                         required
                     ></textarea>
 
@@ -2563,10 +2106,7 @@ footer{
                     >
 
                     <div class="file-info">
-
-                        MP3 only — please upload
-                        your demo as an MP3 file.
-
+                        MP3 only — maximum file type: MP3
                     </div>
 
                 </div>
@@ -2576,9 +2116,7 @@ footer{
                     type="submit"
                     class="submit-button"
                 >
-
                     SEND DEMO →
-
                 </button>
 
 
@@ -2595,7 +2133,6 @@ footer{
 
                 </div>
 
-
             </form>
 
         </div>
@@ -2607,34 +2144,25 @@ footer{
 </section>
 
 
-<!-- =======================================================
-     FINAL
-======================================================= -->
-
+<!-- FINAL -->
 <section class="final">
 
 <div class="container">
 
     <div class="final-small">
-
         FLXNR / MUSIC / WORLDWIDE
-
     </div>
 
-
     <h2>
-
         Your sound.
         My sound.
         <span>One track.</span>
-
     </h2>
-
 
     <div class="socials">
 
         <a
-            href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
+            href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz"
             target="_blank"
             class="social"
         >
@@ -2672,10 +2200,7 @@ footer{
 </section>
 
 
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
+<!-- FOOTER -->
 <footer>
 
 <div class="container">
@@ -2701,35 +2226,15 @@ footer{
 </footer>
 
 
-<!-- =======================================================
-     BOTTOM SMOKE
-======================================================= -->
-
+<!-- BOTTOM SMOKE -->
 <div id="bottomSmoke">
 
-    <div
-        class="smoke-cloud"
-    ></div>
-
-    <div
-        class="smoke-cloud"
-    ></div>
-
-    <div
-        class="smoke-cloud"
-    ></div>
-
-    <div
-        class="smoke-cloud"
-    ></div>
-
-    <div
-        class="smoke-cloud"
-    ></div>
-
-    <div
-        class="smoke-cloud"
-    ></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
+    <div class="smoke-cloud"></div>
 
 </div>
 
@@ -2737,327 +2242,284 @@ footer{
 <script>
 
 /* =========================================================
-   SMOOTH DOT SMOKE
+   ROUND CURSOR
 ========================================================= */
 
-let lastX = null;
-let lastY = null;
+const cursor =
+    document.getElementById("customCursor");
 
-let lastSpawnX = 0;
-let lastSpawnY = 0;
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
 
-let lastSpawnTime = 0;
-
-
-document.addEventListener(
-    "mousemove",
-    function(e){
-
-        const x = e.clientX;
-        const y = e.clientY;
-
-        const now =
-            performance.now();
+let cursorX = mouseX;
+let cursorY = mouseY;
 
 
-        if(lastX === null){
+/* Mouse position */
 
-            lastX = x;
-            lastY = y;
+document.addEventListener("mousemove", function(e){
 
-            lastSpawnX = x;
-            lastSpawnY = y;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-            return;
-        }
+});
 
 
-        const distance =
-            Math.hypot(
-                x - lastSpawnX,
-                y - lastSpawnY
-            );
+/* Smooth movement */
+
+function animateCursor(){
+
+    cursorX +=
+        (mouseX - cursorX) * 0.30;
+
+    cursorY +=
+        (mouseY - cursorY) * 0.30;
+
+    cursor.style.left =
+        cursorX + "px";
+
+    cursor.style.top =
+        cursorY + "px";
+
+    requestAnimationFrame(
+        animateCursor
+    );
+}
+
+animateCursor();
 
 
-        /*
-           Limit the amount of particles
-           so the website stays smooth.
-        */
+/* =========================================================
+   CURSOR SMOKE
+========================================================= */
 
-        if(
-            distance >= 10 &&
-            now - lastSpawnTime > 18
-        ){
+let lastSmokeX = 0;
+let lastSmokeY = 0;
 
-            createSmokeDot(x,y);
+document.addEventListener("mousemove", function(e){
 
-            lastSpawnX = x;
-            lastSpawnY = y;
+    const distance =
+        Math.hypot(
+            e.clientX - lastSmokeX,
+            e.clientY - lastSmokeY
+        );
 
-            lastSpawnTime = now;
-
-        }
-
-
-        lastX = x;
-        lastY = y;
-
+    if(distance < 7){
+        return;
     }
-);
 
+    lastSmokeX = e.clientX;
+    lastSmokeY = e.clientY;
 
-function createSmokeDot(x,y){
 
     const dot =
         document.createElement("div");
-
 
     dot.className =
         "cursor-smoke-dot";
 
 
     dot.style.left =
-        x + "px";
-
+        e.clientX + "px";
 
     dot.style.top =
-        y + "px";
-
-
-    /*
-       Random movement.
-    */
-
-    const driftX =
-        (
-            Math.random() * 70
-            - 35
-        ) + "px";
-
-
-    const driftY =
-        (
-            Math.random() * 55
-            - 10
-        ) + "px";
+        e.clientY + "px";
 
 
     dot.style.setProperty(
         "--drift-x",
-        driftX
+        (Math.random() * 50 - 25) + "px"
     );
-
 
     dot.style.setProperty(
         "--drift-y",
-        driftY
+        (Math.random() * 40 - 5) + "px"
     );
 
 
-    /*
-       Different dot sizes.
-    */
-
     const size =
-        2.2 +
-        Math.random() * 3.5;
-
+        2.5 + Math.random() * 3.5;
 
     dot.style.width =
         size + "px";
-
 
     dot.style.height =
         size + "px";
 
 
-    /*
-       Different opacity.
-    */
-
-    dot.style.opacity =
-        .45 +
-        Math.random() * .4;
-
-
-    /*
-       Different animation times.
-    */
-
     dot.style.animationDuration =
-        (
-            1.35 +
-            Math.random() * .8
-        ) + "s";
+        (1.3 + Math.random() * .7) + "s";
 
 
     document.body.appendChild(dot);
 
 
-    setTimeout(
-        () => dot.remove(),
-        2300
+    setTimeout(function(){
+
+        dot.remove();
+
+    },1900);
+
+});
+
+
+/* =========================================================
+   CURSOR OVER BUTTONS
+========================================================= */
+
+document.querySelectorAll(
+    "a,button,input,textarea,select,label"
+).forEach(function(element){
+
+    element.addEventListener(
+        "mouseenter",
+        function(){
+
+            cursor.style.width =
+                "20px";
+
+            cursor.style.height =
+                "20px";
+
+            cursor.style.opacity =
+                ".8";
+
+        }
     );
 
-}
+
+    element.addEventListener(
+        "mouseleave",
+        function(){
+
+            cursor.style.width =
+                "12px";
+
+            cursor.style.height =
+                "12px";
+
+            cursor.style.opacity =
+                "1";
+
+        }
+    );
+
+});
 
 
 /* =========================================================
    SOCIAL PROFILE FIELDS
 ========================================================= */
 
-const socialChecks = {
+const spotifyCheck =
+    document.getElementById("spotifyCheck");
 
-    spotify:
-        document.getElementById(
-            "spotifyCheck"
-        ),
+const instagramCheck =
+    document.getElementById("instagramCheck");
 
-    instagram:
-        document.getElementById(
-            "instagramCheck"
-        ),
+const tiktokCheck =
+    document.getElementById("tiktokCheck");
 
-    tiktok:
-        document.getElementById(
-            "tiktokCheck"
-        ),
-
-    youtube:
-        document.getElementById(
-            "youtubeCheck"
-        )
-
-};
-
-
-const socialFields = {
-
-    spotify:
-        document.getElementById(
-            "spotifyField"
-        ),
-
-    instagram:
-        document.getElementById(
-            "instagramField"
-        ),
-
-    tiktok:
-        document.getElementById(
-            "tiktokField"
-        ),
-
-    youtube:
-        document.getElementById(
-            "youtubeField"
-        )
-
-};
-
-
-const socialInputs = {
-
-    spotify:
-        document.getElementById(
-            "spotifyInput"
-        ),
-
-    instagram:
-        document.getElementById(
-            "instagramInput"
-        ),
-
-    tiktok:
-        document.getElementById(
-            "tiktokInput"
-        ),
-
-    youtube:
-        document.getElementById(
-            "youtubeInput"
-        )
-
-};
-
+const youtubeCheck =
+    document.getElementById("youtubeCheck");
 
 const noSocialCheck =
-    document.getElementById(
-        "noSocialCheck"
-    );
+    document.getElementById("noSocialCheck");
+
+
+const spotifyField =
+    document.getElementById("spotifyField");
+
+const instagramField =
+    document.getElementById("instagramField");
+
+const tiktokField =
+    document.getElementById("tiktokField");
+
+const youtubeField =
+    document.getElementById("youtubeField");
+
+
+const spotifyInput =
+    document.getElementById("spotifyInput");
+
+const instagramInput =
+    document.getElementById("instagramInput");
+
+const tiktokInput =
+    document.getElementById("tiktokInput");
+
+const youtubeInput =
+    document.getElementById("youtubeInput");
 
 
 function updateSocialFields(){
 
-    /*
-       If user selects
-       "I don't have social media",
-       uncheck everything else.
-    */
+    const socials = [
+        {
+            check:spotifyCheck,
+            field:spotifyField,
+            input:spotifyInput
+        },
+        {
+            check:instagramCheck,
+            field:instagramField,
+            input:instagramInput
+        },
+        {
+            check:tiktokCheck,
+            field:tiktokField,
+            input:tiktokInput
+        },
+        {
+            check:youtubeCheck,
+            field:youtubeField,
+            input:youtubeInput
+        }
+    ];
+
+
+    /* If user selects "no social media" */
 
     if(noSocialCheck.checked){
 
-        Object.values(
-            socialChecks
-        ).forEach(
-            checkbox =>
-                checkbox.checked = false
-        );
+        socials.forEach(function(item){
+
+            item.check.checked = false;
+
+        });
 
     }
 
 
-    /*
-       If user selects any social,
-       remove "no social".
-    */
+    /* If user selects any social */
 
     if(
-        Object.values(
-            socialChecks
-        ).some(
-            checkbox =>
-                checkbox.checked
+        socials.some(
+            item => item.check.checked
         )
     ){
 
-        noSocialCheck.checked =
-            false;
+        noSocialCheck.checked = false;
 
     }
 
 
-    /*
-       Show only selected fields.
-    */
+    socials.forEach(function(item){
 
-    Object.keys(
-        socialChecks
-    ).forEach(key => {
+        if(item.check.checked){
 
-        const checked =
-            socialChecks[key].checked;
+            item.field.classList.add("active");
 
-
-        if(checked){
-
-            socialFields[key]
-                .classList
-                .add("active");
-
-            socialInputs[key]
-                .required = true;
+            item.input.required = true;
 
         }else{
 
-            socialFields[key]
-                .classList
-                .remove("active");
+            item.field.classList.remove("active");
 
-            socialInputs[key]
-                .required = false;
+            item.input.required = false;
 
-            socialInputs[key].value = "";
+            item.input.value = "";
 
         }
 
@@ -3066,25 +2528,33 @@ function updateSocialFields(){
 }
 
 
-Object.values(
-    socialChecks
-).forEach(
-    checkbox => {
-
-        checkbox.addEventListener(
-            "change",
-            updateSocialFields
-        );
-
-    }
+spotifyCheck.addEventListener(
+    "change",
+    updateSocialFields
 );
 
+instagramCheck.addEventListener(
+    "change",
+    updateSocialFields
+);
+
+tiktokCheck.addEventListener(
+    "change",
+    updateSocialFields
+);
+
+youtubeCheck.addEventListener(
+    "change",
+    updateSocialFields
+);
 
 noSocialCheck.addEventListener(
     "change",
     updateSocialFields
 );
 
+
+/* Initial state */
 
 updateSocialFields();
 
@@ -3094,15 +2564,10 @@ updateSocialFields();
 ========================================================= */
 
 const musicForm =
-    document.getElementById(
-        "musicForm"
-    );
-
+    document.getElementById("musicForm");
 
 const audioInput =
-    document.getElementById(
-        "audioInput"
-    );
+    document.getElementById("audioInput");
 
 
 musicForm.addEventListener(
@@ -3150,24 +2615,17 @@ musicForm.addEventListener(
    ALWAYS START AT TOP
 ========================================================= */
 
-if(
-    "scrollRestoration"
-    in history
-){
+if("scrollRestoration" in history){
 
-    history.scrollRestoration =
-        "manual";
+    history.scrollRestoration = "manual";
+
 }
-
 
 window.addEventListener(
     "load",
     function(){
 
-        window.scrollTo(
-            0,
-            0
-        );
+        window.scrollTo(0,0);
 
     }
 );
