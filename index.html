@@ -19,7 +19,6 @@
     --border:#222225;
     --text:#f4f4f4;
     --muted:#77777d;
-    --dim:#444449;
 }
 
 * {
@@ -68,12 +67,14 @@ select {
     pointer-events:none;
     z-index:9999;
     transform:translate(-50%,-50%);
+
     background:radial-gradient(
         circle,
-        rgba(255,255,255,.12),
+        rgba(255,255,255,.13),
         rgba(255,255,255,.04) 35%,
         transparent 72%
     );
+
     filter:blur(8px);
     opacity:0;
 }
@@ -86,10 +87,13 @@ select {
     pointer-events:none;
     z-index:10000;
     transform:translate(-50%,-50%);
+
     background:white;
+
     box-shadow:
         0 0 10px rgba(255,255,255,.8),
         0 0 25px rgba(255,255,255,.35);
+
     opacity:0;
 }
 
@@ -109,13 +113,6 @@ body.cursor-hover .cursor-glow {
     textarea,
     select {
         cursor:none;
-    }
-}
-
-@media(max-width:850px) {
-    .cursor-glow,
-    .cursor-dot {
-        display:none;
     }
 }
 
@@ -150,8 +147,10 @@ body.cursor-hover .cursor-glow {
 
 .glow {
     position:absolute;
+
     width:900px;
     height:900px;
+
     right:-300px;
     top:-400px;
 
@@ -186,6 +185,7 @@ body.cursor-hover .cursor-glow {
     z-index:100;
 
     background:rgba(5,5,5,.65);
+
     backdrop-filter:blur(20px);
 
     border-bottom:1px solid rgba(255,255,255,.05);
@@ -199,8 +199,11 @@ body.cursor-hover .cursor-glow {
 
 .logo span {
     color:#555;
+
     font-size:9px;
+
     letter-spacing:.2em;
+
     margin-left:7px;
 }
 
@@ -211,10 +214,14 @@ body.cursor-hover .cursor-glow {
 
 .nav-links a {
     color:#666;
+
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     transition:.25s;
 }
 
@@ -224,12 +231,16 @@ body.cursor-hover .cursor-glow {
 
 .nav-button {
     border:1px solid #303035;
+
     border-radius:100px;
+
     padding:11px 17px;
 
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.15em;
+
     text-transform:uppercase;
 
     transition:.25s;
@@ -265,8 +276,10 @@ body.cursor-hover .cursor-glow {
     margin-bottom:35px;
 
     color:#555;
+
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.2em;
 }
 
@@ -279,7 +292,9 @@ body.cursor-hover .cursor-glow {
 .dot {
     width:6px;
     height:6px;
+
     background:#71ff9a;
+
     border-radius:50%;
 
     box-shadow:0 0 15px #71ff9a;
@@ -287,12 +302,15 @@ body.cursor-hover .cursor-glow {
 
 .hero-title {
     font-size:clamp(90px,17vw,245px);
+
     line-height:.72;
 
     font-weight:900;
+
     letter-spacing:-.12em;
 
     margin-left:-.06em;
+
     white-space:nowrap;
 }
 
@@ -300,6 +318,7 @@ body.cursor-hover .cursor-glow {
     display:inline-block;
 
     opacity:0;
+
     transform:translateY(80px);
 
     animation:
@@ -325,15 +344,19 @@ body.cursor-hover .cursor-glow {
     margin-top:70px;
 
     display:grid;
+
     grid-template-columns:1fr 1fr;
 
     gap:60px;
+
     max-width:900px;
 }
 
 .hero-text {
     color:#777;
+
     font-size:14px;
+
     line-height:1.85;
 }
 
@@ -343,24 +366,31 @@ body.cursor-hover .cursor-glow {
 
 .hero-actions {
     display:flex;
+
     gap:10px;
+
     align-items:flex-start;
+
     flex-wrap:wrap;
 }
 
 .button {
     display:inline-flex;
+
     align-items:center;
     justify-content:center;
 
     padding:15px 22px;
 
     border-radius:100px;
+
     border:1px solid #303035;
 
     font-size:9px;
     font-weight:900;
+
     letter-spacing:.17em;
+
     text-transform:uppercase;
 
     transition:.3s;
@@ -396,7 +426,9 @@ body.cursor-hover .cursor-glow {
     color:#444;
 
     font-family:"DM Mono",monospace;
+
     font-size:9px;
+
     letter-spacing:.25em;
 }
 
@@ -417,7 +449,7 @@ body.cursor-hover .cursor-glow {
 }
 
 /* =========================
-   GENERAL
+   SECTIONS
 ========================= */
 
 section {
@@ -431,27 +463,36 @@ section {
 
 .section-header {
     display:flex;
+
     justify-content:space-between;
+
     margin-bottom:70px;
 }
 
 .label {
     color:#555;
+
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.23em;
+
     text-transform:uppercase;
 }
 
 .number {
     color:#444;
+
     font-size:9px;
 }
 
 .heading {
     font-size:clamp(50px,7vw,100px);
+
     line-height:.9;
+
     letter-spacing:-.075em;
+
     font-weight:800;
 }
 
@@ -465,7 +506,9 @@ section {
 
 .about-grid {
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:110px;
 }
 
@@ -475,6 +518,7 @@ section {
     color:#777;
 
     font-size:15px;
+
     line-height:1.9;
 }
 
@@ -488,8 +532,11 @@ section {
 
 .socials {
     display:flex;
+
     flex-wrap:wrap;
+
     gap:9px;
+
     margin-top:35px;
 }
 
@@ -504,7 +551,9 @@ section {
 
     font-size:9px;
     font-weight:800;
+
     letter-spacing:.15em;
+
     text-transform:uppercase;
 
     transition:.25s;
@@ -513,6 +562,7 @@ section {
 .social:hover {
     background:white;
     color:black;
+
     transform:translateY(-3px);
 }
 
@@ -522,6 +572,7 @@ section {
 
 .cards {
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
 
     border-top:1px solid #222;
@@ -532,6 +583,7 @@ section {
 
 .card {
     min-height:250px;
+
     padding:35px;
 
     border-right:1px solid #222;
@@ -542,17 +594,21 @@ section {
 
 .card:hover {
     background:#0c0c0e;
+
     transform:translateY(-3px);
 }
 
 .card-number {
     color:#444;
+
     font-size:9px;
 }
 
 .card h3 {
     margin-top:60px;
+
     font-size:27px;
+
     letter-spacing:-.04em;
 }
 
@@ -560,7 +616,9 @@ section {
     margin-top:12px;
 
     color:#666;
+
     font-size:12px;
+
     line-height:1.7;
 }
 
@@ -581,6 +639,7 @@ section {
     color:#777;
 
     font-size:15px;
+
     line-height:1.9;
 
     margin-top:35px;
@@ -611,7 +670,9 @@ section {
 
 .submit-title h2 {
     font-size:clamp(55px,6vw,90px);
+
     line-height:.88;
+
     letter-spacing:-.075em;
 }
 
@@ -623,6 +684,7 @@ section {
     color:#666;
 
     font-size:13px;
+
     line-height:1.8;
 
     margin-top:30px;
@@ -636,6 +698,7 @@ section {
     padding:35px;
 
     border:1px solid #252529;
+
     border-radius:24px;
 
     background:#09090a;
@@ -647,9 +710,11 @@ section {
 
 .form-top {
     display:flex;
+
     justify-content:space-between;
 
     padding-bottom:25px;
+
     margin-bottom:30px;
 
     border-bottom:1px solid #202024;
@@ -661,13 +726,17 @@ section {
 
 .form-top span {
     color:#444;
+
     font-family:"DM Mono",monospace;
+
     font-size:9px;
 }
 
 .form-row {
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:15px;
 }
 
@@ -684,13 +753,16 @@ section {
 
     font-size:8px;
     font-weight:800;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
 }
 
 .field input,
 .field textarea,
 .field select {
+
     width:100%;
 
     padding:14px;
@@ -698,6 +770,7 @@ section {
     background:#050505;
 
     border:1px solid #29292d;
+
     border-radius:10px;
 
     outline:none;
@@ -717,13 +790,19 @@ section {
 
 .field textarea {
     min-height:130px;
+
     resize:vertical;
 }
 
 select option {
     background:#080808;
+
     color:white;
 }
+
+/* =========================
+   FILE UPLOAD
+========================= */
 
 .audio-box {
     margin-bottom:20px;
@@ -731,7 +810,14 @@ select option {
     padding:20px;
 
     border:1px dashed #343438;
+
     border-radius:12px;
+
+    transition:.3s;
+}
+
+.audio-box:hover {
+    border-color:#666;
 }
 
 .audio-box label {
@@ -742,15 +828,33 @@ select option {
     color:#666;
 
     font-size:8px;
+
     font-weight:800;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
 }
 
 .audio-box input {
     width:100%;
+
     color:#777;
 }
+
+.file-info {
+    margin-top:10px;
+
+    color:#555;
+
+    font-size:9px;
+
+    line-height:1.6;
+}
+
+/* =========================
+   BUTTON
+========================= */
 
 .submit-button {
     width:100%;
@@ -758,14 +862,19 @@ select option {
     padding:17px;
 
     border:none;
+
     border-radius:10px;
 
     background:white;
+
     color:black;
 
     font-size:9px;
+
     font-weight:900;
+
     letter-spacing:.2em;
+
     text-transform:uppercase;
 
     transition:.3s;
@@ -775,12 +884,19 @@ select option {
     transform:translateY(-3px);
 }
 
+.submit-button:disabled {
+    opacity:.5;
+
+    transform:none;
+}
+
 .notice {
     margin-top:18px;
 
     padding:18px;
 
     border:1px solid #29292d;
+
     border-radius:12px;
 
     background:#070707;
@@ -788,6 +904,7 @@ select option {
     color:#777;
 
     font-size:10px;
+
     line-height:1.7;
 
     text-align:center;
@@ -798,7 +915,7 @@ select option {
 }
 
 /* =========================
-   SUCCESS MESSAGE
+   SUCCESS
 ========================= */
 
 .success-message {
@@ -818,12 +935,14 @@ select option {
     height:70px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     margin:0 auto 25px;
 
     border:1px solid #333;
+
     border-radius:50%;
 
     font-size:25px;
@@ -831,6 +950,7 @@ select option {
 
 .success-message h3 {
     font-size:30px;
+
     letter-spacing:-.05em;
 }
 
@@ -842,7 +962,30 @@ select option {
     color:#666;
 
     font-size:12px;
+
     line-height:1.8;
+}
+
+.error-message {
+    display:none;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border:1px solid #3a2020;
+
+    border-radius:10px;
+
+    color:#ff7b7b;
+
+    background:#120707;
+
+    font-size:10px;
+
+    line-height:1.6;
+
+    text-align:center;
 }
 
 /* =========================
@@ -853,6 +996,7 @@ select option {
     min-height:80vh;
 
     display:flex;
+
     align-items:center;
 }
 
@@ -860,8 +1004,11 @@ select option {
     color:#555;
 
     font-size:9px;
+
     font-weight:800;
+
     letter-spacing:.22em;
+
     text-transform:uppercase;
 
     margin-bottom:25px;
@@ -887,19 +1034,25 @@ select option {
 
 footer {
     border-top:1px solid #191919;
+
     padding:40px 0;
 }
 
 .footer {
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     color:#444;
 
     font-size:8px;
+
     font-weight:700;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
 }
 
@@ -907,7 +1060,9 @@ footer {
     color:white;
 
     font-size:19px;
+
     font-weight:900;
+
     letter-spacing:-.07em;
 }
 
@@ -917,6 +1072,7 @@ footer {
 
 .reveal {
     opacity:0;
+
     transform:translateY(45px);
 
     transition:
@@ -926,6 +1082,7 @@ footer {
 
 .reveal.visible {
     opacity:1;
+
     transform:translateY(0);
 }
 
@@ -955,6 +1112,7 @@ footer {
 }
 
 @keyframes particleFade {
+
     0% {
         opacity:.7;
         transform:scale(1);
@@ -962,7 +1120,9 @@ footer {
 
     100% {
         opacity:0;
-        transform:scale(0) translateY(15px);
+        transform:
+            scale(0)
+            translateY(15px);
     }
 }
 
@@ -971,6 +1131,11 @@ footer {
 ========================= */
 
 @media(max-width:850px) {
+
+    .cursor-glow,
+    .cursor-dot {
+        display:none;
+    }
 
     .nav {
         padding:0 18px;
@@ -995,7 +1160,9 @@ footer {
 
     .hero-bottom {
         grid-template-columns:1fr;
+
         gap:30px;
+
         margin-top:50px;
     }
 
@@ -1006,11 +1173,13 @@ footer {
     .about-grid,
     .submit-layout {
         grid-template-columns:1fr;
+
         gap:55px;
     }
 
     .submit-title {
         position:relative;
+
         top:auto;
     }
 
@@ -1028,7 +1197,9 @@ footer {
 
     .footer {
         flex-direction:column;
+
         align-items:flex-start;
+
         gap:20px;
     }
 }
@@ -1045,7 +1216,7 @@ footer {
     <div class="glow"></div>
 </div>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 
 <nav class="nav">
 
@@ -1066,6 +1237,7 @@ footer {
     </a>
 
 </nav>
+
 
 <!-- HERO -->
 
@@ -1136,6 +1308,7 @@ footer {
 
 </header>
 
+
 <!-- TICKER -->
 
 <div class="ticker">
@@ -1154,6 +1327,7 @@ footer {
 
 </div>
 
+
 <!-- ABOUT -->
 
 <section id="about">
@@ -1161,8 +1335,15 @@ footer {
     <div class="container reveal">
 
         <div class="section-header">
-            <div class="label">01 / About</div>
-            <div class="number">001</div>
+
+            <div class="label">
+                01 / About
+            </div>
+
+            <div class="number">
+                001
+            </div>
+
         </div>
 
         <div class="about-grid">
@@ -1170,8 +1351,10 @@ footer {
             <div>
 
                 <h2 class="heading">
+
                     FLXNR is an
                     <span>artist.</span>
+
                 </h2>
 
             </div>
@@ -1208,14 +1391,14 @@ footer {
 
                 </p>
 
+
                 <div class="socials">
 
                     <a
                         href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="social"
-                    >
+                        class="social">
                         Spotify
                     </a>
 
@@ -1223,8 +1406,7 @@ footer {
                         href="https://www.instagram.com/irasso2/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="social"
-                    >
+                        class="social">
                         Instagram
                     </a>
 
@@ -1232,8 +1414,7 @@ footer {
                         href="https://www.tiktok.com/@flixonar_official"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="social"
-                    >
+                        class="social">
                         TikTok
                     </a>
 
@@ -1241,8 +1422,7 @@ footer {
                         href="https://www.youtube.com/@flixonar_music"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="social"
-                    >
+                        class="social">
                         YouTube
                     </a>
 
@@ -1256,6 +1436,7 @@ footer {
 
 </section>
 
+
 <!-- CREATIVE -->
 
 <section id="creative">
@@ -1263,55 +1444,100 @@ footer {
     <div class="container reveal">
 
         <div class="section-header">
-            <div class="label">02 / Creative</div>
-            <div class="number">002</div>
+
+            <div class="label">
+                02 / Creative
+            </div>
+
+            <div class="number">
+                002
+            </div>
+
         </div>
 
         <h2 class="heading">
+
             Different people.
             <span>Different sounds.</span>
+
         </h2>
+
 
         <div class="cards">
 
             <div class="card">
-                <div class="card-number">01</div>
-                <h3>Artists</h3>
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    Artists
+                </h3>
+
                 <p>
                     Work together on a track,
                     idea or completely new
                     musical direction.
                 </p>
+
             </div>
 
+
             <div class="card">
-                <div class="card-number">02</div>
-                <h3>Producers</h3>
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    Producers
+                </h3>
+
                 <p>
                     Beats, production,
                     sound design and
                     unexpected combinations.
                 </p>
+
             </div>
 
+
             <div class="card">
-                <div class="card-number">03</div>
-                <h3>Vocalists</h3>
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    Vocalists
+                </h3>
+
                 <p>
                     Vocals, hooks, melodies
                     and ideas that can turn
                     into something bigger.
                 </p>
+
             </div>
 
+
             <div class="card">
-                <div class="card-number">04</div>
-                <h3>New ideas</h3>
+
+                <div class="card-number">
+                    04
+                </div>
+
+                <h3>
+                    New ideas
+                </h3>
+
                 <p>
                     Anything creative that
                     could become an interesting
                     musical project.
                 </p>
+
             </div>
 
         </div>
@@ -1320,20 +1546,30 @@ footer {
 
 </section>
 
-<!-- COLLAB -->
+
+<!-- COLLABORATION -->
 
 <section id="collab" class="collab">
 
     <div class="container reveal">
 
         <div class="section-header">
-            <div class="label">03 / Collaboration</div>
-            <div class="number">003</div>
+
+            <div class="label">
+                03 / Collaboration
+            </div>
+
+            <div class="number">
+                003
+            </div>
+
         </div>
 
         <h2 class="heading">
+
             Bring your sound.
             <span>I'll bring mine.</span>
+
         </h2>
 
         <p class="collab-intro">
@@ -1362,6 +1598,7 @@ footer {
 
 </section>
 
+
 <!-- SEND MUSIC -->
 
 <section id="submit">
@@ -1369,18 +1606,29 @@ footer {
     <div class="container reveal">
 
         <div class="section-header">
-            <div class="label">04 / Send Music</div>
-            <div class="number">004</div>
+
+            <div class="label">
+                04 / Send Music
+            </div>
+
+            <div class="number">
+                004
+            </div>
+
         </div>
 
+
         <div class="submit-layout">
+
 
             <div class="submit-title">
 
                 <h2>
+
                     Let's make
                     something
                     <span>together.</span>
+
                 </h2>
 
                 <p>
@@ -1406,22 +1654,49 @@ footer {
 
             </div>
 
+
             <div class="form">
 
-                <!-- FORM -->
 
                 <form
                     id="demoForm"
-                    action="https://formspree.io/f/xnpablpo"
+                    action="https://formly.email/submit"
                     method="POST"
                     enctype="multipart/form-data"
                 >
 
+                    <!-- FORMLY -->
+
                     <input
                         type="hidden"
-                        name="_subject"
+                        name="access_key"
+                        value="66765f2ac38a459f92e4efcba6e6fdac"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="subject"
                         value="FLXNR — New Music Collaboration"
                     >
+
+                    <input
+                        type="hidden"
+                        name="from_name"
+                        value="FLXNR Website"
+                    >
+
+
+                    <!-- HONEYPOT -->
+
+                    <div style="display:none;">
+                        <input
+                            type="text"
+                            name="website"
+                            tabindex="-1"
+                            autocomplete="off"
+                        >
+                    </div>
+
 
                     <div class="form-top">
 
@@ -1435,7 +1710,8 @@ footer {
 
                     </div>
 
-                    <!-- NAME -->
+
+                    <!-- REAL NAME -->
 
                     <div class="form-row">
 
@@ -1454,6 +1730,9 @@ footer {
 
                         </div>
 
+
+                        <!-- ARTIST NAME -->
+
                         <div class="field">
 
                             <label>
@@ -1471,6 +1750,7 @@ footer {
 
                     </div>
 
+
                     <!-- EMAIL -->
 
                     <div class="field">
@@ -1481,12 +1761,13 @@ footer {
 
                         <input
                             type="email"
-                            name="Email"
+                            name="email"
                             placeholder="your@email.com"
                             required
                         >
 
                     </div>
+
 
                     <!-- TRACK -->
 
@@ -1505,6 +1786,7 @@ footer {
 
                     </div>
 
+
                     <!-- SPOTIFY -->
 
                     <div class="field">
@@ -1516,11 +1798,12 @@ footer {
                         <input
                             type="url"
                             name="Spotify Profile Link"
-                            placeholder="Paste your Spotify profile link"
+                            placeholder="https://open.spotify.com/artist/..."
                             required
                         >
 
                     </div>
+
 
                     <!-- INSTAGRAM -->
 
@@ -1533,11 +1816,12 @@ footer {
                         <input
                             type="url"
                             name="Instagram Profile Link"
-                            placeholder="Paste your Instagram profile link"
+                            placeholder="https://instagram.com/..."
                             required
                         >
 
                     </div>
+
 
                     <!-- TIKTOK -->
 
@@ -1550,11 +1834,12 @@ footer {
                         <input
                             type="url"
                             name="TikTok Profile Link"
-                            placeholder="Paste your TikTok profile link"
+                            placeholder="https://tiktok.com/@..."
                             required
                         >
 
                     </div>
+
 
                     <!-- YOUTUBE -->
 
@@ -1567,28 +1852,12 @@ footer {
                         <input
                             type="url"
                             name="YouTube Channel Link"
-                            placeholder="Paste your YouTube channel link"
+                            placeholder="https://youtube.com/@..."
                             required
                         >
 
                     </div>
 
-                    <!-- DEMO LINK -->
-
-                    <div class="field">
-
-                        <label>
-                            Music / demo link *
-                        </label>
-
-                        <input
-                            type="url"
-                            name="Music Demo Link"
-                            placeholder="Paste your music / demo link"
-                            required
-                        >
-
-                    </div>
 
                     <!-- GENRE -->
 
@@ -1655,7 +1924,8 @@ footer {
 
                     </div>
 
-                    <!-- ABOUT ARTIST -->
+
+                    <!-- ABOUT YOU -->
 
                     <div class="field">
 
@@ -1670,6 +1940,7 @@ footer {
                         ></textarea>
 
                     </div>
+
 
                     <!-- ABOUT TRACK -->
 
@@ -1687,31 +1958,49 @@ footer {
 
                     </div>
 
-                    <!-- FILE -->
+
+                    <!-- MP3 -->
 
                     <div class="audio-box">
 
                         <label>
-                            Upload your MP3 / WAV
+                            Upload your MP3 *
                         </label>
 
                         <input
+                            id="audioFile"
                             type="file"
-                            name="Audio File"
-                            accept=".mp3,.wav,.m4a,.flac,audio/*"
+                            name="audio"
+                            accept=".mp3,audio/mpeg"
+                            required
                         >
 
+                        <div class="file-info">
+                            MP3 only · Maximum 10 MB · One file per submission
+                        </div>
+
                     </div>
+
+
+                    <!-- ERROR -->
+
+                    <div
+                        class="error-message"
+                        id="errorMessage">
+                    </div>
+
 
                     <!-- SUBMIT -->
 
                     <button
                         type="submit"
                         class="submit-button"
-                        id="submitButton"
-                    >
+                        id="submitButton">
+
                         SEND DEMO →
+
                     </button>
+
 
                     <div class="notice">
 
@@ -1729,12 +2018,12 @@ footer {
 
                 </form>
 
+
                 <!-- SUCCESS -->
 
                 <div
                     class="success-message"
-                    id="successMessage"
-                >
+                    id="successMessage">
 
                     <div class="success-icon">
                         ✓
@@ -1775,6 +2064,7 @@ footer {
 
 </section>
 
+
 <!-- FINAL -->
 
 <section class="final">
@@ -1786,10 +2076,13 @@ footer {
         </div>
 
         <h2>
+
             Your sound.
             My sound.
             <span>One track.</span>
+
         </h2>
+
 
         <div class="socials">
 
@@ -1797,8 +2090,7 @@ footer {
                 href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz?si=dbf39866c5d14c81"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="social"
-            >
+                class="social">
                 Spotify
             </a>
 
@@ -1806,8 +2098,7 @@ footer {
                 href="https://www.instagram.com/irasso2/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="social"
-            >
+                class="social">
                 Instagram
             </a>
 
@@ -1815,8 +2106,7 @@ footer {
                 href="https://www.tiktok.com/@flixonar_official"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="social"
-            >
+                class="social">
                 TikTok
             </a>
 
@@ -1824,8 +2114,7 @@ footer {
                 href="https://www.youtube.com/@flixonar_music"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="social"
-            >
+                class="social">
                 YouTube
             </a>
 
@@ -1834,6 +2123,7 @@ footer {
     </div>
 
 </section>
+
 
 <!-- FOOTER -->
 
@@ -1861,33 +2151,42 @@ footer {
 
 </footer>
 
+
 <script>
 
 /* =========================
    SCROLL REVEAL
 ========================= */
 
-const observer = new IntersectionObserver(
-    entries => {
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-        entries.forEach(entry => {
+            entries.forEach(entry => {
 
-            if(entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
+                if(entry.isIntersecting) {
 
-        });
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
-    },
-    {
-        threshold:.12
-    }
-);
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
 
 document
     .querySelectorAll(".reveal")
     .forEach(element => {
+
         observer.observe(element);
+
     });
 
 
@@ -1910,6 +2209,7 @@ let mouseY =
 let glowX = mouseX;
 let glowY = mouseY;
 
+
 window.addEventListener(
     "mousemove",
     event => {
@@ -1924,10 +2224,12 @@ window.addEventListener(
             mouseY + "px";
 
         cursorGlow.style.opacity = "1";
+
         cursorDot.style.opacity = "1";
 
     }
 );
+
 
 function animateCursor() {
 
@@ -1946,13 +2248,14 @@ function animateCursor() {
     requestAnimationFrame(
         animateCursor
     );
+
 }
 
 animateCursor();
 
 
 /* =========================
-   HOVER
+   CURSOR HOVER
 ========================= */
 
 document
@@ -1965,9 +2268,9 @@ document
             "mouseenter",
             () => {
 
-                document.body
-                    .classList
-                    .add("cursor-hover");
+                document.body.classList.add(
+                    "cursor-hover"
+                );
 
             }
         );
@@ -1976,9 +2279,9 @@ document
             "mouseleave",
             () => {
 
-                document.body
-                    .classList
-                    .remove("cursor-hover");
+                document.body.classList.remove(
+                    "cursor-hover"
+                );
 
             }
         );
@@ -2036,7 +2339,7 @@ window.addEventListener(
 
 
 /* =========================
-   FORMSPREE SUBMIT
+   FORM
 ========================= */
 
 const demoForm =
@@ -2048,28 +2351,104 @@ const successMessage =
 const submitButton =
     document.getElementById("submitButton");
 
+const errorMessage =
+    document.getElementById("errorMessage");
+
+const audioFile =
+    document.getElementById("audioFile");
+
+
 demoForm.addEventListener(
     "submit",
     async function(event) {
 
         event.preventDefault();
 
-        submitButton.disabled = true;
+        errorMessage.style.display =
+            "none";
+
+        errorMessage.textContent =
+            "";
+
+
+        /* FILE REQUIRED */
+
+        if(audioFile.files.length === 0) {
+
+            errorMessage.textContent =
+                "Please select an MP3 file.";
+
+            errorMessage.style.display =
+                "block";
+
+            return;
+        }
+
+
+        const file =
+            audioFile.files[0];
+
+
+        /* ONLY MP3 */
+
+        const isMP3 =
+            file.type === "audio/mpeg" ||
+            file.name.toLowerCase().endsWith(".mp3");
+
+
+        if(!isMP3) {
+
+            errorMessage.textContent =
+                "Only MP3 files are accepted.";
+
+            errorMessage.style.display =
+                "block";
+
+            return;
+        }
+
+
+        /* MAX 10 MB */
+
+        const maxSize =
+            10 * 1024 * 1024;
+
+
+        if(file.size > maxSize) {
+
+            errorMessage.textContent =
+                "Your MP3 file is larger than 10 MB. Please choose a smaller file.";
+
+            errorMessage.style.display =
+                "block";
+
+            return;
+        }
+
+
+        /* SEND */
+
+        submitButton.disabled =
+            true;
 
         submitButton.textContent =
             "SENDING...";
 
+
         const formData =
             new FormData(demoForm);
+
 
         try {
 
             const response =
                 await fetch(
-                    demoForm.action,
+                    "https://formly.email/submit",
                     {
                         method:"POST",
+
                         body:formData,
+
                         headers:{
                             "Accept":
                             "application/json"
@@ -2077,7 +2456,12 @@ demoForm.addEventListener(
                     }
                 );
 
-            if(response.ok) {
+
+            const result =
+                await response.json();
+
+
+            if(response.ok && result.success) {
 
                 demoForm.style.display =
                     "none";
@@ -2086,7 +2470,9 @@ demoForm.addEventListener(
                     "active"
                 );
 
+
                 window.scrollTo({
+
                     top:
                         successMessage
                         .getBoundingClientRect()
@@ -2097,17 +2483,25 @@ demoForm.addEventListener(
                         150,
 
                     behavior:"smooth"
+
                 });
 
-            } else {
+            }
+
+            else {
 
                 throw new Error(
-                    "Form submission failed"
+                    result.message ||
+                    "Form submission failed."
                 );
 
             }
 
-        } catch(error) {
+        }
+
+        catch(error) {
+
+            console.error(error);
 
             submitButton.disabled =
                 false;
@@ -2115,9 +2509,11 @@ demoForm.addEventListener(
             submitButton.textContent =
                 "SEND DEMO →";
 
-            alert(
-                "Something went wrong. Please try again."
-            );
+            errorMessage.textContent =
+                "Something went wrong while sending your demo. Please try again.";
+
+            errorMessage.style.display =
+                "block";
 
         }
 
