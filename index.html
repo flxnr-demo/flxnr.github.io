@@ -50,7 +50,10 @@ a {
     text-decoration:none;
 }
 
-button,input,textarea,select {
+button,
+input,
+textarea,
+select {
     font-family:inherit;
 }
 
@@ -106,7 +109,11 @@ body.cursor-hover .cursor-glow {
         cursor:none;
     }
 
-    a,button,input,textarea,select {
+    a,
+    button,
+    input,
+    textarea,
+    select {
         cursor:none;
     }
 }
@@ -1357,12 +1364,17 @@ footer {
 
                 </div>
 
-                <!-- FORMSPREE -->
                 <form
                     action="https://formspree.io/f/xnpablpo"
                     method="POST"
                     enctype="multipart/form-data"
                 >
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="FLXNR — New Music Collaboration"
+                    >
 
                     <div class="form-row">
 
@@ -1401,7 +1413,7 @@ footer {
                     <div class="field">
 
                         <label>
-                            Email *
+                            Email address *
                         </label>
 
                         <input
@@ -1428,84 +1440,76 @@ footer {
 
                     </div>
 
-                    <div class="form-row">
+                    <div class="field">
 
-                        <div class="field">
+                        <label>
+                            Spotify profile link *
+                        </label>
 
-                            <label>
-                                Spotify *
-                            </label>
-
-                            <input
-                                type="url"
-                                name="Spotify"
-                                placeholder="Spotify profile"
-                                required
-                            >
-
-                        </div>
-
-                        <div class="field">
-
-                            <label>
-                                Instagram *
-                            </label>
-
-                            <input
-                                type="url"
-                                name="Instagram"
-                                placeholder="Instagram profile"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-                    <div class="form-row">
-
-                        <div class="field">
-
-                            <label>
-                                TikTok *
-                            </label>
-
-                            <input
-                                type="url"
-                                name="TikTok"
-                                placeholder="TikTok profile"
-                                required
-                            >
-
-                        </div>
-
-                        <div class="field">
-
-                            <label>
-                                YouTube *
-                            </label>
-
-                            <input
-                                type="url"
-                                name="YouTube"
-                                placeholder="YouTube channel"
-                                required
-                            >
-
-                        </div>
+                        <input
+                            type="url"
+                            name="Spotify Profile Link"
+                            placeholder="https://open.spotify.com/artist/..."
+                            required
+                        >
 
                     </div>
 
                     <div class="field">
 
                         <label>
-                            Music link *
+                            Instagram profile link *
                         </label>
 
                         <input
                             type="url"
-                            name="Music Link"
-                            placeholder="Spotify / SoundCloud / YouTube / Drive"
+                            name="Instagram Profile Link"
+                            placeholder="https://www.instagram.com/..."
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label>
+                            TikTok profile link *
+                        </label>
+
+                        <input
+                            type="url"
+                            name="TikTok Profile Link"
+                            placeholder="https://www.tiktok.com/@..."
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label>
+                            YouTube channel link *
+                        </label>
+
+                        <input
+                            type="url"
+                            name="YouTube Channel Link"
+                            placeholder="https://www.youtube.com/@..."
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label>
+                            Music / demo link *
+                        </label>
+
+                        <input
+                            type="url"
+                            name="Music Demo Link"
+                            placeholder="Spotify / SoundCloud / YouTube / Google Drive"
                             required
                         >
 
@@ -1605,7 +1609,7 @@ footer {
                     <div class="audio-box">
 
                         <label>
-                            Audio file — optional
+                            Upload MP3 / WAV — optional
                         </label>
 
                         <input
@@ -1626,19 +1630,19 @@ footer {
                     <div class="notice">
 
                         <strong>
-                            Submission received?
+                            Response time: 1–3 weeks
                         </strong>
 
                         <br>
 
-                        Please allow approximately
-                        <strong>1–3 weeks</strong>
-                        for a response.
+                        After sending your demo,
+                        please allow approximately
+                        1–3 weeks for a response.
 
                         <br>
 
-                        If there is a creative fit,
-                        I'll get back to you.
+                        If I feel there is a creative
+                        connection, I'll contact you.
 
                     </div>
 
@@ -1736,44 +1740,33 @@ footer {
 
 <script>
 
-/* =========================
-   SCROLL REVEAL
-========================= */
+/* SCROLL REVEAL */
 
-const observer =
-    new IntersectionObserver(
-        entries => {
+const observer = new IntersectionObserver(
+    entries => {
 
-            entries.forEach(entry => {
+        entries.forEach(entry => {
 
-                if(entry.isIntersecting) {
+            if(entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
 
-                    entry.target
-                        .classList
-                        .add("visible");
+        });
 
-                }
-
-            });
-
-        },
-        {
-            threshold:.12
-        }
-    );
+    },
+    {
+        threshold:.12
+    }
+);
 
 document
     .querySelectorAll(".reveal")
     .forEach(element => {
-
         observer.observe(element);
-
     });
 
 
-/* =========================
-   CURSOR
-========================= */
+/* CURSOR */
 
 const cursorGlow =
     document.querySelector(".cursor-glow");
@@ -1803,11 +1796,8 @@ window.addEventListener(
         cursorDot.style.top =
             mouseY + "px";
 
-        cursorGlow.style.opacity =
-            "1";
-
-        cursorDot.style.opacity =
-            "1";
+        cursorGlow.style.opacity = "1";
+        cursorDot.style.opacity = "1";
 
     }
 );
@@ -1834,9 +1824,7 @@ function animateCursor() {
 animateCursor();
 
 
-/* =========================
-   HOVER
-========================= */
+/* HOVER */
 
 document
     .querySelectorAll(
@@ -1869,9 +1857,7 @@ document
     });
 
 
-/* =========================
-   CURSOR PARTICLES
-========================= */
+/* CURSOR PARTICLES */
 
 let lastParticle = 0;
 
