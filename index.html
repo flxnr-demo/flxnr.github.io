@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>FLXNR — Artist / Producer</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -32,9 +30,9 @@ a{
 }
 
 
-/* ================================
-   BACKGROUND
-================================ */
+/* =========================
+   NOTEBOOK BACKGROUND
+========================= */
 
 .background{
     position:fixed;
@@ -44,9 +42,6 @@ a{
     overflow:hidden;
 }
 
-
-/* ZESZYTOWE LINIE */
-
 .grid{
     position:absolute;
     inset:0;
@@ -54,41 +49,35 @@ a{
     background-image:
         repeating-linear-gradient(
             to bottom,
-            rgba(255,255,255,0) 0px,
-            rgba(255,255,255,0) 35px,
-            rgba(255,255,255,0.12) 36px,
-            rgba(255,255,255,0) 37px
+            transparent 0px,
+            transparent 34px,
+            rgba(255,255,255,.13) 35px,
+            transparent 36px
         );
 
-    background-size:100% 37px;
-
+    background-size:100% 36px;
     opacity:1;
-
-    pointer-events:none;
 }
 
-
-/* dodatkowe bardzo delikatne linie,
-   żeby efekt był widoczny również
-   podczas scrollowania */
-
-.background::after{
+.grid::after{
     content:"";
     position:absolute;
     inset:0;
 
-    background:
+    background-image:
         repeating-linear-gradient(
             to bottom,
             transparent 0px,
             transparent 35px,
-            rgba(255,255,255,.025) 36px,
+            rgba(255,255,255,.035) 36px,
             transparent 37px
         );
-
-    pointer-events:none;
 }
 
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
 
 .bg-glow{
     position:absolute;
@@ -110,9 +99,9 @@ a{
 }
 
 
-/* ================================
+/* =========================
    CURSOR
-================================ */
+========================= */
 
 .custom-cursor{
     position:fixed;
@@ -144,9 +133,9 @@ a{
 }
 
 
-/* ================================
+/* =========================
    CURSOR SMOKE
-================================ */
+========================= */
 
 .cursor-smoke-dot{
     position:fixed;
@@ -180,11 +169,6 @@ a{
         transform:
             translate(-50%,-50%)
             scale(.35);
-        filter:blur(.4px);
-    }
-
-    25%{
-        opacity:.7;
     }
 
     50%{
@@ -206,9 +190,9 @@ a{
 }
 
 
-/* ================================
-   NAVIGATION
-================================ */
+/* =========================
+   NAV
+========================= */
 
 .nav{
     position:fixed;
@@ -236,19 +220,14 @@ a{
 
 .logo{
     font-size:24px;
-
     font-weight:900;
-
     letter-spacing:-.08em;
 }
 
 .logo span{
     color:#555;
-
     font-size:9px;
-
     letter-spacing:.2em;
-
     margin-left:7px;
 }
 
@@ -261,9 +240,7 @@ a{
     color:#666;
 
     font-size:9px;
-
     font-weight:800;
-
     letter-spacing:.18em;
 
     text-transform:uppercase;
@@ -283,7 +260,6 @@ a{
     padding:11px 17px;
 
     font-size:9px;
-
     font-weight:800;
 
     letter-spacing:.15em;
@@ -299,15 +275,14 @@ a{
 }
 
 
-/* ================================
+/* =========================
    HERO
-================================ */
+========================= */
 
 .hero{
     min-height:100vh;
 
     display:flex;
-
     align-items:center;
 
     padding-top:80px;
@@ -315,19 +290,16 @@ a{
 
 .hero-inner{
     width:min(1250px,calc(100% - 50px));
-
     margin:auto;
 }
 
 .hero-info{
     display:flex;
-
     justify-content:space-between;
 
     color:#555;
 
     font-size:9px;
-
     font-weight:800;
 
     letter-spacing:.2em;
@@ -335,9 +307,7 @@ a{
 
 .online{
     display:flex;
-
     align-items:center;
-
     gap:8px;
 }
 
@@ -424,15 +394,14 @@ a{
 }
 
 
-/* ================================
+/* =========================
    BUTTONS
-================================ */
+========================= */
 
 .button{
     display:inline-flex;
 
     align-items:center;
-
     justify-content:center;
 
     min-height:48px;
@@ -458,9 +427,7 @@ a{
 
 .button.primary{
     background:#fff;
-
     color:#000;
-
     border-color:#fff;
 }
 
@@ -469,9 +436,9 @@ a{
 }
 
 
-/* ================================
+/* =========================
    TICKER
-================================ */
+========================= */
 
 .ticker{
     overflow:hidden;
@@ -479,7 +446,6 @@ a{
     padding:17px 0;
 
     border-top:1px solid #191919;
-
     border-bottom:1px solid #191919;
 
     color:#444;
@@ -511,9 +477,9 @@ a{
 }
 
 
-/* ================================
+/* =========================
    SECTIONS
-================================ */
+========================= */
 
 section{
     padding:150px 0;
@@ -521,7 +487,6 @@ section{
 
 .container{
     width:min(1250px,calc(100% - 50px));
-
     margin:auto;
 }
 
@@ -537,7 +502,6 @@ section{
     color:#555;
 
     font-size:9px;
-
     font-weight:800;
 
     letter-spacing:.23em;
@@ -566,15 +530,13 @@ section{
 }
 
 
-/* ================================
+/* =========================
    ABOUT
-================================ */
+========================= */
 
 #about{
     position:relative;
-
     overflow:hidden;
-
     isolation:isolate;
 }
 
@@ -589,7 +551,6 @@ section{
         url("./flxnr.jpeg");
 
     background-size:cover;
-
     background-position:center;
 
     background-repeat:no-repeat;
@@ -621,13 +582,6 @@ section{
             rgba(5,5,5,.38) 0%,
             rgba(5,5,5,.72) 48%,
             rgba(5,5,5,.97) 90%
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(5,5,5,.94),
-            rgba(5,5,5,.45),
-            rgba(5,5,5,.94)
         );
 }
 
@@ -675,7 +629,6 @@ section{
     color:#777;
 
     font-size:9px;
-
     font-weight:800;
 
     letter-spacing:.15em;
@@ -687,16 +640,15 @@ section{
 
 .social:hover{
     background:#fff;
-
     color:#000;
 
     transform:translateY(-3px);
 }
 
 
-/* ================================
+/* =========================
    CARDS
-================================ */
+========================= */
 
 .cards{
     display:grid;
@@ -706,7 +658,6 @@ section{
     margin-top:75px;
 
     border-top:1px solid #222;
-
     border-left:1px solid #222;
 }
 
@@ -716,7 +667,6 @@ section{
     padding:35px;
 
     border-right:1px solid #222;
-
     border-bottom:1px solid #222;
 
     transition:.3s;
@@ -728,7 +678,6 @@ section{
 
 .card-number{
     color:#444;
-
     font-size:9px;
 }
 
@@ -751,15 +700,14 @@ section{
 }
 
 
-/* ================================
+/* =========================
    COLLAB
-================================ */
+========================= */
 
 .collab{
     background:#080808;
 
     border-top:1px solid #171717;
-
     border-bottom:1px solid #171717;
 }
 
@@ -780,9 +728,9 @@ section{
 }
 
 
-/* ================================
+/* =========================
    SUBMIT
-================================ */
+========================= */
 
 .submit-layout{
     display:grid;
@@ -871,7 +819,6 @@ section{
     color:#666;
 
     font-size:8px;
-
     font-weight:800;
 
     letter-spacing:.18em;
@@ -907,7 +854,6 @@ section{
 
 .field textarea{
     min-height:130px;
-
     resize:vertical;
 }
 
@@ -916,9 +862,9 @@ select option{
 }
 
 
-/* ================================
+/* =========================
    SOCIAL CHECKBOXES
-================================ */
+========================= */
 
 .social-selection{
     margin-bottom:24px;
@@ -938,7 +884,6 @@ select option{
     color:#666;
 
     font-size:8px;
-
     font-weight:800;
 
     letter-spacing:.18em;
@@ -978,13 +923,11 @@ select option{
 
 .checkbox-option input{
     width:auto;
-
     accent-color:#fff;
 }
 
 .checkbox-option:hover{
     color:#fff;
-
     border-color:#555;
 }
 
@@ -997,9 +940,9 @@ select option{
 }
 
 
-/* ================================
+/* =========================
    MP3
-================================ */
+========================= */
 
 .audio-box{
     margin-bottom:20px;
@@ -1019,7 +962,6 @@ select option{
     color:#666;
 
     font-size:8px;
-
     font-weight:800;
 
     letter-spacing:.18em;
@@ -1029,7 +971,6 @@ select option{
 
 .audio-box input{
     width:100%;
-
     color:#777;
 }
 
@@ -1042,9 +983,9 @@ select option{
 }
 
 
-/* ================================
-   SUBMIT
-================================ */
+/* =========================
+   SUBMIT BUTTON
+========================= */
 
 .submit-button{
     width:100%;
@@ -1060,7 +1001,6 @@ select option{
     color:#000;
 
     font-size:9px;
-
     font-weight:900;
 
     letter-spacing:.2em;
@@ -1099,9 +1039,9 @@ select option{
 }
 
 
-/* ================================
+/* =========================
    FINAL
-================================ */
+========================= */
 
 .final{
     min-height:80vh;
@@ -1119,7 +1059,6 @@ select option{
     color:#555;
 
     font-size:9px;
-
     font-weight:800;
 
     letter-spacing:.22em;
@@ -1142,9 +1081,9 @@ select option{
 }
 
 
-/* ================================
+/* =========================
    FOOTER
-================================ */
+========================= */
 
 footer{
     position:relative;
@@ -1187,9 +1126,9 @@ footer{
 }
 
 
-/* ================================
+/* =========================
    BOTTOM SMOKE
-================================ */
+========================= */
 
 #bottomSmoke{
     position:fixed;
@@ -1206,20 +1145,11 @@ footer{
 
     overflow:hidden;
 
-    -webkit-mask-image:
-        linear-gradient(
-            to top,
-            black 0%,
-            black 34%,
-            rgba(0,0,0,.7) 55%,
-            transparent 100%
-        );
-
     mask-image:
         linear-gradient(
             to top,
             black 0%,
-            black 34%,
+            black 30%,
             rgba(0,0,0,.7) 55%,
             transparent 100%
         );
@@ -1342,9 +1272,9 @@ footer{
 }
 
 
-/* ================================
+/* =========================
    MOBILE
-================================ */
+========================= */
 
 @media(max-width:850px){
 
@@ -1459,8 +1389,8 @@ footer{
 
 <div
     class="custom-cursor"
-    id="customCursor"
-></div>
+    id="customCursor">
+</div>
 
 
 <!-- NAV -->
@@ -1473,28 +1403,16 @@ footer{
 
     <div class="nav-links">
 
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#creative">
-            Creative
-        </a>
-
-        <a href="#collab">
-            Collab
-        </a>
-
-        <a href="#submit">
-            Send Music
-        </a>
+        <a href="#about">About</a>
+        <a href="#creative">Creative</a>
+        <a href="#collab">Collab</a>
+        <a href="#submit">Send Music</a>
 
     </div>
 
     <a
         href="#submit"
-        class="nav-button"
-    >
+        class="nav-button">
         Start a collaboration →
     </a>
 
@@ -1567,15 +1485,13 @@ footer{
 
             <a
                 href="#submit"
-                class="button primary"
-            >
+                class="button primary">
                 Send your music
             </a>
 
             <a
                 href="#about"
-                class="button"
-            >
+                class="button">
                 Discover FLXNR
             </a>
 
@@ -1680,32 +1596,28 @@ footer{
                 <a
                     href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz"
                     target="_blank"
-                    class="social"
-                >
+                    class="social">
                     Spotify
                 </a>
 
                 <a
                     href="https://www.instagram.com/irasso2/"
                     target="_blank"
-                    class="social"
-                >
+                    class="social">
                     Instagram
                 </a>
 
                 <a
                     href="https://www.tiktok.com/@flixonar_official"
                     target="_blank"
-                    class="social"
-                >
+                    class="social">
                     TikTok
                 </a>
 
                 <a
                     href="https://www.youtube.com/@flixnr_music"
                     target="_blank"
-                    class="social"
-                >
+                    class="social">
                     YouTube
                 </a>
 
@@ -1751,7 +1663,6 @@ footer{
 
 
     <div class="cards">
-
 
         <div class="card">
 
@@ -1837,10 +1748,7 @@ footer{
 
 <!-- COLLAB -->
 
-<section
-    id="collab"
-    class="collab"
->
+<section id="collab" class="collab">
 
 <div class="container">
 
@@ -1956,20 +1864,17 @@ footer{
                 action="https://formly.email/submit"
                 method="POST"
                 enctype="multipart/form-data"
-                id="musicForm"
-            >
+                id="musicForm">
 
                 <input
                     type="hidden"
                     name="access_key"
-                    value="66765f2ac38a459f92e4efcba6e6fdac"
-                >
+                    value="66765f2ac38a459f92e4efcba6e6fdac">
 
                 <input
                     type="hidden"
                     name="subject"
-                    value="FLXNR — New Music Demo"
-                >
+                    value="FLXNR — New Music Demo">
 
 
                 <div class="form-header">
@@ -1997,8 +1902,7 @@ footer{
                             type="text"
                             name="Real Name"
                             placeholder="Your real name"
-                            required
-                        >
+                            required>
 
                     </div>
 
@@ -2013,8 +1917,7 @@ footer{
                             type="text"
                             name="Artist Name"
                             placeholder="Your artist name"
-                            required
-                        >
+                            required>
 
                     </div>
 
@@ -2031,8 +1934,7 @@ footer{
                         type="email"
                         name="email"
                         placeholder="your@email.com"
-                        required
-                    >
+                        required>
 
                 </div>
 
@@ -2047,8 +1949,7 @@ footer{
                         type="text"
                         name="Track Name"
                         placeholder="Track name"
-                        required
-                    >
+                        required>
 
                 </div>
 
@@ -2068,8 +1969,7 @@ footer{
                                 type="checkbox"
                                 id="spotifyCheck"
                                 name="Socials"
-                                value="Spotify"
-                            >
+                                value="Spotify">
 
                             Spotify
 
@@ -2082,8 +1982,7 @@ footer{
                                 type="checkbox"
                                 id="instagramCheck"
                                 name="Socials"
-                                value="Instagram"
-                            >
+                                value="Instagram">
 
                             Instagram
 
@@ -2096,8 +1995,7 @@ footer{
                                 type="checkbox"
                                 id="tiktokCheck"
                                 name="Socials"
-                                value="TikTok"
-                            >
+                                value="TikTok">
 
                             TikTok
 
@@ -2110,8 +2008,7 @@ footer{
                                 type="checkbox"
                                 id="youtubeCheck"
                                 name="Socials"
-                                value="YouTube"
-                            >
+                                value="YouTube">
 
                             YouTube
 
@@ -2120,15 +2017,13 @@ footer{
 
                         <label
                             class="checkbox-option"
-                            style="grid-column:1/-1"
-                        >
+                            style="grid-column:1/-1">
 
                             <input
                                 type="checkbox"
                                 id="noSocialCheck"
                                 name="Socials"
-                                value="None"
-                            >
+                                value="None">
 
                             I don't have social media yet
 
@@ -2141,8 +2036,7 @@ footer{
 
                 <div
                     class="field social-link-field"
-                    id="spotifyField"
-                >
+                    id="spotifyField">
 
                     <label>
                         Spotify profile link
@@ -2152,16 +2046,14 @@ footer{
                         type="url"
                         name="Spotify Profile Link"
                         id="spotifyInput"
-                        placeholder="https://open.spotify.com/..."
-                    >
+                        placeholder="https://open.spotify.com/...">
 
                 </div>
 
 
                 <div
                     class="field social-link-field"
-                    id="instagramField"
-                >
+                    id="instagramField">
 
                     <label>
                         Instagram profile link
@@ -2171,16 +2063,14 @@ footer{
                         type="url"
                         name="Instagram Profile Link"
                         id="instagramInput"
-                        placeholder="https://instagram.com/..."
-                    >
+                        placeholder="https://instagram.com/...">
 
                 </div>
 
 
                 <div
                     class="field social-link-field"
-                    id="tiktokField"
-                >
+                    id="tiktokField">
 
                     <label>
                         TikTok profile link
@@ -2190,16 +2080,14 @@ footer{
                         type="url"
                         name="TikTok Profile Link"
                         id="tiktokInput"
-                        placeholder="https://tiktok.com/@..."
-                    >
+                        placeholder="https://tiktok.com/@...">
 
                 </div>
 
 
                 <div
                     class="field social-link-field"
-                    id="youtubeField"
-                >
+                    id="youtubeField">
 
                     <label>
                         YouTube channel link
@@ -2209,8 +2097,7 @@ footer{
                         type="url"
                         name="YouTube Channel Link"
                         id="youtubeInput"
-                        placeholder="https://youtube.com/@..."
-                    >
+                        placeholder="https://youtube.com/@...">
 
                 </div>
 
@@ -2265,8 +2152,7 @@ footer{
                     <textarea
                         name="About Artist"
                         placeholder="Tell me about yourself and your music..."
-                        required
-                    ></textarea>
+                        required></textarea>
 
                 </div>
 
@@ -2280,8 +2166,7 @@ footer{
                     <textarea
                         name="About Track"
                         placeholder="Tell me about this track..."
-                        required
-                    ></textarea>
+                        required></textarea>
 
                 </div>
 
@@ -2297,8 +2182,7 @@ footer{
                         name="audio"
                         id="audioInput"
                         accept=".mp3,audio/mpeg"
-                        required
-                    >
+                        required>
 
                     <div class="file-info">
                         MP3 only
@@ -2309,9 +2193,10 @@ footer{
 
                 <button
                     type="submit"
-                    class="submit-button"
-                >
+                    class="submit-button">
+
                     SEND DEMO →
+
                 </button>
 
 
@@ -2364,32 +2249,28 @@ footer{
         <a
             href="https://open.spotify.com/artist/0pQ510NuBkcc4wLg4bmCgz"
             target="_blank"
-            class="social"
-        >
+            class="social">
             Spotify
         </a>
 
         <a
             href="https://www.instagram.com/irasso2/"
             target="_blank"
-            class="social"
-        >
+            class="social">
             Instagram
         </a>
 
         <a
             href="https://www.tiktok.com/@flixonar_official"
             target="_blank"
-            class="social"
-        >
+            class="social">
             TikTok
         </a>
 
         <a
             href="https://www.youtube.com/@flixnr_music"
             target="_blank"
-            class="social"
-        >
+            class="social">
             YouTube
         </a>
 
@@ -2443,35 +2324,26 @@ footer{
 
 <script>
 
-/* ================================
+/* =========================
    CURSOR
-================================ */
+========================= */
 
 const cursor =
     document.getElementById("customCursor");
 
-let mouseX =
-    window.innerWidth / 2;
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
 
-let mouseY =
-    window.innerHeight / 2;
-
-let cursorX =
-    mouseX;
-
-let cursorY =
-    mouseY;
+let cursorX = mouseX;
+let cursorY = mouseY;
 
 
-document.addEventListener(
-    "mousemove",
-    function(e){
+document.addEventListener("mousemove",function(e){
 
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
-    }
-);
+});
 
 
 function animateCursor(){
@@ -2496,13 +2368,12 @@ function animateCursor(){
 animateCursor();
 
 
-/* ================================
+/* =========================
    CURSOR SMOKE
-================================ */
+========================= */
 
 let lastSmokeX = 0;
 let lastSmokeY = 0;
-
 
 document.addEventListener(
     "mousemove",
@@ -2545,19 +2416,13 @@ document.addEventListener(
         );
 
         const size =
-            2.5 +
-            Math.random() * 3.5;
+            2.5 + Math.random() * 3.5;
 
         dot.style.width =
             size + "px";
 
         dot.style.height =
             size + "px";
-
-        dot.style.animationDuration =
-            (1.3 +
-            Math.random() * .7) +
-            "s";
 
         document.body.appendChild(dot);
 
@@ -2572,208 +2437,135 @@ document.addEventListener(
 );
 
 
-/* ================================
+/* =========================
    CURSOR HOVER
-================================ */
+========================= */
 
 document.querySelectorAll(
     "a,button,input,textarea,select,label"
-).forEach(
-    function(element){
+).forEach(function(element){
 
-        element.addEventListener(
-            "mouseenter",
-            function(){
+    element.addEventListener(
+        "mouseenter",
+        function(){
 
-                cursor.style.width =
-                    "20px";
-
-                cursor.style.height =
-                    "20px";
-
-                cursor.style.opacity =
-                    ".8";
-
-            }
-        );
-
-        element.addEventListener(
-            "mouseleave",
-            function(){
-
-                cursor.style.width =
-                    "12px";
-
-                cursor.style.height =
-                    "12px";
-
-                cursor.style.opacity =
-                    "1";
-
-            }
-        );
-
-    }
-);
-
-
-/* ================================
-   SOCIAL FIELDS
-================================ */
-
-const spotifyCheck =
-    document.getElementById("spotifyCheck");
-
-const instagramCheck =
-    document.getElementById("instagramCheck");
-
-const tiktokCheck =
-    document.getElementById("tiktokCheck");
-
-const youtubeCheck =
-    document.getElementById("youtubeCheck");
-
-const noSocialCheck =
-    document.getElementById("noSocialCheck");
-
-
-const spotifyField =
-    document.getElementById("spotifyField");
-
-const instagramField =
-    document.getElementById("instagramField");
-
-const tiktokField =
-    document.getElementById("tiktokField");
-
-const youtubeField =
-    document.getElementById("youtubeField");
-
-
-const spotifyInput =
-    document.getElementById("spotifyInput");
-
-const instagramInput =
-    document.getElementById("instagramInput");
-
-const tiktokInput =
-    document.getElementById("tiktokInput");
-
-const youtubeInput =
-    document.getElementById("youtubeInput");
-
-
-function updateSocialFields(){
-
-    const socials = [
-
-        {
-            check:spotifyCheck,
-            field:spotifyField,
-            input:spotifyInput
-        },
-
-        {
-            check:instagramCheck,
-            field:instagramField,
-            input:instagramInput
-        },
-
-        {
-            check:tiktokCheck,
-            field:tiktokField,
-            input:tiktokInput
-        },
-
-        {
-            check:youtubeCheck,
-            field:youtubeField,
-            input:youtubeInput
-        }
-
-    ];
-
-
-    if(noSocialCheck.checked){
-
-        socials.forEach(
-            function(item){
-
-                item.check.checked =
-                    false;
-
-            }
-        );
-
-    }
-
-
-    if(
-        socials.some(
-            item =>
-                item.check.checked
-        )
-    ){
-
-        noSocialCheck.checked =
-            false;
-
-    }
-
-
-    socials.forEach(
-        function(item){
-
-            if(item.check.checked){
-
-                item.field.classList.add(
-                    "active"
-                );
-
-                item.input.required =
-                    true;
-
-            }else{
-
-                item.field.classList.remove(
-                    "active"
-                );
-
-                item.input.required =
-                    false;
-
-                item.input.value =
-                    "";
-
-            }
+            cursor.style.width = "20px";
+            cursor.style.height = "20px";
+            cursor.style.opacity = ".8";
 
         }
     );
 
+    element.addEventListener(
+        "mouseleave",
+        function(){
+
+            cursor.style.width = "12px";
+            cursor.style.height = "12px";
+            cursor.style.opacity = "1";
+
+        }
+    );
+
+});
+
+
+/* =========================
+   SOCIAL FIELDS
+========================= */
+
+const socials = [
+
+    {
+        check:document.getElementById("spotifyCheck"),
+        field:document.getElementById("spotifyField"),
+        input:document.getElementById("spotifyInput")
+    },
+
+    {
+        check:document.getElementById("instagramCheck"),
+        field:document.getElementById("instagramField"),
+        input:document.getElementById("instagramInput")
+    },
+
+    {
+        check:document.getElementById("tiktokCheck"),
+        field:document.getElementById("tiktokField"),
+        input:document.getElementById("tiktokInput")
+    },
+
+    {
+        check:document.getElementById("youtubeCheck"),
+        field:document.getElementById("youtubeField"),
+        input:document.getElementById("youtubeInput")
+    }
+
+];
+
+const noSocial =
+    document.getElementById("noSocialCheck");
+
+
+function updateSocialFields(){
+
+    if(noSocial.checked){
+
+        socials.forEach(function(item){
+
+            item.check.checked = false;
+
+        });
+
+    }
+    else{
+
+        if(
+            socials.some(
+                item => item.check.checked
+            )
+        ){
+
+            noSocial.checked = false;
+
+        }
+
+    }
+
+
+    socials.forEach(function(item){
+
+        if(item.check.checked){
+
+            item.field.classList.add("active");
+
+            item.input.required = true;
+
+        }
+        else{
+
+            item.field.classList.remove("active");
+
+            item.input.required = false;
+
+            item.input.value = "";
+
+        }
+
+    });
+
 }
 
 
-spotifyCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
+socials.forEach(function(item){
 
-instagramCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
+    item.check.addEventListener(
+        "change",
+        updateSocialFields
+    );
 
-tiktokCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
+});
 
-youtubeCheck.addEventListener(
-    "change",
-    updateSocialFields
-);
-
-noSocialCheck.addEventListener(
+noSocial.addEventListener(
     "change",
     updateSocialFields
 );
@@ -2781,9 +2573,9 @@ noSocialCheck.addEventListener(
 updateSocialFields();
 
 
-/* ================================
+/* =========================
    MP3 VALIDATION
-================================ */
+========================= */
 
 const musicForm =
     document.getElementById("musicForm");
@@ -2825,23 +2617,19 @@ musicForm.addEventListener(
 
             audioInput.value = "";
 
-            return;
         }
 
     }
 );
 
 
-/* ================================
-   START AT TOP
-================================ */
+/* =========================
+   ALWAYS START AT TOP
+========================= */
 
-if(
-    "scrollRestoration" in history
-){
+if("scrollRestoration" in history){
 
-    history.scrollRestoration =
-        "manual";
+    history.scrollRestoration = "manual";
 
 }
 
@@ -2849,10 +2637,7 @@ window.addEventListener(
     "load",
     function(){
 
-        window.scrollTo(
-            0,
-            0
-        );
+        window.scrollTo(0,0);
 
     }
 );
